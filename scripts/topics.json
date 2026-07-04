@@ -1,0 +1,7474 @@
+[
+  {
+    "title": "Context Engineering - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Context Engineering - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Engineering - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "RAG - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "AI Agents - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "MCP - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Embeddings - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Vector Databases - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Tool Calling - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Function Calling - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Memory - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Model Routing - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Evaluation - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Fine-tuning - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Inference Optimization - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Guardrails - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Agent Planning - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Multi-Agent Systems - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Models - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Caching - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Production Guide",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Debugging",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Scaling",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Monitoring",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Advanced Concepts",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Hands-on Tutorial",
+    "category": "ai"
+  },
+  {
+    "title": "Semantic Search - Design Patterns",
+    "category": "ai"
+  },
+  {
+    "title": "Redis - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Redis - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "PostgreSQL - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "MySQL - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "MongoDB - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Kafka - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "RabbitMQ - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "NATS - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "gRPC - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "REST APIs - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "GraphQL - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "WebSockets - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Caching - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Rate Limiting - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Authentication - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Authorization - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Background Jobs - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Queues - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "API Gateway - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Load Balancing - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Overview",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Architecture",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Internals",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Best Practices",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Performance Optimization",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Common Mistakes",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Real-world Use Cases",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Interview Questions",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Production Guide",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Debugging",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Scaling",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Monitoring",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Advanced Concepts",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Hands-on Tutorial",
+    "category": "backend"
+  },
+  {
+    "title": "Sessions - Design Patterns",
+    "category": "backend"
+  },
+  {
+    "title": "React - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "React - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Next.js - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "TypeScript - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "JavaScript - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "HTML - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "CSS - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Tailwind CSS - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Accessibility - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "State Management - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "React Query - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Performance - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "SSR - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "SSG - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Hydration - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Animations - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Forms - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Routing - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Design Systems - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Testing - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Overview",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Architecture",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Internals",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Best Practices",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Performance Optimization",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Common Mistakes",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Real-world Use Cases",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Interview Questions",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Production Guide",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Debugging",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Scaling",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Monitoring",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Advanced Concepts",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Hands-on Tutorial",
+    "category": "frontend"
+  },
+  {
+    "title": "Web Components - Design Patterns",
+    "category": "frontend"
+  },
+  {
+    "title": "Docker - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Docker - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Kubernetes - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Helm - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Terraform - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "GitHub Actions - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "CI/CD - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Linux - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Nginx - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Apache - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "AWS - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Azure - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "GCP - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Monitoring - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Logging - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Tracing - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Secrets Management - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Networking - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Containers - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Infrastructure as Code - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Overview",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Architecture",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Internals",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Best Practices",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Performance Optimization",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Common Mistakes",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Real-world Use Cases",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Interview Questions",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Production Guide",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Debugging",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Scaling",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Monitoring",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Advanced Concepts",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Hands-on Tutorial",
+    "category": "devops"
+  },
+  {
+    "title": "Deployment - Design Patterns",
+    "category": "devops"
+  },
+  {
+    "title": "Scalability - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Scalability - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "CAP Theorem - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Consistent Hashing - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Sharding - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Replication - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Microservices - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Monoliths - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "CQRS - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Event Sourcing - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Message Queues - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Distributed Locks - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Service Discovery - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "API Design - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "High Availability - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Fault Tolerance - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Database Scaling - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "CDN - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Load Balancers - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Overview",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Architecture",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Internals",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Best Practices",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Performance Optimization",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Common Mistakes",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Real-world Use Cases",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Interview Questions",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Production Guide",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Debugging",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Scaling",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Monitoring",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Advanced Concepts",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Hands-on Tutorial",
+    "category": "system-design"
+  },
+  {
+    "title": "Observability - Design Patterns",
+    "category": "system-design"
+  },
+  {
+    "title": "JWT - Overview",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Internals",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "JWT - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Overview",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Internals",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "OAuth2 - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Overview",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Internals",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "OpenID Connect - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Overview",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Internals",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "XSS - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Overview",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Internals",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "CSRF - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Overview",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Internals",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "SQL Injection - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Overview",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Internals",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "CORS - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Overview",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Internals",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "HTTPS - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Encryption - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Hashing - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Secrets - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Zero Trust - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Overview",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Internals",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "OWASP Top 10 - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Security Headers - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Overview",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Internals",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "API Security - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Overview",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Internals",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "SSRF - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Overview",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Architecture",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Internals",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Best Practices",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Performance Optimization",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Common Mistakes",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Real-world Use Cases",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Interview Questions",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Production Guide",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Debugging",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Scaling",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Monitoring",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Advanced Concepts",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Hands-on Tutorial",
+    "category": "security"
+  },
+  {
+    "title": "Clickjacking - Design Patterns",
+    "category": "security"
+  },
+  {
+    "title": "Model Context Protocol - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Model Context Protocol - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "AI Browser Agents - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "AI Coding Agents - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Agentic Workflows - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Context Windows - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Speculative Decoding - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Mixture of Experts - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "KV Cache - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Prompt Injection - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "AI Safety - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "MCP Servers - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Context Compression - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Long Context Retrieval - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "Reasoning Tokens - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "LLM Benchmarks - Interview Questions",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Overview",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Architecture",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Internals",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Best Practices",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Performance Optimization",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Common Mistakes",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Real-world Use Cases",
+    "category": "ai"
+  },
+  {
+    "title": "AI Evaluation Pipelines - Interview Questions",
+    "category": "ai"
+  }
+]
