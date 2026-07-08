@@ -1,14 +1,14 @@
-# 🚀 EngineerOS
+# 🚀 Knowlege Atlas
 
 > An AI-powered engineering knowledge system that researches, writes, organizes, and publishes technical notes automatically.
 
-EngineerOS is a long-term project to build a self-growing engineering knowledge base. Instead of generating meaningless GitHub commits, every commit represents a real piece of technical knowledge that can be read, searched, and revisited.
+Knowlege Atlas is a long-term project to build a self-growing engineering knowledge base. Instead of generating meaningless GitHub commits, every commit represents a real piece of technical knowledge that can be read, searched, and revisited.
 
 ---
 
 ## Vision
 
-EngineerOS is designed to become an autonomous engineering journal.
+Knowlege Atlas is designed to become an autonomous engineering journal.
 
 ```
 Topic Discovery
@@ -168,11 +168,11 @@ performs the following steps:
 
 ---
 
-## Why EngineerOS?
+## Why Knowlege Atlas?
 
 Most automated GitHub commit tools generate fake activity.
 
-EngineerOS aims to generate meaningful work.
+Knowlege Atlas aims to generate meaningful work.
 
 Every commit should represent something worth reading, learning, and revisiting.
 
