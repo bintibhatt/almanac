@@ -1,4 +1,4 @@
-from config import *
+from backend.scripts.config import *
 
 print("Provider:", AI_PROVIDER)
 print("Content:", CONTENT_DIR)
