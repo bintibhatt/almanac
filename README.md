@@ -1,185 +1,201 @@
-# 🚀 Knowlege Atlas
+# 🗺️ Knowledge Atlas
 
-> An AI-powered engineering knowledge system that researches, writes, organizes, and publishes technical notes automatically.
+> An AI-powered engineering knowledge platform that continuously researches, generates, organizes, and publishes technical knowledge.
 
-Knowlege Atlas is a long-term project to build a self-growing engineering knowledge base. Instead of generating meaningless GitHub commits, every commit represents a real piece of technical knowledge that can be read, searched, and revisited.
+Knowledge Atlas is a long-term project to build an autonomous engineering knowledge base.
 
----
+Instead of generating meaningless GitHub commits, every commit adds a valuable engineering note that can be read, searched, and revisited.
 
-## Vision
-
-Knowlege Atlas is designed to become an autonomous engineering journal.
-
-```
-Topic Discovery
-        ↓
-AI Research
-        ↓
-Technical Writing
-        ↓
-Markdown Notes
-        ↓
-Git Commit
-        ↓
-Knowledge Website
-```
-
-The end goal is a system that continuously learns, documents, and publishes engineering knowledge.
+The goal is to create a system that continuously learns alongside its owner.
 
 ---
 
-## Current Features
+# Vision
 
-- AI-powered article generation
-- Supports multiple AI providers
+```
+          Internet
+              │
+              ▼
+      Knowledge Discovery
+              │
+              ▼
+        AI Research Engine
+              │
+              ▼
+   Quality Engineering Notes
+              │
+              ▼
+   Markdown Knowledge Base
+              │
+              ▼
+  Beautiful Documentation Site
+```
+
+Knowledge Atlas is designed to become a living engineering notebook rather than a traditional blog.
+
+---
+
+# Features
+
+## Current
+
+- AI-generated engineering notes
+- Multiple AI providers
   - Google Gemini
   - OpenAI
 - Markdown-based knowledge storage
-- Automatic article organization by category
-- Automatic Git commits and pushes
-- Clean, modular Python architecture
+- Automatic Git commits
+- Modular Python architecture
 
----
+## Planned
 
-## Project Structure
+- AI topic discovery
+- GitHub Trending integration
+- Hacker News integration
+- arXiv paper summaries
+- RSS feed support
+- Search
+- Categories
+- Knowledge graph
+- Daily automation
+- Docker
+- AWS deployment
+
+<!---
+
+# Project Structure
 
 ```text
-engineer-os/
-│
-├── content/              # Generated engineering notes
-│   ├── ai/
-│   ├── backend/
-│   ├── databases/
-│   ├── devops/
-│   ├── frontend/
-│   ├── opensource/
-│   ├── papers/
-│   └── startups/
-│
-├── prompts/              # Prompt templates
-│
-├── scripts/
-│   ├── config.py
-│   ├── writer.py
-│   ├── markdown.py
-│   ├── git_utils.py
-│   ├── run.py
-│   └── topics.json
-│
-├── src/                  # Next.js application
-│
-├── requirements.txt
-└── README.md
+knowledge-atlas/
+
+frontend/
+    Next.js application
+
+backend/
+    AI generation engine
+    Git automation
+    Topic providers
+
+knowledge/
+    Markdown knowledge base
+
+shared/
+    Prompts
+    Shared utilities
 ```
+
+--->
 
 ---
 
-## How it Works
+# How It Works
 
-Running
-
-```bash
-python scripts/run.py
+```
+Discover Topic
+      │
+      ▼
+Generate Technical Note
+      │
+      ▼
+Save Markdown
+      │
+      ▼
+Commit to GitHub
+      │
+      ▼
+Knowledge Website Updates
 ```
 
-performs the following steps:
+Every generated article becomes part of a growing engineering knowledge base.
 
-1. Selects a topic
-2. Generates a technical article using AI
-3. Saves the article as Markdown
-4. Commits the changes to Git
-5. Pushes the commit to GitHub
+<!---
 
----
+# Roadmap
 
-## Roadmap
-
-### Phase 1 — MVP ✅
+## Phase 1 — Knowledge Engine
 
 - [x] AI article generation
 - [x] Markdown generation
-- [x] Automatic Git commits
+- [x] Git automation
 
-### Phase 2
+## Phase 2 — Knowledge Platform
 
-- [ ] SQLite for article history
-- [ ] Prompt management
-- [ ] Duplicate detection
-- [ ] Better metadata
+- [ ] Frontend
+- [ ] Markdown rendering
+- [ ] Categories
+- [ ] Archive
+- [ ] Search
 
-### Phase 3
+## Phase 3 — Autonomous Discovery
 
-- [ ] GitHub Trending provider
-- [ ] Hacker News provider
-- [ ] arXiv provider
+- [ ] GitHub Trending
+- [ ] Hacker News
+- [ ] arXiv
 - [ ] RSS feeds
-- [ ] Reddit provider
+- [ ] Duplicate detection
 
-### Phase 4
+## Phase 4 — Infrastructure
 
-- [ ] Knowledge website
-- [ ] Full-text search
-- [ ] Categories & tags
-- [ ] Reading dashboard
-
-### Phase 5
-
-- [ ] GitHub Actions automation
-- [ ] Daily scheduled publishing
-- [ ] AI-generated weekly summaries
-- [ ] Learning paths
-
-### Phase 6
-
-- [ ] Docker support
+- [ ] Docker
 - [ ] Docker Compose
-- [ ] Self-hosted deployment
-- [ ] Kubernetes (experimental)
+- [ ] GitHub Actions
+- [ ] AWS Deployment
+
+--->
 
 ---
 
-## Tech Stack
+# Tech Stack
+
+### Backend
+
+- Python
+
+### Frontend
+
+- Next.js
+- React
 
 ### AI
 
 - Google Gemini
 - OpenAI
 
-### Backend
-
-- Python 3
-- GitPython
-
-### Frontend
-
-- Next.js
-- TypeScript
-- Tailwind CSS
-
 ### Storage
 
 - Markdown
-- SQLite (planned)
 
-### Deployment
+### Future
 
-- GitHub
-- Docker (planned)
-
----
-
-## Why Knowlege Atlas?
-
-Most automated GitHub commit tools generate fake activity.
-
-Knowlege Atlas aims to generate meaningful work.
-
-Every commit should represent something worth reading, learning, and revisiting.
-
-Over time, the repository becomes a personal engineering knowledge base rather than just a contribution graph.
+- SQLite
+- Docker
+- AWS
 
 ---
 
-## License
+# Philosophy
+
+Knowledge Atlas is built around one simple principle:
+
+> Every commit should teach something worth remembering.
+
+Rather than chasing GitHub contribution graphs, the project focuses on building a long-term engineering knowledge base that becomes more valuable every day.
+
+---
+
+# Future Vision
+
+Knowledge Atlas will eventually evolve into an autonomous learning system capable of:
+
+- Discovering new engineering topics
+- Summarizing research papers
+- Tracking industry trends
+- Publishing high-quality technical notes
+- Building personalized learning paths
+- Serving as a searchable engineering reference
+
+---
+
+# License
 
 MIT
