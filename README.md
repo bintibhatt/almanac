@@ -1,37 +1,35 @@
-# 🗺️ Knowledge Atlas
+# Almanac
 
-> An AI-powered engineering knowledge platform that continuously researches, generates, organizes, and publishes technical knowledge.
+> An AI-powered engineering companion that continuously discovers, generates, organizes, and publishes technical knowledge.
 
-Knowledge Atlas is a long-term project to build an autonomous engineering knowledge base.
+Almanac is a long-term project that transforms daily learning into a living engineering library.
 
-Instead of generating meaningless GitHub commits, every commit adds a valuable engineering note that can be read, searched, and revisited.
-
-The goal is to create a system that continuously learns alongside its owner.
+Instead of generating meaningless GitHub commits, every commit contributes a carefully curated engineering note that can be read, searched, and revisited. Over time, Almanac grows into a personal reference built from continuous learning.
 
 ---
 
 # Vision
 
 ```
-          Internet
-              │
-              ▼
-      Knowledge Discovery
-              │
-              ▼
+           Internet
+               │
+               ▼
+      Discover Valuable Topics
+               │
+               ▼
         AI Research Engine
-              │
-              ▼
-   Quality Engineering Notes
-              │
-              ▼
-   Markdown Knowledge Base
-              │
-              ▼
-  Beautiful Documentation Site
+               │
+               ▼
+      High-Quality Engineering Notes
+               │
+               ▼
+      Structured Knowledge Library
+               │
+               ▼
+     Beautiful Reading Experience
 ```
 
-Knowledge Atlas is designed to become a living engineering notebook rather than a traditional blog.
+Almanac is designed to become a personal engineering companion—not a blog, but a continuously evolving library of software engineering knowledge.
 
 ---
 
@@ -43,48 +41,24 @@ Knowledge Atlas is designed to become a living engineering notebook rather than 
 - Multiple AI providers
   - Google Gemini
   - OpenAI
-- Markdown-based knowledge storage
+- Markdown-based knowledge library
 - Automatic Git commits
 - Modular Python architecture
 
 ## Planned
 
-- AI topic discovery
+- Intelligent topic discovery
 - GitHub Trending integration
 - Hacker News integration
 - arXiv paper summaries
 - RSS feed support
-- Search
-- Categories
-- Knowledge graph
-- Daily automation
+- Full-text search
+- Categories & tags
+- Related articles
+- Progressive Web App (PWA)
 - Docker
 - AWS deployment
-
-<!---
-
-# Project Structure
-
-```text
-knowledge-atlas/
-
-frontend/
-    Next.js application
-
-backend/
-    AI generation engine
-    Git automation
-    Topic providers
-
-knowledge/
-    Markdown knowledge base
-
-shared/
-    Prompts
-    Shared utilities
-```
-
---->
+- Automated daily publishing
 
 ---
 
@@ -94,54 +68,19 @@ shared/
 Discover Topic
       │
       ▼
-Generate Technical Note
+Research & Generate
       │
       ▼
-Save Markdown
+Create Markdown Note
       │
       ▼
 Commit to GitHub
       │
       ▼
-Knowledge Website Updates
+Update Knowledge Library
 ```
 
-Every generated article becomes part of a growing engineering knowledge base.
-
-<!---
-
-# Roadmap
-
-## Phase 1 — Knowledge Engine
-
-- [x] AI article generation
-- [x] Markdown generation
-- [x] Git automation
-
-## Phase 2 — Knowledge Platform
-
-- [ ] Frontend
-- [ ] Markdown rendering
-- [ ] Categories
-- [ ] Archive
-- [ ] Search
-
-## Phase 3 — Autonomous Discovery
-
-- [ ] GitHub Trending
-- [ ] Hacker News
-- [ ] arXiv
-- [ ] RSS feeds
-- [ ] Duplicate detection
-
-## Phase 4 — Infrastructure
-
-- [ ] Docker
-- [ ] Docker Compose
-- [ ] GitHub Actions
-- [ ] AWS Deployment
-
---->
+Every generated note becomes a permanent part of Almanac, creating a searchable engineering reference that grows over time.
 
 ---
 
@@ -170,29 +109,35 @@ Every generated article becomes part of a growing engineering knowledge base.
 - SQLite
 - Docker
 - AWS
+- GitHub Actions
 
 ---
 
 # Philosophy
 
-Knowledge Atlas is built around one simple principle:
+Almanac is built around one simple principle:
 
-> Every commit should teach something worth remembering.
+> **Every commit should leave behind knowledge worth keeping.**
 
-Rather than chasing GitHub contribution graphs, the project focuses on building a long-term engineering knowledge base that becomes more valuable every day.
+Rather than chasing GitHub contribution graphs, Almanac focuses on building a high-quality engineering library through consistent learning and documentation.
 
 ---
 
 # Future Vision
 
-Knowledge Atlas will eventually evolve into an autonomous learning system capable of:
+Almanac will evolve into an autonomous engineering companion capable of:
 
-- Discovering new engineering topics
-- Summarizing research papers
+- Discovering valuable engineering topics
+- Summarizing research papers and technical articles
 - Tracking industry trends
-- Publishing high-quality technical notes
 - Building personalized learning paths
-- Serving as a searchable engineering reference
+- Publishing daily technical notes
+- Connecting related concepts into a searchable knowledge network
+- Delivering a beautiful reading experience across desktop and mobile
+
+The goal is simple:
+
+> **Open Almanac every day and learn something worth remembering.**
 
 ---
 
