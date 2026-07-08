@@ -3,16 +3,7 @@ import { getAllNotes } from "../lib/notes";
 export default function Home() {
   const notes = getAllNotes();
 
-  return (
-    <div>
-      <h1>EngineerOS</h1>
+  console.log(notes);
 
-      {notes.map((note) => (
-        <div key={note.slug}>
-          <h2>{note.title}</h2>
-          <p>{note.category}</p>
-        </div>
-      ))}
-    </div>
-  );
+  return <pre>{JSON.stringify(notes, null, 2)}</pre>;
 }
