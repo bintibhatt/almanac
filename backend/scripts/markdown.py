@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import date
 import re
 
-from config import CONTENT_DIR
+from backend.scripts.config import CONTENT_DIR
 
 
 def slugify(text: str) -> str:

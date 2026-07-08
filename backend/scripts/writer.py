@@ -3,7 +3,7 @@ AI Writer for EngineerOS.
 Generates Markdown articles using the configured AI provider.
 """
 
-from config import (
+from backend.scripts.config import (
     AI_PROVIDER,
     GEMINI_API_KEY,
     OPENAI_API_KEY,
