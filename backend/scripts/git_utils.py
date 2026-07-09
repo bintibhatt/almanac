@@ -1,5 +1,5 @@
 """
-Git utilities for EngineerOS.
+Git utilities for Almanac.
 Responsible for committing and pushing generated articles.
 """
 
@@ -10,7 +10,7 @@ from git import Repo
 def commit_and_push(filepath: Path, message: str):
     """Commit the generated file and push it to GitHub."""
 
-    repo = Repo(Path(__file__).resolve().parent.parent)
+    repo = Repo(Path(__file__).resolve().parents[2])
 
     # Stage the generated file
     repo.git.add(str(filepath))
