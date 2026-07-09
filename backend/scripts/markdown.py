@@ -1,5 +1,5 @@
 """
-Markdown utilities for EngineerOS.
+Markdown utilities for Almanac.
 Responsible for saving AI-generated articles to the correct location.
 """
 
@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import date
 import re
 
-from backend.scripts.config import CONTENT_DIR
+from config import KNOWLEDGE_DIR
 
 
 def slugify(text: str) -> str:
@@ -24,7 +24,7 @@ def save_article(title: str, category: str, content: str) -> Path:
     Returns the path of the created file.
     """
 
-    category_dir = CONTENT_DIR / category
+    category_dir = KNOWLEDGE_DIR / category
     category_dir.mkdir(parents=True, exist_ok=True)
 
     filename = f"{slugify(title)}.md"
