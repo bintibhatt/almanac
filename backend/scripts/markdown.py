@@ -38,6 +38,6 @@ date: "{date.today()}"
 
 """
 
-    filepath.write_text(frontmatter + content, encoding="utf-8")
+    filepath.write_text(frontmatter + content.strip() + "\n", encoding="utf-8")
 
     return filepath

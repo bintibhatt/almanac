@@ -155,7 +155,7 @@ function buildNote(filePath, usedSlugs) {
     readingTime: data.readingTime || calculateReadingTime(content),
     difficulty: data.difficulty || "Intermediate",
     slug,
-    content,
+    content: content.trim(),
     headings: extractHeadings(content),
     relativePath: relativePath.replace(/\\/g, "/"),
   };
