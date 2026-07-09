@@ -36,6 +36,15 @@
   margin-top: 2rem;
 }
 
+.markdown-body > h1:first-child,
+.markdown-body > h2:first-child,
+.markdown-body > h3:first-child,
+.markdown-body > h4:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .markdown-body h4 {
   font-size: 1.05rem;
   margin-top: 1.5rem;

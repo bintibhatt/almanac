@@ -1,4 +1,39 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function TableOfContents({ headings = [] }) {
+  const [activeId, setActiveId] = useState(headings[0]?.id ?? null);
+
+  useEffect(() => {
+    if (!headings.length) {
+      return;
+    }
+
+    const elements = headings
+      .map((heading) => document.getElementById(heading.id))
+      .filter(Boolean);
+
+    if (!elements.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-96px 0px -70% 0px", threshold: 0 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [headings]);
+
   if (!headings.length) {
     return null;
   }
@@ -14,8 +49,12 @@ export default function TableOfContents({ headings = [] }) {
             <li key={`${heading.id}-${heading.text}`}>
               <a
                 href={`#${heading.id}`}
-                className={`block rounded-md py-1.5 text-sm text-[var(--muted)] transition hover:text-[var(--foreground)] ${
+                className={`block rounded-md py-1.5 text-sm transition ${
                   heading.depth === 3 ? "pl-4" : ""
+                } ${
+                  activeId === heading.id
+                    ? "font-medium text-[var(--foreground)]"
+                    : "text-[var(--muted)] hover:text-[var(--foreground)]"
                 }`}
               >
                 {heading.text}
