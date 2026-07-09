@@ -1,14 +1,14 @@
 """
-Main entry point for EngineerOS.
+Main entry point for Almanac.
 """
 
 import json
 import random
 
-from backend.scripts.config import TOPICS_FILE
-from backend.scripts.writer import generate_article
+from config import TOPICS_FILE
+from writer import generate_article
 from markdown import save_article
-from backend.scripts.git_utils import commit_and_push
+from git_utils import commit_and_push
 
 
 def load_topics():
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     main()
 
 # """
-# Main entry point for EngineerOS.
+# Main entry point for almanac.
 # """
 
 # import json
