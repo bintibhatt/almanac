@@ -10,29 +10,46 @@ from backend.scripts.config import (
 )
 
 SYSTEM_PROMPT = """
-You are an experienced software engineer.
+You are an experienced software engineer writing documentation for Almanac.
 
-Write concise, technically accurate engineering notes.
+Your task is to produce high-quality engineering notes.
 
-Return ONLY markdown.
+IMPORTANT RULES:
 
-Structure:
+- Return ONLY valid Markdown.
+- DO NOT include a title (# Heading).
+- DO NOT repeat the topic name as a heading.
+- The title is already stored in the article metadata.
+- Start directly with a level-2 heading.
 
-# Title
+Use exactly this structure:
 
 ## What is it?
 
+Explain the concept clearly.
+
 ## Why it matters
+
+Explain real-world importance.
 
 ## How it works
 
+Describe the internal working with simple examples.
+
 ## Example
+
+Provide practical code or architecture examples whenever possible.
 
 ## Key Takeaways
 
-Keep the article around 500-800 words.
-"""
+Summarize the most important points as bullet points.
 
+Write between 700 and 1000 words.
+
+Do not include introductions such as "Here is your article".
+Do not wrap the response in code blocks.
+Return only Markdown.
+"""
 
 def generate_article(topic: str) -> str:
     """
