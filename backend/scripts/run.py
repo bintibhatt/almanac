@@ -1,6 +1,6 @@
 """
 Main entry point and CLI orchestrator for Almanac.
-Coordinates TopicService, DuplicateService, AIService, ArticleService, ValidationService, StateService, and Git automation.
+Coordinates TopicService, DuplicateService, AIService, ArticleService, ValidationService, StateService, VectorStoreService, and Git automation.
 """
 
 import argparse
@@ -26,15 +26,17 @@ from backend.scripts.config import AI_PROVIDER, validate_provider_config
 from backend.scripts.git_utils import commit_and_push
 from backend.services.article_service import ArticleService
 from backend.services.duplicate_service import DuplicateService
+from backend.services.embedding_service import EmbeddingService
 from backend.services.prompt_service import PromptService
 from backend.services.state_service import StateService
 from backend.services.topic_service import TopicService
 from backend.services.validation_service import ValidationService
+from backend.services.vector_store_service import VectorStoreService
 
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Almanac — Autonomous Engineering Knowledge Generator"
+        description="Almanac — Autonomous Engineering Knowledge Generator & Semantic Engine"
     )
     parser.add_argument(
         "--category",
@@ -47,6 +49,17 @@ def parse_args():
         type=str,
         default=None,
         help="Specify an exact topic title to generate (e.g. 'RAG - Architecture')",
+    )
+    parser.add_argument(
+        "--search",
+        type=str,
+        default=None,
+        help="Perform semantic vector search query against the Almanac knowledge base",
+    )
+    parser.add_argument(
+        "--reindex",
+        action="store_true",
+        help="Reindex all existing Markdown files in knowledge/ into the vector store",
     )
     parser.add_argument(
         "--provider",
@@ -83,8 +96,76 @@ def parse_args():
     return parser.parse_args()
 
 
+def handle_reindex(vector_store_service: VectorStoreService, knowledge_dir: Path):
+    """Walk knowledge directory and index all articles."""
+    print("\n🔍 Reindexing knowledge base into vector store...")
+    count = 0
+    for md_file in knowledge_dir.rglob("*.md"):
+        try:
+            raw_text = md_file.read_text(encoding="utf-8")
+            slug = md_file.stem
+            category = md_file.parent.name
+            # Quick title parse
+            title_match = [line for line in raw_text.splitlines() if line.startswith("title:")]
+            title = title_match[0].split(":", 1)[1].strip(" \"'") if title_match else slug.replace("-", " ").title()
+
+            vector_store_service.upsert_article(
+                slug=slug,
+                title=title,
+                category=category,
+                content=raw_text,
+                metadata={"category": category},
+            )
+            count += 1
+        except Exception as err:
+            print(f"⚠️ Failed to index {md_file.name}: {err}")
+
+    print(f"✅ Indexed {count} articles into vector store (shared/vector_index.json).\n")
+
+
+def handle_search(vector_store_service: VectorStoreService, query: str, category: Optional[str] = None):
+    """Perform CLI semantic search query."""
+    print(f"\n🔍 Semantic Vector Search Results for query: '{query}'")
+    results = vector_store_service.search_similar(query=query, top_k=5, category_filter=category)
+
+    if not results:
+        print("ℹ️ No matching articles found in vector store.")
+        return
+
+    for idx, item in enumerate(results, 1):
+        print(f"\n  {idx}. {item['title']} (Score: {item['score']})")
+        print(f"     Category: {item['category']} | Slug: {item['slug']}")
+        if item.get("description"):
+            print(f"     Description: {item['description']}")
+    print("\n✨ Search completed.\n")
+
+
 def main():
     args = parse_args()
+
+    # Initialize Base Services
+    state_service = StateService()
+    embedding_service = EmbeddingService()
+    vector_store_service = VectorStoreService(embedding_service=embedding_service)
+    duplicate_service = DuplicateService(
+        state_service=state_service,
+        vector_store_service=vector_store_service,
+    )
+    validation_service = ValidationService()
+    topic_service = TopicService()
+    knowledge_dir = ROOT_DIR / "knowledge"
+
+    # Handle Reindex Mode
+    if args.reindex:
+        handle_reindex(vector_store_service, knowledge_dir)
+        if not args.topic and not args.search:
+            return
+
+    # Handle Search Mode
+    if args.search:
+        handle_search(vector_store_service, args.search, category=args.category)
+        if not args.topic:
+            return
 
     active_provider = (args.provider or AI_PROVIDER or "mock").lower().strip()
 
@@ -96,12 +177,6 @@ def main():
             print(f"⚠️ Provider configuration error: {val_err}")
             print("💡 Falling back to 'mock' provider for offline demonstration.")
             active_provider = "mock"
-
-    # Initialize Services
-    state_service = StateService()
-    duplicate_service = DuplicateService(state_service=state_service)
-    validation_service = ValidationService()
-    topic_service = TopicService()
 
     # 1. Topic Ingestion & Selection
     try:
@@ -121,7 +196,7 @@ def main():
     if args.model:
         print(f"   • Model:      {args.model}")
 
-    # 2. Duplicate Detection
+    # 2. Duplicate Detection (Slug, Title, Token Jaccard, Vector Cosine Similarity)
     dup_result = duplicate_service.check_duplicate(topic)
     if dup_result.is_duplicate and not args.force:
         print(f"\n⚠️ Skip: Duplicate detected!")
@@ -180,10 +255,19 @@ def main():
         print("✅ Dry run completed. No files saved or committed.")
         return
 
-    # 6. Save to Knowledge Base & Update State
+    # 6. Save to Knowledge Base & Update State & Vector Store Index
     saved_path = article_service.save_article(topic, body_content, metadata)
     state_service.record_success(topic, metadata, file_path=saved_path)
+
+    vector_store_service.upsert_article(
+        slug=topic.slug,
+        title=topic.title,
+        category=topic.category,
+        content=body_content,
+        metadata=metadata,
+    )
     print(f"📄 Saved knowledge article to:\n   {saved_path}")
+    print(f"🧠 Vector index updated (total indexed: {vector_store_service.get_index_size()})")
 
     # 7. Git Automation
     if not args.no_git:
