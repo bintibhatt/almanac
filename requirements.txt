@@ -1,0 +1,6 @@
+# Almanac Backend Dependencies
+python-dotenv>=1.0.0
+google-genai>=0.1.0
+openai>=1.0.0
+GitPython>=3.1.0
+pytest>=8.0.0

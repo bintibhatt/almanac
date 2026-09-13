@@ -1,0 +1,33 @@
+{
+  "generated_topics": {
+    "rest-api-architecture": {
+      "title": "REST API Architecture",
+      "category": "backend",
+      "source": "ad-hoc",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-12T17:37:57Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\backend\\rest-api-architecture.md",
+      "status": "published"
+    }
+  },
+  "skipped_topics": [
+    {
+      "title": "REST API Architecture",
+      "slug": "rest-api-architecture",
+      "category": "backend",
+      "reason": "Exact slug match ('rest-api-architecture') already exists.",
+      "timestamp": "2026-09-12T17:38:00Z"
+    }
+  ],
+  "failed_generations": [],
+  "last_execution": {
+    "status": "skipped",
+    "topic": "REST API Architecture",
+    "slug": "rest-api-architecture",
+    "reason": "Exact slug match ('rest-api-architecture') already exists.",
+    "timestamp": "2026-09-12T17:38:00Z"
+  },
+  "total_generated": 1
+}
