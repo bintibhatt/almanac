@@ -1,0 +1,49 @@
+Generate a deep, production-grade technical note for the following topic:
+
+Topic: {title}
+Category: {category}
+Context: {description}
+Target Tags: {tags}
+
+Format the response using EXACTLY this Markdown section structure:
+
+## TL;DR
+Provide a dense, 2-3 sentence executive summary explaining what {title} is, why it exists, and its primary production benefit.
+
+## Problem
+Describe the concrete engineering bottlenecks, scale challenges, architectural failures, or edge cases that necessitate {title}. Contrast how systems fail or become unmanageable without it.
+
+## Core Concept
+Deconstruct the theoretical principles, mental models, and core invariants underlying {title}. Clearly define key terminology and trade-offs.
+
+## How It Works
+Break down internal mechanics step-by-step:
+1. Lifecycle / Data Flow from ingress to resolution.
+2. State transitions, coordination protocols, or execution pipeline.
+3. Memory / CPU / Network resource handling.
+Include a clean text or ASCII data-flow diagram illustrating the internal components.
+
+## Architecture
+Explain where {title} sits in a modern production architecture:
+- Interactions with upstream gateways/clients and downstream storage/caches.
+- Failure domains, boundary isolation, and scaling considerations.
+
+## Example
+Provide a realistic, idiomatic, and runnable code implementation or concrete architectural configuration demonstrating {title} in action.
+- Use explicit types, realistic error handling, and inline comments explaining non-obvious engineering decisions.
+- Do NOT provide pseudo-code or toy "hello world" snippets.
+
+## Common Pitfalls
+List 3-5 real-world production traps, anti-patterns, misconfigurations, or operational footguns engineers encounter with {title}, along with mitigation strategies.
+
+## Interview Questions
+Provide 2-3 challenging technical interview questions (Intermediate to Staff level) covering {title}, complete with concise, high-signal model answers.
+
+## Further Reading
+List 3-4 authoritative reference materials (official RFCs, foundational papers, key open-source repositories, or seminal technical books).
+
+REMEMBER:
+- Start directly with `## TL;DR`.
+- DO NOT output an H1 title `# {title}`.
+- Target 800 to 1200 words of dense engineering value.
+- Return ONLY the raw markdown content without wrapping code blocks.
