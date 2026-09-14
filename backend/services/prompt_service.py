@@ -47,9 +47,10 @@ class PromptService:
         Missing optional keys default to empty strings.
         """
         template = self.get_template(template_name)
-        # Use safe format with defaults
-        formatted = template.format(**kwargs)
-        return formatted
+        # Ensure optional retrieved_context key defaults to empty string if missing
+        if "retrieved_context" not in kwargs:
+            kwargs["retrieved_context"] = ""
+        return template.format(**kwargs)
 
     def get_system_prompt(self) -> str:
         """Convenience method to retrieve the primary system prompt."""
@@ -61,6 +62,7 @@ class PromptService:
         category: str,
         description: str = "",
         tags: Optional[list] = None,
+        retrieved_context: str = "",
     ) -> str:
         """Convenience method to render the article generation prompt."""
         tags_str = ", ".join(tags) if tags else category
@@ -70,4 +72,5 @@ class PromptService:
             category=category,
             description=description or f"Engineering analysis of {title}.",
             tags=tags_str,
+            retrieved_context=retrieved_context,
         )

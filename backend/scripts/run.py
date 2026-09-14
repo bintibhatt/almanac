@@ -1,7 +1,8 @@
 """
 Main entry point and CLI orchestrator for Almanac.
 Coordinates TopicService, TopicIntelligenceService, DuplicateService, AIService,
-ArticleService, ValidationService, StateService, VectorStoreService, and Git automation.
+ArticleService, ValidationService, StateService, VectorStoreService, HybridSearchService,
+RetrievalService, and Git automation.
 """
 
 import argparse
@@ -28,7 +29,9 @@ from backend.scripts.git_utils import commit_and_push
 from backend.services.article_service import ArticleService
 from backend.services.duplicate_service import DuplicateService
 from backend.services.embedding_service import EmbeddingService
+from backend.services.hybrid_search_service import HybridSearchService
 from backend.services.prompt_service import PromptService
+from backend.services.retrieval_service import RetrievalService
 from backend.services.state_service import StateService
 from backend.services.topic_intelligence import TopicIntelligenceService
 from backend.services.topic_service import TopicService
@@ -38,7 +41,7 @@ from backend.services.vector_store_service import VectorStoreService
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Almanac — Autonomous Engineering Knowledge Generator & Semantic Engine"
+        description="Almanac — Autonomous Engineering Knowledge Generator & Semantic Hybrid Engine"
     )
     parser.add_argument(
         "--category",
@@ -68,6 +71,12 @@ def parse_args():
         type=str,
         default=None,
         help="Perform semantic vector search query against the Almanac knowledge base",
+    )
+    parser.add_argument(
+        "--search-hybrid",
+        type=str,
+        default=None,
+        help="Perform RRF Hybrid Search (BM25 keyword + vector similarity) against knowledge base",
     )
     parser.add_argument(
         "--reindex",
@@ -152,6 +161,24 @@ def handle_search(vector_store_service: VectorStoreService, query: str, category
     print("\n✨ Search completed.\n")
 
 
+def handle_hybrid_search(hybrid_search_service: HybridSearchService, query: str, category: Optional[str] = None):
+    """Perform RRF Hybrid Search query."""
+    print(f"\n⚡ RRF Hybrid Search (BM25 Keyword + Vector Similarity) for query: '{query}'")
+    results = hybrid_search_service.hybrid_search(query=query, top_k=5, category_filter=category)
+
+    if not results:
+        print("ℹ️ No matching articles found.")
+        return
+
+    for idx, item in enumerate(results, 1):
+        print(f"\n  {idx}. {item['title']} (RRF Score: {item['hybrid_score']:.2f})")
+        print(f"     Category: {item['category']} | Slug: {item['slug']}")
+        print(f"     Ranks -> Keyword: #{item['kw_rank']} | Vector: #{item['vec_rank']}")
+        if item.get("description"):
+            print(f"     Description: {item['description']}")
+    print("\n✨ Hybrid search completed.\n")
+
+
 def handle_rank_topics(topic_service: TopicService, topic_intelligence: TopicIntelligenceService, source: Optional[str] = None, category: Optional[str] = None):
     """Rank candidate topics using AI Topic Intelligence."""
     print("\n📊 Almanac Topic Intelligence — Candidate Ranking")
@@ -182,6 +209,8 @@ def main():
     state_service = StateService()
     embedding_service = EmbeddingService()
     vector_store_service = VectorStoreService(embedding_service=embedding_service)
+    hybrid_search_service = HybridSearchService(vector_store_service=vector_store_service)
+    retrieval_service = RetrievalService(hybrid_search_service=hybrid_search_service)
     duplicate_service = DuplicateService(
         state_service=state_service,
         vector_store_service=vector_store_service,
@@ -194,13 +223,19 @@ def main():
     # Handle Reindex Mode
     if args.reindex:
         handle_reindex(vector_store_service, knowledge_dir)
-        if not args.topic and not args.search and not args.rank_topics:
+        if not args.topic and not args.search and not args.search_hybrid and not args.rank_topics:
             return
 
-    # Handle Search Mode
+    # Handle Vector Search Mode
     if args.search:
         handle_search(vector_store_service, args.search, category=args.category)
-        if not args.topic and not args.rank_topics:
+        if not args.topic and not args.search_hybrid and not args.rank_topics:
+            return
+
+    # Handle Hybrid Search Mode
+    if args.search_hybrid:
+        handle_hybrid_search(hybrid_search_service, args.search_hybrid, category=args.category)
+        if not args.topic:
             return
 
     # Handle Rank Topics Mode
@@ -260,7 +295,12 @@ def main():
     if dup_result.is_duplicate and args.force:
         print(f"⚠️ Duplicate detected ({dup_result.reason}), but --force flag supplied. Proceeding...")
 
-    # 3. Initialize AI & Article Services
+    # 3. Context Research & Grounding Retrieval
+    retrieved_context = retrieval_service.retrieve_context(topic)
+    if retrieved_context:
+        print(f"📚 Retrieved supporting knowledge context from vector store for prompt grounding.")
+
+    # 4. Initialize AI & Article Services
     ai_service = AIService(provider_name=active_provider, model=args.model)
     prompt_service = PromptService()
     article_service = ArticleService(
@@ -268,10 +308,12 @@ def main():
         prompt_service=prompt_service,
     )
 
-    # 4. Generate Article
+    # 5. Generate Article
     print(f"\n🧠 Generating technical engineering note...")
     try:
-        body_content, metadata = article_service.generate_article(topic, model=args.model)
+        body_content, metadata = article_service.generate_article(
+            topic, model=args.model, retrieved_context=retrieved_context
+        )
     except Exception as gen_err:
         error_msg = f"Generation error: {gen_err}"
         print(f"❌ {error_msg}")
@@ -281,7 +323,7 @@ def main():
     print(f"   • Reading Time: {metadata['readingTime']}")
     print(f"   • Tags:         {', '.join(metadata['tags'])}")
 
-    # 5. Article Validation
+    # 6. Article Validation
     val_result = validation_service.validate(
         body_content, metadata, strict=args.strict_validation
     )
@@ -306,7 +348,7 @@ def main():
         print("✅ Dry run completed. No files saved or committed.")
         return
 
-    # 6. Save to Knowledge Base & Update State & Vector Store Index
+    # 7. Save to Knowledge Base & Update State & Vector Store Index
     saved_path = article_service.save_article(topic, body_content, metadata)
     state_service.record_success(topic, metadata, file_path=saved_path)
 
@@ -320,7 +362,7 @@ def main():
     print(f"📄 Saved knowledge article to:\n   {saved_path}")
     print(f"🧠 Vector index updated (total indexed: {vector_store_service.get_index_size()})")
 
-    # 7. Git Automation
+    # 8. Git Automation
     if not args.no_git:
         commit_message = f"docs({topic.category}): add note on {topic.title}"
         commit_and_push(saved_path, commit_message)
