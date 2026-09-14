@@ -7,6 +7,7 @@ from .duplicate_service import DuplicateService
 from .embedding_service import EmbeddingService
 from .prompt_service import PromptService
 from .state_service import StateService
+from .topic_intelligence import RankedTopic, TopicIntelligenceService
 from .topic_service import TopicService
 from .validation_service import ValidationService
 from .vector_store_service import VectorStoreService
@@ -16,7 +17,9 @@ __all__ = [
     "DuplicateService",
     "EmbeddingService",
     "PromptService",
+    "RankedTopic",
     "StateService",
+    "TopicIntelligenceService",
     "TopicService",
     "ValidationService",
     "VectorStoreService",
