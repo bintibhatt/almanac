@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CategoryBadge from "@/components/CategoryBadge";
+import InteractiveActions from "@/components/InteractiveActions";
 import ReadingProgress from "@/components/ReadingProgress";
 import TableOfContents from "@/components/TableOfContents";
 import { getAdjacentNotes, getAllNotes, getNoteBySlug } from "@/lib/notes";
@@ -81,13 +82,16 @@ export default async function NotePage({ params }) {
                 {note.tags.map((tag) => (
                   <span
                     key={tag}
-                  className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5 text-xs text-[var(--muted)]"
+                    className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5 text-xs text-[var(--muted)]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
             ) : null}
+
+            {/* Interactive Learning Suite: AI Quiz, Flashcards, Interview Prep, Ask AI */}
+            <InteractiveActions note={note} />
           </header>
 
           <div className="markdown-body mt-7 sm:mt-9">
