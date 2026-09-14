@@ -1,12 +1,14 @@
 """
 Topic service for Almanac.
-Manages topic providers, querying, filtering, and selection.
+Manages topic providers, querying, filtering, and selection across manual and live external sources.
 """
 
 import random
 from typing import Dict, List, Optional
 
 from backend.providers.base import Topic, TopicProvider
+from backend.providers.github_provider import GitHubProvider
+from backend.providers.hackernews_provider import HackerNewsProvider
 from backend.providers.manual_provider import ManualProvider
 
 
@@ -16,10 +18,14 @@ class TopicService:
     Decouples consumers from specific ingestion sources.
     """
 
-    def __init__(self, default_provider: Optional[TopicProvider] = None):
+    def __init__(self, include_live_providers: bool = True):
         self._providers: Dict[str, TopicProvider] = {}
-        primary = default_provider or ManualProvider()
-        self.register_provider(primary)
+        self.register_provider(ManualProvider())
+
+        if include_live_providers:
+            self.register_provider(GitHubProvider())
+            self.register_provider(HackerNewsProvider())
+
         self._cached_topics: Optional[List[Topic]] = None
 
     def register_provider(self, provider: TopicProvider):
@@ -27,28 +33,32 @@ class TopicService:
         self._providers[provider.name] = provider
         self._cached_topics = None
 
-    def get_all_topics(self, force_refresh: bool = False) -> List[Topic]:
+    def get_all_topics(self, force_refresh: bool = False, source_filter: Optional[str] = None) -> List[Topic]:
         """
-        Aggregate topics from all registered providers.
+        Aggregate topics from registered providers, optionally filtered by source.
         """
-        if self._cached_topics is not None and not force_refresh:
-            return self._cached_topics
+        if self._cached_topics is None or force_refresh:
+            aggregated: List[Topic] = []
+            for provider in self._providers.values():
+                try:
+                    topics = provider.get_topics()
+                    aggregated.extend(topics)
+                except Exception as err:
+                    print(f"⚠️ Warning: Failed to fetch topics from provider '{provider.name}': {err}")
+            self._cached_topics = aggregated
 
-        aggregated: List[Topic] = []
-        for provider in self._providers.values():
-            try:
-                topics = provider.get_topics()
-                aggregated.extend(topics)
-            except Exception as err:
-                print(f"⚠️ Warning: Failed to fetch topics from provider '{provider.name}': {err}")
+        all_topics = self._cached_topics or []
+        if source_filter and source_filter.strip().lower() != "all":
+            sf = source_filter.strip().lower()
+            return [t for t in all_topics if t.source.lower() == sf or sf in t.source.lower()]
 
-        self._cached_topics = aggregated
-        return aggregated
+        return all_topics
 
-    def get_topics_by_category(self, category: str) -> List[Topic]:
-        """Filter topics by category."""
+    def get_topics_by_category(self, category: str, source_filter: Optional[str] = None) -> List[Topic]:
+        """Filter topics by category and optional source."""
         target = category.strip().lower()
-        return [t for t in self.get_all_topics() if t.category.lower() == target]
+        candidates = self.get_all_topics(source_filter=source_filter)
+        return [t for t in candidates if t.category.lower() == target]
 
     def get_topic_by_title(self, title: str) -> Optional[Topic]:
         """Find a topic with an exact or case-insensitive title match."""
@@ -62,15 +72,15 @@ class TopicService:
         self,
         category: Optional[str] = None,
         title: Optional[str] = None,
+        source: Optional[str] = None,
     ) -> Topic:
         """
-        Select a specific topic by title, or a random topic (optionally filtered by category).
+        Select a specific topic by title, or a random candidate (optionally filtered by category and source).
         """
         if title:
             found = self.get_topic_by_title(title)
             if found:
                 return found
-            # If not in catalog, construct an ad-hoc Topic
             return Topic(
                 title=title,
                 category=category or "backend",
@@ -78,7 +88,7 @@ class TopicService:
                 source="ad-hoc",
             )
 
-        candidates = self.get_topics_by_category(category) if category else self.get_all_topics()
+        candidates = self.get_topics_by_category(category, source_filter=source) if category else self.get_all_topics(source_filter=source)
         if not candidates:
             raise ValueError(f"No topics available" + (f" for category '{category}'" if category else ""))
 

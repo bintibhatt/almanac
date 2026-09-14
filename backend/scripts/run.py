@@ -1,6 +1,7 @@
 """
 Main entry point and CLI orchestrator for Almanac.
-Coordinates TopicService, DuplicateService, AIService, ArticleService, ValidationService, StateService, VectorStoreService, and Git automation.
+Coordinates TopicService, TopicIntelligenceService, DuplicateService, AIService,
+ArticleService, ValidationService, StateService, VectorStoreService, and Git automation.
 """
 
 import argparse
@@ -29,6 +30,7 @@ from backend.services.duplicate_service import DuplicateService
 from backend.services.embedding_service import EmbeddingService
 from backend.services.prompt_service import PromptService
 from backend.services.state_service import StateService
+from backend.services.topic_intelligence import TopicIntelligenceService
 from backend.services.topic_service import TopicService
 from backend.services.validation_service import ValidationService
 from backend.services.vector_store_service import VectorStoreService
@@ -49,6 +51,17 @@ def parse_args():
         type=str,
         default=None,
         help="Specify an exact topic title to generate (e.g. 'RAG - Architecture')",
+    )
+    parser.add_argument(
+        "--source",
+        type=str,
+        default=None,
+        help="Filter topic ingestion source ('manual', 'github', 'hackernews', 'all')",
+    )
+    parser.add_argument(
+        "--rank-topics",
+        action="store_true",
+        help="Rank candidate topics using Topic Intelligence AI scoring across providers",
     )
     parser.add_argument(
         "--search",
@@ -105,7 +118,6 @@ def handle_reindex(vector_store_service: VectorStoreService, knowledge_dir: Path
             raw_text = md_file.read_text(encoding="utf-8")
             slug = md_file.stem
             category = md_file.parent.name
-            # Quick title parse
             title_match = [line for line in raw_text.splitlines() if line.startswith("title:")]
             title = title_match[0].split(":", 1)[1].strip(" \"'") if title_match else slug.replace("-", " ").title()
 
@@ -140,6 +152,29 @@ def handle_search(vector_store_service: VectorStoreService, query: str, category
     print("\n✨ Search completed.\n")
 
 
+def handle_rank_topics(topic_service: TopicService, topic_intelligence: TopicIntelligenceService, source: Optional[str] = None, category: Optional[str] = None):
+    """Rank candidate topics using AI Topic Intelligence."""
+    print("\n📊 Almanac Topic Intelligence — Candidate Ranking")
+    all_candidates = topic_service.get_all_topics(source_filter=source)
+    if category:
+        all_candidates = [t for t in all_candidates if t.category.lower() == category.lower()]
+
+    ranked = topic_intelligence.rank_topics(all_candidates, top_k=10)
+    if not ranked:
+        print("ℹ️ No non-duplicate candidate topics available.")
+        return
+
+    for item in ranked:
+        t = item.topic
+        print(f"\n  Rank #{item.rank} | Score: {item.score}/100")
+        print(f"   • Topic:      {t.title}")
+        print(f"   • Category:   {t.category}")
+        print(f"   • Source:     {t.source} ({t.source_url or 'N/A'})")
+        print(f"   • Reasoning:  {item.reasoning}")
+
+    print("\n✨ Ranking completed.\n")
+
+
 def main():
     args = parse_args()
 
@@ -151,6 +186,7 @@ def main():
         state_service=state_service,
         vector_store_service=vector_store_service,
     )
+    topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service)
     validation_service = ValidationService()
     topic_service = TopicService()
     knowledge_dir = ROOT_DIR / "knowledge"
@@ -158,12 +194,18 @@ def main():
     # Handle Reindex Mode
     if args.reindex:
         handle_reindex(vector_store_service, knowledge_dir)
-        if not args.topic and not args.search:
+        if not args.topic and not args.search and not args.rank_topics:
             return
 
     # Handle Search Mode
     if args.search:
         handle_search(vector_store_service, args.search, category=args.category)
+        if not args.topic and not args.rank_topics:
+            return
+
+    # Handle Rank Topics Mode
+    if args.rank_topics:
+        handle_rank_topics(topic_service, topic_intelligence, source=args.source, category=args.category)
         if not args.topic:
             return
 
@@ -178,12 +220,21 @@ def main():
             print("💡 Falling back to 'mock' provider for offline demonstration.")
             active_provider = "mock"
 
-    # 1. Topic Ingestion & Selection
+    # 1. Topic Ingestion & Selection (using Topic Intelligence when multiple candidates exist)
     try:
-        topic = topic_service.select_topic(
-            category=args.category,
-            title=args.topic,
-        )
+        if not args.topic:
+            candidates = topic_service.get_all_topics(source_filter=args.source)
+            if args.category:
+                candidates = [c for c in candidates if c.category.lower() == args.category.lower()]
+
+            ranked_candidates = topic_intelligence.rank_topics(candidates, top_k=5)
+            if ranked_candidates:
+                topic = ranked_candidates[0].topic
+                print(f"🎯 Selected #1 Ranked Topic: '{topic.title}' (Score: {ranked_candidates[0].score}/100)")
+            else:
+                topic = topic_service.select_topic(category=args.category, source=args.source)
+        else:
+            topic = topic_service.select_topic(category=args.category, title=args.topic, source=args.source)
     except Exception as err:
         print(f"❌ Topic selection failed: {err}")
         sys.exit(1)
