@@ -4,6 +4,7 @@ Topic: {title}
 Category: {category}
 Context: {description}
 Target Tags: {tags}
+{retrieved_context}
 
 Format the response using EXACTLY this Markdown section structure:
 

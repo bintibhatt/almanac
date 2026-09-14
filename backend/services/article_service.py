@@ -73,6 +73,7 @@ class ArticleService:
         self,
         topic: Topic,
         model: Optional[str] = None,
+        retrieved_context: str = "",
     ) -> Tuple[str, Dict[str, str]]:
         """
         Generate article markdown content and metadata dictionary for a topic.
@@ -83,6 +84,7 @@ class ArticleService:
             category=topic.category,
             description=topic.description,
             tags=topic.tags,
+            retrieved_context=retrieved_context,
         )
 
         raw_content = self.ai_service.generate(
@@ -163,10 +165,11 @@ version: "{metadata['version']}"
         self,
         topic: Topic,
         model: Optional[str] = None,
+        retrieved_context: str = "",
     ) -> Tuple[Path, Dict]:
         """
         End-to-end convenience method: generates and persists article for a topic.
         """
-        body_content, metadata = self.generate_article(topic, model=model)
+        body_content, metadata = self.generate_article(topic, model=model, retrieved_context=retrieved_context)
         file_path = self.save_article(topic, body_content, metadata)
         return file_path, metadata
