@@ -1,0 +1,27 @@
+Generate 4 challenging, high-signal technical quiz questions based on the following article content:
+
+Article Title: {title}
+Category: {category}
+Content:
+{content}
+
+Return ONLY a valid JSON array of question objects matching this EXACT structure:
+[
+  {{
+    "id": "q1",
+    "question": "Question text here",
+    "options": [
+      "Option A",
+      "Option B",
+      "Option C",
+      "Option D"
+    ],
+    "correct_index": 0,
+    "difficulty": "Intermediate",
+    "explanation": "Detailed explanation of why Option A is correct and why other options are incorrect."
+  }}
+]
+
+RULES:
+- Return raw valid JSON only. Do not include markdown code block backticks ```json ... ```.
+- Focus on practical software engineering trade-offs, architecture decisions, and core mechanics mentioned in the text.

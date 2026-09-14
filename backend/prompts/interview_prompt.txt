@@ -1,0 +1,21 @@
+Generate 3 level-graded technical interview questions with high-signal model answers based on the following article:
+
+Article Title: {title}
+Category: {category}
+Content:
+{content}
+
+Return ONLY a valid JSON array of interview question objects matching this EXACT structure:
+[
+  {{
+    "id": "iq1",
+    "level": "Intermediate",
+    "question": "What is the primary difference between X and Y in this architecture?",
+    "model_answer": "Dense, staff-level technical answer highlighting trade-offs, internal mechanics, and failure modes.",
+    "follow_up_prompt": "What happens if downstream storage experiences high latency under this design?"
+  }}
+]
+
+RULES:
+- Return raw valid JSON only. Do not include markdown code block backticks ```json ... ```.
+- Include 1 Beginner/Intermediate, 1 Senior, and 1 Staff/Principal level question.

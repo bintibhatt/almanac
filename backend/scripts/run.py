@@ -2,10 +2,11 @@
 Main entry point and CLI orchestrator for Almanac.
 Coordinates TopicService, TopicIntelligenceService, DuplicateService, AIService,
 ArticleService, ValidationService, StateService, VectorStoreService, HybridSearchService,
-RetrievalService, and Git automation.
+RetrievalService, QuizService, FlashcardService, InterviewService, ArticleRAGService, and Git automation.
 """
 
 import argparse
+import json
 import os
 import sys
 from pathlib import Path
@@ -26,11 +27,15 @@ if str(ROOT_DIR) not in sys.path:
 from backend.ai.service import AIService
 from backend.scripts.config import AI_PROVIDER, validate_provider_config
 from backend.scripts.git_utils import commit_and_push
+from backend.services.article_rag_service import ArticleRAGService
 from backend.services.article_service import ArticleService
 from backend.services.duplicate_service import DuplicateService
 from backend.services.embedding_service import EmbeddingService
+from backend.services.flashcard_service import FlashcardService
 from backend.services.hybrid_search_service import HybridSearchService
+from backend.services.interview_service import InterviewService
 from backend.services.prompt_service import PromptService
+from backend.services.quiz_service import QuizService
 from backend.services.retrieval_service import RetrievalService
 from backend.services.state_service import StateService
 from backend.services.topic_intelligence import TopicIntelligenceService
@@ -41,7 +46,7 @@ from backend.services.vector_store_service import VectorStoreService
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Almanac — Autonomous Engineering Knowledge Generator & Semantic Hybrid Engine"
+        description="Almanac — Autonomous Engineering Knowledge Generator & Interactive Intelligence System"
     )
     parser.add_argument(
         "--category",
@@ -65,6 +70,36 @@ def parse_args():
         "--rank-topics",
         action="store_true",
         help="Rank candidate topics using Topic Intelligence AI scoring across providers",
+    )
+    parser.add_argument(
+        "--quiz",
+        type=str,
+        default=None,
+        help="Generate an interactive AI quiz for a note slug (e.g. 'rag---architecture')",
+    )
+    parser.add_argument(
+        "--flashcards",
+        type=str,
+        default=None,
+        help="Generate spaced repetition concept flashcards for a note slug",
+    )
+    parser.add_argument(
+        "--interview",
+        type=str,
+        default=None,
+        help="Generate technical interview preparation questions for a note slug",
+    )
+    parser.add_argument(
+        "--ask-article",
+        type=str,
+        default=None,
+        help="Ask grounded AI question about a note slug (use with --question)",
+    )
+    parser.add_argument(
+        "--question",
+        type=str,
+        default=None,
+        help="User question to ask grounded article RAG model",
     )
     parser.add_argument(
         "--search",
@@ -116,6 +151,68 @@ def parse_args():
         help="Skip Git commit and push step",
     )
     return parser.parse_args()
+
+
+def load_article_content(knowledge_dir: Path, slug: str):
+    """Find and return Markdown content for an article slug."""
+    for md_file in knowledge_dir.rglob("*.md"):
+        if md_file.stem == slug:
+            return md_file.name, md_file.read_text(encoding="utf-8")
+    return None, None
+
+
+def handle_quiz(quiz_service: QuizService, knowledge_dir: Path, slug: str):
+    """Handle CLI quiz generation."""
+    filename, content = load_article_content(knowledge_dir, slug)
+    if not content:
+        print(f"❌ Article slug '{slug}' not found in knowledge base.")
+        return
+
+    print(f"\n🧠 Generating AI Quiz for article: '{slug}'...")
+    questions = quiz_service.generate_quiz(title=slug, category="backend", content=content)
+    print(json.dumps(questions, indent=2))
+    print("\n✨ Quiz generation completed.\n")
+
+
+def handle_flashcards(flashcard_service: FlashcardService, knowledge_dir: Path, slug: str):
+    """Handle CLI flashcard generation."""
+    filename, content = load_article_content(knowledge_dir, slug)
+    if not content:
+        print(f"❌ Article slug '{slug}' not found in knowledge base.")
+        return
+
+    print(f"\n🎴 Generating Concept Flashcards for article: '{slug}'...")
+    cards = flashcard_service.generate_flashcards(title=slug, category="backend", content=content)
+    print(json.dumps(cards, indent=2))
+    print("\n✨ Flashcard generation completed.\n")
+
+
+def handle_interview(interview_service: InterviewService, knowledge_dir: Path, slug: str):
+    """Handle CLI interview question generation."""
+    filename, content = load_article_content(knowledge_dir, slug)
+    if not content:
+        print(f"❌ Article slug '{slug}' not found in knowledge base.")
+        return
+
+    print(f"\n🎯 Generating Technical Interview Questions for article: '{slug}'...")
+    questions = interview_service.generate_interview_questions(title=slug, category="backend", content=content)
+    print(json.dumps(questions, indent=2))
+    print("\n✨ Interview generation completed.\n")
+
+
+def handle_ask_article(rag_service: ArticleRAGService, knowledge_dir: Path, slug: str, question: Optional[str]):
+    """Handle CLI grounded article RAG Q&A."""
+    filename, content = load_article_content(knowledge_dir, slug)
+    if not content:
+        print(f"❌ Article slug '{slug}' not found in knowledge base.")
+        return
+
+    user_q = question or "Explain the primary architectural trade-offs discussed in this article."
+    print(f"\n💬 Asking Grounded AI about '{slug}'...")
+    print(f"   • Question: {user_q}\n")
+
+    answer = rag_service.answer_question(title=slug, content=content, question=user_q)
+    print(f"🤖 Answer:\n{answer}\n")
 
 
 def handle_reindex(vector_store_service: VectorStoreService, knowledge_dir: Path):
@@ -205,7 +302,20 @@ def handle_rank_topics(topic_service: TopicService, topic_intelligence: TopicInt
 def main():
     args = parse_args()
 
+    active_provider = (args.provider or AI_PROVIDER or "mock").lower().strip()
+
+    # Validate provider credentials if not in dry-run or mock mode
+    if active_provider != "mock":
+        try:
+            validate_provider_config(active_provider)
+        except ValueError as val_err:
+            print(f"⚠️ Provider configuration error: {val_err}")
+            print("💡 Falling back to 'mock' provider for offline demonstration.")
+            active_provider = "mock"
+
     # Initialize Base Services
+    ai_service = AIService(provider_name=active_provider, model=args.model)
+    prompt_service = PromptService()
     state_service = StateService()
     embedding_service = EmbeddingService()
     vector_store_service = VectorStoreService(embedding_service=embedding_service)
@@ -218,7 +328,30 @@ def main():
     topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service)
     validation_service = ValidationService()
     topic_service = TopicService()
+
+    quiz_service = QuizService(ai_service=ai_service, prompt_service=prompt_service)
+    flashcard_service = FlashcardService(ai_service=ai_service, prompt_service=prompt_service)
+    interview_service = InterviewService(ai_service=ai_service, prompt_service=prompt_service)
+    article_rag_service = ArticleRAGService(ai_service=ai_service, prompt_service=prompt_service)
+
     knowledge_dir = ROOT_DIR / "knowledge"
+
+    # Handle Interactive Learning CLI modes
+    if args.quiz:
+        handle_quiz(quiz_service, knowledge_dir, args.quiz)
+        return
+
+    if args.flashcards:
+        handle_flashcards(flashcard_service, knowledge_dir, args.flashcards)
+        return
+
+    if args.interview:
+        handle_interview(interview_service, knowledge_dir, args.interview)
+        return
+
+    if args.ask_article:
+        handle_ask_article(article_rag_service, knowledge_dir, args.ask_article, args.question)
+        return
 
     # Handle Reindex Mode
     if args.reindex:
@@ -243,17 +376,6 @@ def main():
         handle_rank_topics(topic_service, topic_intelligence, source=args.source, category=args.category)
         if not args.topic:
             return
-
-    active_provider = (args.provider or AI_PROVIDER or "mock").lower().strip()
-
-    # Validate provider credentials if not in dry-run or mock mode
-    if active_provider != "mock":
-        try:
-            validate_provider_config(active_provider)
-        except ValueError as val_err:
-            print(f"⚠️ Provider configuration error: {val_err}")
-            print("💡 Falling back to 'mock' provider for offline demonstration.")
-            active_provider = "mock"
 
     # 1. Topic Ingestion & Selection (using Topic Intelligence when multiple candidates exist)
     try:
@@ -300,15 +422,12 @@ def main():
     if retrieved_context:
         print(f"📚 Retrieved supporting knowledge context from vector store for prompt grounding.")
 
-    # 4. Initialize AI & Article Services
-    ai_service = AIService(provider_name=active_provider, model=args.model)
-    prompt_service = PromptService()
     article_service = ArticleService(
         ai_service=ai_service,
         prompt_service=prompt_service,
     )
 
-    # 5. Generate Article
+    # 4. Generate Article
     print(f"\n🧠 Generating technical engineering note...")
     try:
         body_content, metadata = article_service.generate_article(
@@ -323,7 +442,7 @@ def main():
     print(f"   • Reading Time: {metadata['readingTime']}")
     print(f"   • Tags:         {', '.join(metadata['tags'])}")
 
-    # 6. Article Validation
+    # 5. Article Validation
     val_result = validation_service.validate(
         body_content, metadata, strict=args.strict_validation
     )
@@ -348,7 +467,7 @@ def main():
         print("✅ Dry run completed. No files saved or committed.")
         return
 
-    # 7. Save to Knowledge Base & Update State & Vector Store Index
+    # 6. Save to Knowledge Base & Update State & Vector Store Index
     saved_path = article_service.save_article(topic, body_content, metadata)
     state_service.record_success(topic, metadata, file_path=saved_path)
 
@@ -362,7 +481,7 @@ def main():
     print(f"📄 Saved knowledge article to:\n   {saved_path}")
     print(f"🧠 Vector index updated (total indexed: {vector_store_service.get_index_size()})")
 
-    # 8. Git Automation
+    # 7. Git Automation
     if not args.no_git:
         commit_message = f"docs({topic.category}): add note on {topic.title}"
         commit_and_push(saved_path, commit_message)

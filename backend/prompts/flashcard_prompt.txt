@@ -1,0 +1,21 @@
+Generate 5 concept flashcards for spaced repetition based on the following technical article:
+
+Article Title: {title}
+Category: {category}
+Content:
+{content}
+
+Return ONLY a valid JSON array of flashcard objects matching this EXACT structure:
+[
+  {{
+    "id": "fc1",
+    "concept": "Concept Name",
+    "question": "Front of card: Key question or definition prompt?",
+    "answer": "Back of card: Dense, 2-3 sentence technical explanation and key invariants.",
+    "difficulty": "Intermediate"
+  }}
+]
+
+RULES:
+- Return raw valid JSON only. Do not include markdown code block backticks ```json ... ```.
+- Focus on key invariants, terminology, data flow stages, and architecture principles.
