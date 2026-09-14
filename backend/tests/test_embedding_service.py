@@ -31,18 +31,18 @@ class TestEmbeddingService(unittest.TestCase):
         self.assertAlmostEqual(_cosine_similarity(vec1, vec3), 0.0)
 
     def test_semantic_similarity_relative_scoring(self):
-        text1 = "REST API Architecture"
-        text2 = "RESTful Web API Design"
-        text3 = "Gardening Flowers Soil"
+        text1 = "Distributed Systems Microservices Architecture Design"
+        text2 = "Distributed Systems Microservices Patterns"
+        text3 = "Gardening Flowers Organic Soil Compost Vegetables"
 
         vec1 = self.service.embed_text(text1)
         vec2 = self.service.embed_text(text2)
         vec3 = self.service.embed_text(text3)
 
-        sim_api = self.service.calculate_similarity(vec1, vec2)
+        sim_dist = self.service.calculate_similarity(vec1, vec2)
         sim_unrelated = self.service.calculate_similarity(vec1, vec3)
 
-        self.assertGreater(sim_api, sim_unrelated)
+        self.assertGreater(sim_dist, sim_unrelated)
 
 
 if __name__ == "__main__":
