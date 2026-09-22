@@ -61,6 +61,9 @@ export default function Navbar() {
           <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/interview">
             Interview Prep
           </Link>
+          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/dashboard">
+            Dashboard
+          </Link>
           <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/about">
             About
           </Link>
