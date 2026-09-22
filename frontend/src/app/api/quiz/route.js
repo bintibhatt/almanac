@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { execSync } from "child_process";
-import path from "path";
+import { runPythonScript } from "@/lib/backend";
 
 export async function POST(request) {
   try {
@@ -10,16 +9,10 @@ export async function POST(request) {
       return NextResponse.json({ error: "Title or slug required" }, { status: 400 });
     }
 
-    // Call Python QuizService backend via CLI orchestrator
-    const scriptPath = path.resolve(process.cwd(), "..", "backend", "scripts", "run.py");
     const targetSlug = slug || "rest-api-architecture";
 
     try {
-      const output = execSync(`python "${scriptPath}" --quiz "${targetSlug}"`, {
-        encoding: "utf-8",
-        maxBuffer: 10 * 1024 * 1024,
-      });
-
+      const output = runPythonScript(`--quiz "${targetSlug}"`);
       const jsonStart = output.indexOf("[");
       const jsonEnd = output.lastIndexOf("]");
       if (jsonStart !== -1 && jsonEnd !== -1) {

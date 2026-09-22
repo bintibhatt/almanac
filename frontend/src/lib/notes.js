@@ -3,7 +3,23 @@ import path from "path";
 import matter from "gray-matter";
 import GithubSlugger from "github-slugger";
 
-const KNOWLEDGE_PATH = path.resolve(process.cwd(), "..", "knowledge");
+function getKnowledgePath() {
+  const candidatePaths = [
+    path.resolve(process.cwd(), "knowledge"),
+    path.resolve(process.cwd(), "..", "knowledge"),
+    path.resolve(process.cwd(), "almanac", "knowledge"),
+  ];
+
+  for (const candidate of candidatePaths) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return path.resolve(process.cwd(), "..", "knowledge");
+}
+
+const KNOWLEDGE_PATH = getKnowledgePath();
 const MARKDOWN_EXTENSION = /\.(md|mdx)$/i;
 
 function exists(filePath) {

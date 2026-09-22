@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CategoryBadge from "@/components/CategoryBadge";
@@ -8,7 +8,7 @@ import TableOfContents from "@/components/TableOfContents";
 import { getAdjacentNotes, getAllNotes, getNoteBySlug } from "@/lib/notes";
 import { formatDate } from "@/utils/format";
 
-const MarkdownRenderer = dynamic(() => import("@/components/MarkdownRenderer"), {
+const MarkdownRenderer = nextDynamic(() => import("@/components/MarkdownRenderer"), {
   loading: () => (
     <div className="space-y-3">
       <div className="h-4 w-2/3 rounded bg-[var(--surface-muted)]" />
@@ -17,6 +17,9 @@ const MarkdownRenderer = dynamic(() => import("@/components/MarkdownRenderer"), 
     </div>
   ),
 });
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export function generateStaticParams() {
   return getAllNotes().map((note) => ({ slug: note.slug }));

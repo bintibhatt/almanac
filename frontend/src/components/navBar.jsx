@@ -52,10 +52,16 @@ export default function Navbar() {
         </Link>
 
         <nav className="ml-auto flex items-center gap-1 text-sm text-[var(--muted)]">
-          <Link className="inline-flex min-h-11 items-center rounded-full px-4 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/notes">
+          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/notes">
             Notes
           </Link>
-          <Link className="inline-flex min-h-11 items-center rounded-full px-4 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/about">
+          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/courses">
+            Courses
+          </Link>
+          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/interview">
+            Interview Prep
+          </Link>
+          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/about">
             About
           </Link>
         </nav>

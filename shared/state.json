@@ -21,6 +21,28 @@
       "generated_at": "2026-09-13T19:12:09Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\backend\\docker-container-memory-isolation.md",
       "status": "published"
+    },
+    "rag---performance-optimization": {
+      "title": "RAG - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-14T07:59:28Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\rag---performance-optimization.md",
+      "status": "published"
+    },
+    "vector-databases---performance-optimization": {
+      "title": "Vector Databases - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-22T04:44:40Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\vector-databases---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -35,9 +57,9 @@
   "failed_generations": [],
   "last_execution": {
     "status": "success",
-    "topic": "Docker Container Memory Isolation",
-    "slug": "docker-container-memory-isolation",
-    "timestamp": "2026-09-13T19:12:09Z"
+    "topic": "Vector Databases - Performance Optimization",
+    "slug": "vector-databases---performance-optimization",
+    "timestamp": "2026-09-22T04:44:40Z"
   },
-  "total_generated": 2
+  "total_generated": 4
 }
