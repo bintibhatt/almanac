@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    container_name: almanac-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./knowledge:/knowledge:ro
+      - ./shared:/shared:ro
+    restart: unless-stopped
+
+  backend-scheduler:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: almanac-backend-scheduler
+    environment:
+      - PYTHONPATH=/app
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    volumes:
+      - ./knowledge:/app/knowledge
+      - ./shared:/app/shared
+    restart: unless-stopped
