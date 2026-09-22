@@ -43,6 +43,17 @@
       "generated_at": "2026-09-22T04:44:40Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\vector-databases---performance-optimization.md",
       "status": "published"
+    },
+    "distributed-locks---performance-optimization": {
+      "title": "Distributed Locks - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-22T05:22:28Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\system-design\\distributed-locks---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -57,9 +68,9 @@
   "failed_generations": [],
   "last_execution": {
     "status": "success",
-    "topic": "Vector Databases - Performance Optimization",
-    "slug": "vector-databases---performance-optimization",
-    "timestamp": "2026-09-22T04:44:40Z"
+    "topic": "Distributed Locks - Performance Optimization",
+    "slug": "distributed-locks---performance-optimization",
+    "timestamp": "2026-09-22T05:22:28Z"
   },
-  "total_generated": 4
+  "total_generated": 5
 }
