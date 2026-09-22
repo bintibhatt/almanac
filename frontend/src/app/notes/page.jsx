@@ -2,6 +2,9 @@ import NoteCard from "@/components/NoteCard";
 import Sidebar from "@/components/Sidebar";
 import { getAllNotes, getCategories } from "@/lib/notes";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata = {
   title: "Notes",
   description: "Browse engineering notes in Almanac.",

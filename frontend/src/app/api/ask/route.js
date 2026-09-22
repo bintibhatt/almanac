@@ -1,21 +1,15 @@
 import { NextResponse } from "next/server";
-import { execSync } from "child_process";
-import path from "path";
+import { runPythonScript } from "@/lib/backend";
 
 export async function POST(request) {
   try {
     const { slug, title, question } = await request.json();
-    const scriptPath = path.resolve(process.cwd(), "..", "backend", "scripts", "run.py");
     const targetSlug = slug || "rest-api-architecture";
     const userQuestion = question || "Explain the core mechanics discussed in this article.";
 
     try {
-      const output = execSync(
-        `python "${scriptPath}" --ask-article "${targetSlug}" --question "${userQuestion.replace(/"/g, '\\"')}"`,
-        {
-          encoding: "utf-8",
-          maxBuffer: 10 * 1024 * 1024,
-        }
+      const output = runPythonScript(
+        `--ask-article "${targetSlug}" --question "${userQuestion.replace(/"/g, '\\"')}"`
       );
 
       const marker = "🤖 Answer:";

@@ -5,6 +5,9 @@ import SearchBar from "@/components/SearchBar";
 import { getCategories, getLatestNotes } from "@/lib/notes";
 import { formatDate, pluralize } from "@/utils/format";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function Home() {
   const latestNotes = getLatestNotes(7);
   const [featured, ...notes] = latestNotes;

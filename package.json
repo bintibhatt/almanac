@@ -1,0 +1,10 @@
+{
+  "name": "almanac-root",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm.cmd --prefix frontend run dev",
+    "dev:frontend": "npm.cmd --prefix frontend run dev",
+    "build": "npm.cmd --prefix frontend run build"
+  }
+}
