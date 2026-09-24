@@ -48,51 +48,59 @@ export default function QuizModal({ isOpen, onClose, note }) {
     return Math.round((correct / questions.length) * 100);
   };
 
+  const score = submitted ? calculateScore() : 0;
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl sm:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md transition-all">
+      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[var(--border-strong)] bg-[var(--surface-solid)] p-6 shadow-2xl sm:p-8">
+        {/* Top Accent Gradient Bar */}
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-600" />
+
         <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-              AI Knowledge Quiz
-            </span>
-            <h2 className="text-xl font-bold text-[var(--foreground)] sm:text-2xl">
-              {note.title}
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                AI Knowledge Verification
+              </span>
+            </div>
+            <h2 className="text-xl font-bold text-[var(--foreground)] sm:text-2xl line-clamp-1">
+              {note?.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="rounded-full p-2 text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] transition hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+            aria-label="Close Quiz"
           >
             ✕
           </button>
         </div>
 
         {loading ? (
-          <div className="py-12 text-center text-[var(--muted)]">
-            <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-[var(--foreground)] border-t-transparent" />
-            <p className="mt-4 font-medium">Generating technical quiz questions...</p>
+          <div className="py-20 text-center text-[var(--muted)] space-y-4">
+            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-emerald-400 border-t-transparent" />
+            <p className="text-sm font-medium">Generating adaptive technical quiz...</p>
           </div>
         ) : (
-          <div className="mt-6 space-y-8">
+          <div className="mt-6 space-y-6">
             {questions.map((q, qIdx) => {
-              const isSelected = userAnswers[qIdx] !== undefined;
               const isCorrect = userAnswers[qIdx] === q.correct_index;
 
               return (
                 <div
                   key={q.id || qIdx}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-5"
+                  className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-md"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-[var(--muted)]">
+                    <span className="text-xs font-semibold text-sky-400">
                       Question {qIdx + 1} of {questions.length}
                     </span>
-                    <span className="rounded-full bg-[var(--surface-muted)] px-2.5 py-1 text-xs font-medium text-[var(--muted)]">
+                    <span className="rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-0.5 text-xs font-semibold text-[var(--muted)]">
                       {q.difficulty || "Intermediate"}
                     </span>
                   </div>
-                  <h3 className="mt-3 text-base font-semibold text-[var(--foreground)]">
+                  <h3 className="mt-3 text-base font-bold text-[var(--foreground)] leading-snug">
                     {q.question}
                   </h3>
 
@@ -100,36 +108,36 @@ export default function QuizModal({ isOpen, onClose, note }) {
                     {q.options.map((opt, optIdx) => {
                       const selected = userAnswers[qIdx] === optIdx;
                       let btnStyle =
-                        "border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[var(--border-strong)]";
+                        "border-[var(--border)] bg-[var(--surface-muted)] text-[var(--foreground)] hover:border-sky-500/40 hover:bg-[var(--surface-hover)]";
 
                       if (submitted) {
                         if (optIdx === q.correct_index) {
-                          btnStyle = "border-emerald-500 bg-emerald-500/10 text-emerald-400 font-semibold";
+                          btnStyle = "border-emerald-500/60 bg-emerald-500/15 text-emerald-300 font-bold shadow-md shadow-emerald-500/10";
                         } else if (selected && !isCorrect) {
-                          btnStyle = "border-rose-500 bg-rose-500/10 text-rose-400";
+                          btnStyle = "border-rose-500/60 bg-rose-500/15 text-rose-300 font-medium";
                         }
                       } else if (selected) {
-                        btnStyle = "border-[var(--foreground)] bg-[var(--surface-hover)] font-semibold";
+                        btnStyle = "border-sky-500 bg-sky-500/15 text-sky-300 font-bold shadow-md shadow-sky-500/10";
                       }
 
                       return (
                         <button
                           key={optIdx}
                           onClick={() => handleOptionSelect(qIdx, optIdx)}
-                          className={`w-full text-left rounded-lg border p-3.5 text-sm transition ${btnStyle}`}
+                          className={`w-full text-left flex items-start gap-3 rounded-xl border p-3.5 text-sm transition-all duration-200 ${btnStyle}`}
                         >
-                          <span className="mr-2.5 font-bold text-[var(--muted)]">
-                            {String.fromCharCode(65 + optIdx)}.
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-current bg-black/20 text-xs font-bold">
+                            {String.fromCharCode(65 + optIdx)}
                           </span>
-                          {opt}
+                          <span className="pt-0.5 leading-snug">{opt}</span>
                         </button>
                       );
                     })}
                   </div>
 
                   {submitted && (
-                    <div className="mt-4 rounded-lg bg-[var(--surface-muted)] p-3.5 text-xs leading-relaxed text-[var(--muted)]">
-                      <span className="font-bold text-[var(--foreground)]">Explanation: </span>
+                    <div className="mt-4 rounded-xl border border-sky-500/20 bg-sky-500/5 p-4 text-xs leading-relaxed text-[var(--muted-light)]">
+                      <span className="font-bold text-sky-400">💡 Explanation: </span>
                       {q.explanation}
                     </div>
                   )}
@@ -137,20 +145,32 @@ export default function QuizModal({ isOpen, onClose, note }) {
               );
             })}
 
-            <div className="flex items-center justify-between pt-4">
+            {/* Score & Action Footer */}
+            <div className="flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
               {submitted ? (
-                <div className="text-lg font-bold">
-                  Score: <span className="text-emerald-400">{calculateScore()}%</span>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-lg font-black text-emerald-400">
+                    {score}%
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-[var(--foreground)]">
+                      {score >= 80 ? "Mastery Achieved! 🎉" : "Good Attempt! Keep Revising."}
+                    </div>
+                    <div className="text-xs text-[var(--muted)]">Score logged to study history</div>
+                  </div>
                 </div>
               ) : (
-                <div />
+                <div className="text-xs font-medium text-[var(--muted)]">
+                  Select an answer for each question before submitting.
+                </div>
               )}
+
               <div className="flex gap-3">
                 {!submitted ? (
                   <button
                     onClick={() => setSubmitted(true)}
                     disabled={Object.keys(userAnswers).length < questions.length}
-                    className="rounded-full bg-[var(--foreground)] px-6 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:opacity-90 disabled:opacity-50"
+                    className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:opacity-95 disabled:opacity-40"
                   >
                     Submit Quiz
                   </button>
@@ -160,7 +180,7 @@ export default function QuizModal({ isOpen, onClose, note }) {
                       setSubmitted(false);
                       setUserAnswers({});
                     }}
-                    className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-6 py-2.5 text-sm font-semibold hover:border-[var(--border-strong)]"
+                    className="w-full sm:w-auto rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition hover:bg-[var(--surface-hover)]"
                   >
                     Retake Quiz
                   </button>
@@ -173,3 +193,4 @@ export default function QuizModal({ isOpen, onClose, note }) {
     </div>
   );
 }
+

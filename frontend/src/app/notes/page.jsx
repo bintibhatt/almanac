@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata = {
-  title: "Notes",
+  title: "Engineering Notes | Almanac",
   description: "Browse engineering notes in Almanac.",
 };
 
@@ -19,21 +19,28 @@ export default async function NotesPage({ searchParams }) {
   );
 
   return (
-    <div className="mx-auto grid max-w-7xl gap-8 px-4 py-7 sm:px-6 sm:py-10 lg:grid-cols-[220px_1fr] lg:px-8">
+    <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[260px_1fr] lg:px-8">
       <Sidebar categories={categories} activeCategory={activeCategory} />
 
-      <section>
-        <div className="border-b border-[var(--border)] pb-8">
-          <p className="text-sm font-medium text-[var(--accent)]">Library</p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Engineering Notes
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)]">
-            Browse local markdown notes by recency or category.
-          </p>
+      <section className="space-y-8">
+        <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 backdrop-blur-2xl">
+          <div className="space-y-3 max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-bold text-sky-400">
+              <span>📚 Almanac Library</span>
+            </span>
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--foreground)]">
+              Engineering Notes <br />
+              <span className="gradient-text">
+                {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Technical Guides"}
+              </span>
+            </h1>
+            <p className="text-sm text-[var(--muted)] leading-relaxed">
+              Explore deep technical guides, system design breakdowns, and production architectures.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {notes.map((note) => (
             <NoteCard key={note.slug} note={note} />
           ))}
@@ -42,3 +49,4 @@ export default async function NotesPage({ searchParams }) {
     </div>
   );
 }
+
