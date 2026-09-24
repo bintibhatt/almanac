@@ -1,41 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import SearchBar from "@/components/SearchBar";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useHeaderCollapse } from "@/hooks/useHeaderCollapse";
 
 export default function Navbar() {
   const { headerRef, iconRef, trackRef, wordmarkRef } = useHeaderCollapse();
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/notes", label: "Notes" },
+    { href: "/courses", label: "Courses" },
+    { href: "/interview", label: "Interview Prep" },
+    { href: "/dashboard", label: "Dashboard" },
+    { href: "/about", label: "About" },
+  ];
 
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 pt-[env(safe-area-inset-top)] backdrop-blur supports-[backdrop-filter]:bg-[var(--background)]/84"
+      className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-all"
     >
-      <div className="mx-auto flex min-h-14 max-w-7xl items-center gap-2 px-3 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        {/* Brand Logo */}
         <Link
           href="/"
           aria-label="Almanac — Home"
-          className="flex min-h-11 shrink-0 items-center gap-2 rounded-full px-1.5 pr-3 text-sm font-semibold tracking-tight text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          className="group flex items-center gap-2.5 rounded-full py-1 pr-3 text-sm font-bold tracking-tight text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
         >
-          {/* The icon is the "portal" — the wordmark visually feeds into it. */}
           <span
             ref={iconRef}
             aria-hidden="true"
             style={{ willChange: "transform" }}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-xs font-bold text-[var(--accent)]"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-sky-400 via-indigo-500 to-purple-600 text-xs font-black text-white shadow-lg shadow-sky-500/20 transition-transform group-hover:scale-105"
           >
-            A
+            ⚡
           </span>
-          {/*
-            trackRef is an overflow-hidden box that ends up exactly as wide
-            as the wordmark (a plain layout side-effect of wrapping an
-            inline-block child — CSS transforms never resize their box).
-            Its left edge sitting flush next to the icon is what makes
-            letters sliding past it read as "swallowed" rather than
-            "slid off screen". See useHeaderCollapse for the full technique.
-          */}
           <span
             ref={trackRef}
             aria-hidden="true"
@@ -44,37 +47,104 @@ export default function Navbar() {
             <span
               ref={wordmarkRef}
               style={{ willChange: "transform" }}
-              className="inline-block whitespace-nowrap"
+              className="inline-block whitespace-nowrap text-lg font-extrabold tracking-tight"
             >
-              Almanac
+              Almanac<span className="text-sky-400">.</span>
             </span>
           </span>
         </Link>
 
-        <nav className="ml-auto flex items-center gap-1 text-sm text-[var(--muted)]">
-          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/notes">
-            Notes
-          </Link>
-          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/courses">
-            Courses
-          </Link>
-          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/interview">
-            Interview Prep
-          </Link>
-          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/dashboard">
-            Dashboard
-          </Link>
-          <Link className="inline-flex min-h-11 items-center rounded-full px-3.5 transition hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]" href="/about">
-            About
-          </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative px-4 py-2 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "bg-[var(--surface-hover)] text-[var(--foreground)] font-semibold shadow-sm border border-[var(--border-strong)]"
+                    : "text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface-muted)]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* <div className="hidden w-full max-w-xs md:block">
-          <SearchBar compact />
-        </div> */}
+        {/* Action Controls & Mobile Toggle */}
+        <div className="flex items-center gap-2">
+          <Link
+            href="/search"
+            className="hidden items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3.5 py-1.5 text-xs text-[var(--muted)] transition hover:border-[var(--border-strong)] hover:text-[var(--foreground)] sm:flex"
+          >
+            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span>Search...</span>
+            <kbd className="rounded bg-[var(--surface-muted)] px-1.5 py-0.5 text-[10px] font-mono text-[var(--muted)] border border-[var(--border)]">
+              ⌘K
+            </kbd>
+          </Link>
 
-        <ThemeToggle />
+          <ThemeToggle />
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)] transition hover:bg-[var(--surface-hover)] md:hidden"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="border-t border-[var(--border)] bg-[var(--background)]/95 px-4 py-4 backdrop-blur-xl md:hidden">
+          <nav className="flex flex-col space-y-2">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
+                    isActive
+                      ? "bg-[var(--accent-muted)] text-[var(--accent)] font-semibold border border-sky-500/20"
+                      : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/search"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--muted)]"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              Search engineering library
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
+
