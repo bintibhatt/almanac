@@ -15,76 +15,200 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-16">
-      {/* SaaS Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--background)] p-8 sm:p-12 lg:p-16 shadow-2xl backdrop-blur-2xl">
+      {/* SaaS Split Hero Section */}
+      <section className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--background)] p-8 sm:p-12 lg:p-14 shadow-2xl backdrop-blur-2xl">
         {/* Glow ambient background circles */}
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 h-[30rem] w-[30rem] rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 h-[30rem] w-[30rem] rounded-full bg-indigo-500/15 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-3xl space-y-6">
-          {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-semibold text-sky-400">
-            <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-ping" />
-            <span>Almanac v2.0 • AI-Powered Living Engineering Library</span>
-          </div>
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          {/* Left Hero Content */}
+          <div className="space-y-6">
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-bold text-sky-400 backdrop-blur-md">
+              <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-ping" />
+              <span>Almanac v2.0 • Living Engineering Library & AI Companion</span>
+            </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-[var(--foreground)] leading-[1.15]">
-            Master Engineering <br />
-            <span className="gradient-text">Concepts & Architecture</span>
-          </h1>
+            {/* Main Headline */}
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl text-[var(--foreground)] leading-[1.1]">
+              Master Engineering <br />
+              <span className="gradient-text">Concepts & Systems</span>
+            </h1>
 
-          {/* Description */}
-          <p className="text-base text-[var(--muted)] sm:text-lg leading-relaxed max-w-2xl">
-            Deep-dive technical guides, interactive spaced-repetition flashcards, AI mock interviews, and system design case studies curated for modern developers.
-          </p>
+            {/* Description */}
+            <p className="text-base text-[var(--muted)] sm:text-lg leading-relaxed max-w-xl">
+              Deep-dive technical guides, interactive spaced-repetition flashcards, AI mock interviews, and system design case studies curated for software engineers and architects.
+            </p>
 
-          {/* Search Bar Container */}
-          <div className="pt-2 max-w-xl">
-            <SearchBar />
-          </div>
+            {/* Search Bar Container */}
+            <div className="pt-2 max-w-xl">
+              <SearchBar />
+            </div>
 
-          {/* Quick Topic Chips */}
-          <div className="flex flex-wrap items-center gap-2 pt-2 text-xs text-[var(--muted)]">
-            <span className="font-semibold text-[var(--foreground)]">Popular:</span>
-            {categories.slice(0, 4).map((cat) => (
+            {/* Quick Action CTAs */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
-                key={cat.slug}
-                href={`/notes?category=${cat.slug}`}
-                className="rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-1 text-xs font-medium transition hover:border-[var(--border-strong)] hover:text-[var(--foreground)] hover:bg-[var(--surface-hover)]"
+                href="/notes"
+                className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 px-6 text-sm font-bold text-white shadow-xl shadow-sky-500/20 transition-all duration-300 hover:scale-[1.02] hover:opacity-95"
               >
-                #{cat.label}
+                <span>Explore Notes</span>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </Link>
-            ))}
+
+              <Link
+                href="/interview"
+                className="inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-6 text-sm font-bold text-[var(--foreground)] backdrop-blur-md transition-all duration-300 hover:border-violet-500/40 hover:bg-[var(--surface-hover)]"
+              >
+                <span>🎯 Practice Interview AI</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Hero Interactive Glass Cockpit Card */}
+          <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface-solid)] to-[var(--background-alt)] p-6 shadow-2xl backdrop-blur-2xl space-y-5">
+            <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
+              <div className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-rose-500/80" />
+                <span className="h-3 w-3 rounded-full bg-amber-500/80" />
+                <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+              </div>
+              <span className="text-xs font-mono text-[var(--muted)]">almanac.engine.v2.0</span>
+            </div>
+
+            {/* Simulated Live Architecture Node Card */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/20 text-lg">
+                    ⚡
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-sky-400">RAG Vector Indexing</div>
+                    <div className="text-[11px] text-[var(--muted)]">Hybrid BM25 + HNSW dense search</div>
+                  </div>
+                </div>
+                <span className="rounded-full bg-sky-400/20 px-2.5 py-1 text-[10px] font-bold text-sky-400">ONLINE</span>
+              </div>
+
+              <div className="flex items-center justify-between rounded-2xl border border-indigo-500/30 bg-indigo-500/10 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-lg">
+                    🧠
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-indigo-400">Spaced Repetition Flashcards</div>
+                    <div className="text-[11px] text-[var(--muted)]">Adaptive concept recall active</div>
+                  </div>
+                </div>
+                <span className="rounded-full bg-indigo-400/20 px-2.5 py-1 text-[10px] font-bold text-indigo-400">READY</span>
+              </div>
+
+              <div className="flex items-center justify-between rounded-2xl border border-violet-500/30 bg-violet-500/10 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/20 text-lg">
+                    🎯
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-violet-400">System Design Mock AI</div>
+                    <div className="text-[11px] text-[var(--muted)]">Staff level architectural feedback</div>
+                  </div>
+                </div>
+                <span className="rounded-full bg-violet-400/20 px-2.5 py-1 text-[10px] font-bold text-violet-400">ACTIVE</span>
+              </div>
+            </div>
+
+            {/* Mini Footer Stat */}
+            <div className="flex items-center justify-between pt-2 text-xs font-semibold text-[var(--muted)]">
+              <span>🟢 All 14 Notes Synced</span>
+              <span className="text-emerald-400">Offline PWA Ready</span>
+            </div>
           </div>
         </div>
 
-        {/* Hero Stats Card Grid */}
+        {/* Hero Stats Counter Bar */}
         <div className="mt-12 grid grid-cols-2 gap-4 border-t border-[var(--border)] pt-8 sm:grid-cols-4">
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-2xl font-black text-sky-400">{latestNotes.length}+</div>
-            <div className="text-xs font-medium text-[var(--muted)]">Technical Notes</div>
+            <div className="text-3xl font-black text-sky-400">{latestNotes.length}+</div>
+            <div className="text-xs font-bold text-[var(--muted)] mt-1">Technical Notes</div>
           </div>
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-2xl font-black text-indigo-400">{categories.length}</div>
-            <div className="text-xs font-medium text-[var(--muted)]">Core Domain Categories</div>
+            <div className="text-3xl font-black text-indigo-400">{categories.length}</div>
+            <div className="text-xs font-bold text-[var(--muted)] mt-1">Core Domain Categories</div>
           </div>
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-2xl font-black text-emerald-400">100%</div>
-            <div className="text-xs font-medium text-[var(--muted)]">Interactive AI Practice</div>
+            <div className="text-3xl font-black text-emerald-400">100%</div>
+            <div className="text-xs font-bold text-[var(--muted)] mt-1">Interactive AI Practice</div>
           </div>
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-2xl font-black text-purple-400">PWA</div>
-            <div className="text-xs font-medium text-[var(--muted)]">Offline Ready</div>
+            <div className="text-3xl font-black text-purple-400">PWA</div>
+            <div className="text-xs font-bold text-[var(--muted)] mt-1">Offline Reader Shell</div>
           </div>
         </div>
       </section>
 
-      {/* Featured Note Section */}
+      {/* Feature Capabilities Grid ("Why Almanac?") */}
+      <section className="space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-bold uppercase tracking-widest text-sky-400">Core Features</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)]">
+            Built for Modern Engineering Mastery
+          </h2>
+          <p className="text-sm text-[var(--muted)]">
+            Everything you need to study, revise, and excel in senior engineering roles.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:shadow-xl space-y-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-500/30 bg-sky-500/10 text-2xl text-sky-400">
+              📚
+            </div>
+            <h3 className="text-lg font-bold text-[var(--foreground)]">Engineering Notes</h3>
+            <p className="text-xs text-[var(--muted)] leading-relaxed">
+              Curated markdown guides on system design, distributed locks, vector search, and container memory isolation.
+            </p>
+          </div>
+
+          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-xl space-y-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-500/30 bg-indigo-500/10 text-2xl text-indigo-400">
+              🧠
+            </div>
+            <h3 className="text-lg font-bold text-[var(--foreground)]">3D Concept Flashcards</h3>
+            <p className="text-xs text-[var(--muted)] leading-relaxed">
+              Master core concepts through interactive spaced-repetition card decks generated directly from note contents.
+            </p>
+          </div>
+
+          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/40 hover:shadow-xl space-y-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/10 text-2xl text-violet-400">
+              🎯
+            </div>
+            <h3 className="text-lg font-bold text-[var(--foreground)]">AI Interview Drills</h3>
+            <p className="text-xs text-[var(--muted)] leading-relaxed">
+              Simulate Staff & Senior technical interviews with architectural problem solving, model solutions, and probes.
+            </p>
+          </div>
+
+          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl space-y-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-2xl text-emerald-400">
+              📊
+            </div>
+            <h3 className="text-lg font-bold text-[var(--foreground)]">Progress Analytics</h3>
+            <p className="text-xs text-[var(--muted)] leading-relaxed">
+              Track reading streaks, quiz mastery scores, and domain completion breakdown in your dashboard.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Today's Read Banner */}
       {featured && (
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-sky-400" />
+            <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)]">
               Today&apos;s Featured Read
             </h2>
@@ -98,7 +222,7 @@ export default function Home() {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-2xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-3xl">
-              Latest Engineering Notes
+              Latest Technical Notes
             </h2>
             <p className="mt-1 text-sm text-[var(--muted)]">
               Recently published guides, architecture breakdowns, and cheat sheets.
@@ -106,7 +230,7 @@ export default function Home() {
           </div>
           <Link
             href="/notes"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] transition hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:underline"
           >
             Explore all notes →
           </Link>
@@ -128,7 +252,7 @@ export default function Home() {
               Browse Knowledge Domains
             </h2>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Filter by topic area to focus your reading.
+              Filter by topic area to focus your study sessions.
             </p>
           </div>
 
@@ -137,15 +261,15 @@ export default function Home() {
               <Link
                 key={category.slug}
                 href={`/notes?category=${category.slug}`}
-                className="group relative flex flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-xl"
+                className="group relative flex flex-col justify-between rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-xl"
               >
                 <div className="flex items-center justify-between">
                   <CategoryBadge>{category.label}</CategoryBadge>
-                  <svg className="h-4 w-4 text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-4 w-4 text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-                <p className="mt-4 text-xs font-semibold text-[var(--muted)]">
+                <p className="mt-5 text-xs font-bold text-[var(--muted)]">
                   {pluralize(category.count, "note")} available
                 </p>
               </Link>
@@ -164,19 +288,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="divide-y divide-[var(--border)] rounded-2xl border border-[var(--border)] bg-[var(--surface)] backdrop-blur-xl overflow-hidden">
+          <div className="divide-y divide-[var(--border)] rounded-3xl border border-[var(--border)] bg-[var(--surface)] backdrop-blur-xl overflow-hidden">
             {latestNotes.slice(0, 5).map((note) => (
               <Link
                 href={`/notes/${note.slug}`}
                 key={note.slug}
-                className="block p-4 transition-colors hover:bg-[var(--surface-hover)]"
+                className="block p-5 transition-colors hover:bg-[var(--surface-hover)]"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <p className="font-semibold text-sm text-[var(--foreground)] line-clamp-1">
+                  <p className="font-bold text-sm text-[var(--foreground)] line-clamp-1">
                     {note.title}
                   </p>
                   <time
-                    className="shrink-0 text-xs font-medium text-[var(--muted)]"
+                    className="shrink-0 text-xs font-semibold text-[var(--muted)]"
                     dateTime={note.published}
                   >
                     {formatDate(note.published, {
@@ -185,9 +309,9 @@ export default function Home() {
                     })}
                   </time>
                 </div>
-                <div className="mt-1.5 flex items-center justify-between text-xs text-[var(--muted)]">
+                <div className="mt-2 flex items-center justify-between text-xs text-[var(--muted)]">
                   <span>{note.categoryLabel}</span>
-                  <span className="text-sky-400 font-medium">{note.readingTime}</span>
+                  <span className="text-sky-400 font-bold">{note.readingTime}</span>
                 </div>
               </Link>
             ))}
@@ -197,4 +321,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+
 
