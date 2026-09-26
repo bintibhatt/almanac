@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
-import PalettePicker from "@/components/PalettePicker";
 import SearchModal from "@/components/SearchModal";
 import { useHeaderCollapse } from "@/hooks/useHeaderCollapse";
 
@@ -96,7 +95,6 @@ export default function Navbar() {
               </kbd>
             </button>
 
-            <PalettePicker />
             <ThemeToggle />
 
             {/* Mobile menu button */}
