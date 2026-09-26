@@ -4,22 +4,22 @@
 
 :root {
   color-scheme: dark;
-  --background: #0e0d15;
-  --background-alt: #151420;
-  --foreground: #f5f3ff;
-  --muted: #9995b0;
-  --muted-light: #cdcae0;
-  --border: rgba(139, 92, 246, 0.14);
-  --border-strong: rgba(139, 92, 246, 0.35);
-  --surface: rgba(24, 22, 36, 0.7);
-  --surface-solid: #181624;
-  --surface-muted: rgba(35, 32, 52, 0.6);
-  --surface-hover: rgba(44, 38, 68, 0.8);
-  --code-bg: #09080e;
-  --accent: #8b5cf6;
-  --accent-secondary: #a78bfa;
-  --accent-muted: rgba(139, 92, 246, 0.15);
-  --focus: #8b5cf6;
+  --background: #09090b;
+  --background-alt: #121215;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --muted-light: #d4d4d8;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(167, 139, 250, 0.25);
+  --surface: rgba(24, 24, 27, 0.65);
+  --surface-solid: #18181b;
+  --surface-muted: rgba(39, 39, 42, 0.5);
+  --surface-hover: rgba(39, 39, 42, 0.85);
+  --code-bg: #09090b;
+  --accent: #a78bfa;
+  --accent-secondary: #c4b5fd;
+  --accent-muted: rgba(167, 139, 250, 0.12);
+  --focus: #a78bfa;
   --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8);
   --font-geist-sans: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-geist-mono: "Fira Code", monospace;

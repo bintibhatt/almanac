@@ -35,7 +35,7 @@ export default function TrialNotice() {
           }`}
         >
           <div
-            className={`relative w-full max-w-lg rounded-lg border border-[var(--border-strong)] bg-[#0e0d15] p-7 shadow-[0_0_60px_rgba(139,92,246,0.25)] backdrop-blur-2xl transition-all duration-700 ease-out ${
+            className={`relative w-full max-w-lg rounded-lg border border-[var(--border-strong)] bg-[#18181b] p-7 shadow-2xl backdrop-blur-2xl transition-all duration-700 ease-out ${
               phase === "flying"
                 ? "translate-x-[38vw] -translate-y-[42vh] scale-15 opacity-0"
                 : "translate-x-0 translate-y-0 scale-100 opacity-100"
@@ -109,7 +109,7 @@ export default function TrialNotice() {
           <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="absolute right-0 z-50 mt-2 w-80 rounded-md border border-[var(--border-strong)] bg-[#0e0d15] p-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-200"
+            className="absolute right-0 z-50 mt-2 w-80 rounded-md border border-[var(--border-strong)] bg-[#18181b] p-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-200"
           >
             <div className="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
               <div className="flex items-center gap-2">
