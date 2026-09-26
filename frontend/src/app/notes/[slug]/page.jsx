@@ -81,11 +81,11 @@ export default async function NotePage({ params }) {
             </div>
 
             {note.tags.length ? (
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {note.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md border border-[var(--border)] bg-[var(--surface-muted)] px-2.5 py-0.5 text-[11px] font-mono text-[var(--muted)]"
+                    className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-[11px] font-mono text-sky-400 font-semibold"
                   >
                     #{tag}
                   </span>
@@ -102,18 +102,18 @@ export default async function NotePage({ params }) {
           </div>
 
           <nav
-            className="mt-12 grid gap-3 border-t border-[var(--border)] pt-6 sm:grid-cols-2"
+            className="mt-12 grid gap-4 border-t border-[var(--border)] pt-8 sm:grid-cols-2"
             aria-label="Previous and next notes"
           >
             {previous ? (
               <Link
                 href={`/notes/${previous.slug}`}
-                className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)]"
+                className="group rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-5 transition-all duration-200 hover:border-sky-500/40 hover:bg-sky-500/5 shadow-md"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--muted)]">
-                  Previous
+                <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
+                  ← Previous Article
                 </span>
-                <p className="mt-1 text-xs font-semibold text-[var(--foreground)]">{previous.title}</p>
+                <p className="mt-1.5 text-xs font-bold text-[var(--foreground)] group-hover:text-sky-400 transition-colors">{previous.title}</p>
               </Link>
             ) : (
               <div />
@@ -122,12 +122,12 @@ export default async function NotePage({ params }) {
             {next ? (
               <Link
                 href={`/notes/${next.slug}`}
-                className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 text-left transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)] sm:text-right"
+                className="group rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-5 text-left transition-all duration-200 hover:border-purple-500/40 hover:bg-purple-500/5 shadow-md sm:text-right"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--muted)]">
-                  Next
+                <span className="text-[11px] font-mono uppercase tracking-wider text-purple-400 font-semibold">
+                  Next Article →
                 </span>
-                <p className="mt-1 text-xs font-semibold text-[var(--foreground)]">{next.title}</p>
+                <p className="mt-1.5 text-xs font-bold text-[var(--foreground)] group-hover:text-purple-400 transition-colors">{next.title}</p>
               </Link>
             ) : null}
           </nav>

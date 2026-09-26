@@ -56,9 +56,11 @@ export default function CoursesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-12">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 sm:p-12 backdrop-blur-2xl">
-        <div className="relative z-10 max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3.5 py-1 text-xs font-mono text-[var(--muted-light)]">
+      <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface)] via-[var(--surface-solid)] to-purple-500/10 p-8 sm:p-12 backdrop-blur-2xl shadow-xl shadow-black/10">
+        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
+        <div className="relative z-10 max-w-3xl space-y-3 pt-2">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono text-purple-400 font-semibold">
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
             <span>Learning Pathways</span>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-[var(--foreground)]">
@@ -81,19 +83,20 @@ export default function CoursesPage() {
           return (
             <div
               key={track.id}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)]"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/10"
             >
-              <div>
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
+              <div className="pt-2">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <CategoryBadge>{track.category.toUpperCase()}</CategoryBadge>
-                  <div className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px] font-mono text-[var(--muted)]">
+                  <div className="flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-[11px] font-mono text-sky-300 font-semibold">
                     <span>{track.duration}</span>
                     <span>•</span>
                     <span>{track.level}</span>
                   </div>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--accent)]">
+                <h2 className="mt-4 text-xl font-bold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-sky-400">
                   {track.title}
                 </h2>
                 <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
@@ -103,10 +106,10 @@ export default function CoursesPage() {
                 {/* Modules list */}
                 <div className="mt-6 border-t border-[var(--border)] pt-5">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-[11px] font-mono uppercase tracking-wider text-[var(--muted)]">
+                    <h3 className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
                       Included Modules
                     </h3>
-                    <span className="text-xs font-medium text-[var(--muted-light)]">
+                    <span className="text-xs font-mono text-indigo-400 font-semibold">
                       {trackNotes.length > 0 ? trackNotes.length : track.modules.length} Notes
                     </span>
                   </div>
@@ -114,14 +117,14 @@ export default function CoursesPage() {
                   <ul className="space-y-2">
                     {(trackNotes.length > 0 ? trackNotes : track.modules.map(m => ({ title: m, slug: null }))).map(
                       (item, idx) => (
-                        <li key={idx} className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-[var(--surface-solid)] p-3 text-xs">
+                        <li key={idx} className="flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface-solid)] p-3 px-4 text-xs backdrop-blur-md">
                           <span className="font-medium text-[var(--foreground)] truncate pr-2">
-                            <span className="text-[var(--muted)] font-mono mr-2">0{idx + 1}.</span> {item.title}
+                            <span className="text-sky-400 font-mono mr-2">0{idx + 1}.</span> {item.title}
                           </span>
                           {item.slug ? (
                             <Link
                               href={`/notes/${item.slug}`}
-                              className="shrink-0 font-medium text-[var(--foreground)] hover:text-[var(--accent)]"
+                              className="shrink-0 font-semibold text-sky-400 hover:text-indigo-400 transition-colors"
                             >
                               Study →
                             </Link>
@@ -139,17 +142,17 @@ export default function CoursesPage() {
                 {trackNotes.length > 0 ? (
                   <Link
                     href={`/notes/${trackNotes[0].slug}`}
-                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[var(--foreground)] text-xs font-semibold text-[var(--background)] shadow-sm transition-all hover:opacity-90"
+                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-xs font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-indigo-500/40 hover:scale-[1.01]"
                   >
                     <span>Start Learning Track</span>
-                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </Link>
                 ) : (
                   <Link
                     href="/notes"
-                    className="flex min-h-11 w-full items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--surface-hover)]"
+                    className="flex min-h-11 w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-muted)] text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--surface-hover)]"
                   >
                     Browse Track Notes
                   </Link>
@@ -161,21 +164,21 @@ export default function CoursesPage() {
       </div>
 
       {/* Category Overview Footer */}
-      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 backdrop-blur-xl">
+      <div className="rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-8 backdrop-blur-xl shadow-xl shadow-black/10">
         <h2 className="text-xl font-bold tracking-tight text-[var(--foreground)]">Browse by Category Topics</h2>
         <p className="mt-1 text-xs text-[var(--muted)]">
           Select a category to jump directly into filtered notes, quizzes, and practice drills.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-2.5">
+        <div className="mt-6 flex flex-wrap gap-3">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/notes?category=${cat.slug}`}
-              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-solid)] px-3.5 py-2 text-xs font-medium text-[var(--foreground)] transition-all hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)]"
+              className="inline-flex items-center gap-2.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2 text-xs font-semibold text-sky-300 transition-all hover:border-sky-500/60 hover:bg-sky-500/20 shadow-sm"
             >
               <span>{cat.label}</span>
-              <span className="rounded-full bg-[var(--surface-muted)] px-2 py-0.5 text-[10px] font-mono text-[var(--muted)]">
+              <span className="rounded-full bg-[var(--surface-solid)] border border-sky-500/30 px-2 py-0.5 text-[10px] font-mono text-sky-400">
                 {cat.count}
               </span>
             </Link>
