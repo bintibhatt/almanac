@@ -1,12 +1,13 @@
 export default function CategoryBadge({ children, className = "" }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-0.5 text-[11px] font-medium text-zinc-300 border border-white/10 ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-md bg-sky-500/10 px-2.5 py-0.5 text-[11px] font-medium text-sky-300 border border-sky-500/20 ${className}`}
     >
       {children}
     </span>
   );
 }
+
 
 
 

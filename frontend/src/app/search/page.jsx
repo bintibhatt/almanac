@@ -17,15 +17,15 @@ export default async function SearchPage({ searchParams }) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-10">
       {/* Unboxed Search Header */}
-      <section className="space-y-4 border-b border-white/10 pb-8">
+      <section className="space-y-4 border-b border-slate-800/80 pb-8">
         <div className="max-w-2xl space-y-3">
-          <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+          <span className="text-xs font-mono uppercase tracking-widest text-sky-400">
             Knowledge Search
           </span>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
             Search Engineering Library
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
             Search titles, descriptions, categories, tags, and note content across all domain guides.
           </p>
           <div className="pt-2">
@@ -40,7 +40,7 @@ export default async function SearchPage({ searchParams }) {
             <h2 className="text-2xl font-extrabold tracking-tight text-white">
               {results.length ? "Search Results" : "No Results Found"}
             </h2>
-            <p className="text-xs font-mono text-zinc-400">
+            <p className="text-xs font-mono text-sky-400">
               {results.length
                 ? `${results.length} result${results.length === 1 ? "" : "s"} found for "${query}"`
                 : `No exact matches for "${query}"`}
@@ -54,15 +54,15 @@ export default async function SearchPage({ searchParams }) {
               ))}
             </div>
           ) : (
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-8 text-center space-y-3">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-base">
-                <svg className="h-6 w-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="rounded-md border border-slate-800 bg-slate-900/50 p-8 text-center space-y-3">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md border border-sky-500/20 bg-sky-500/10 text-base">
+                <svg className="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <h3 className="text-sm font-bold text-white">No matching engineering notes</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed max-w-md mx-auto">
-                Try searching for keywords like <span className="text-white font-medium">system design</span>, <span className="text-white font-medium">caching</span>, <span className="text-white font-medium">docker</span>, or <span className="text-white font-medium">rag</span>.
+              <p className="text-xs text-slate-400 leading-relaxed max-w-md mx-auto">
+                Try searching for keywords like <span className="text-sky-400 font-medium">system design</span>, <span className="text-sky-400 font-medium">caching</span>, <span className="text-sky-400 font-medium">docker</span>, or <span className="text-sky-400 font-medium">rag</span>.
               </p>
             </div>
           )}
@@ -73,7 +73,7 @@ export default async function SearchPage({ searchParams }) {
             <h2 className="text-2xl font-extrabold tracking-tight text-white">Recommended Recent Reads</h2>
             <Link
               href="/notes"
-              className="text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
+              className="text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
             >
               Explore all notes →
             </Link>
