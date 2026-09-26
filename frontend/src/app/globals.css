@@ -4,25 +4,21 @@
 
 :root {
   color-scheme: dark;
-  --background: #080b11;
-  --background-alt: #0d121d;
-  --foreground: #f1f5f9;
+  --background: #090a0f;
+  --background-alt: #0e0f14;
+  --foreground: #f8fafc;
   --muted: #94a3b8;
   --muted-light: #cbd5e1;
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --surface: rgba(15, 23, 42, 0.7);
-  --surface-solid: #0f172a;
-  --surface-muted: rgba(30, 41, 59, 0.65);
-  --surface-hover: rgba(30, 41, 59, 0.9);
-  --code-bg: #040813;
-  --accent: #38bdf8;
-  --accent-secondary: #818cf8;
-  --accent-muted: rgba(56, 189, 248, 0.12);
-  --focus: #38bdf8;
-  --glow-cyan: rgba(56, 189, 248, 0.12);
-  --glow-indigo: rgba(99, 102, 241, 0.12);
-  --glow-purple: rgba(168, 85, 247, 0.1);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --surface: rgba(255, 255, 255, 0.02);
+  --surface-solid: #0d0e14;
+  --surface-muted: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --code-bg: #050609;
+  --accent: #ffffff;
+  --accent-secondary: #cbd5e1;
+  --focus: #ffffff;
   --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
   --font-geist-sans: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-geist-mono: "Fira Code", monospace;
@@ -37,35 +33,26 @@
 
 html.light {
   color-scheme: light;
-  --background: #f8fafc;
-  --background-alt: #f1f5f9;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --muted-light: #334155;
-  --border: rgba(0, 0, 0, 0.09);
-  --border-strong: rgba(0, 0, 0, 0.18);
-  --surface: rgba(255, 255, 255, 0.85);
+  --background: #fafafa;
+  --background-alt: #f4f4f5;
+  --foreground: #09090b;
+  --muted: #71717a;
+  --muted-light: #3f3f46;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --surface: rgba(0, 0, 0, 0.02);
   --surface-solid: #ffffff;
-  --surface-muted: rgba(241, 245, 249, 0.9);
-  --surface-hover: rgba(226, 232, 240, 0.85);
-  --code-bg: #f1f5f9;
-  --accent: #0284c7;
-  --accent-secondary: #4f46e5;
-  --accent-muted: rgba(2, 132, 199, 0.1);
-  --focus: #0284c7;
-  --glow-cyan: rgba(2, 132, 199, 0.08);
-  --glow-indigo: rgba(79, 70, 229, 0.08);
-  --glow-purple: rgba(126, 34, 206, 0.06);
-  --card-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.06);
+  --surface-muted: rgba(0, 0, 0, 0.04);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+  --code-bg: #f4f4f5;
+  --accent: #09090b;
+  --accent-secondary: #3f3f46;
+  --focus: #09090b;
+  --card-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.05);
 }
 
 body {
   background-color: var(--background);
-  background-image: 
-    radial-gradient(at 100% 0%, var(--glow-cyan) 0px, transparent 55%),
-    radial-gradient(at 0% 50%, var(--glow-indigo) 0px, transparent 55%),
-    radial-gradient(at 50% 100%, var(--glow-purple) 0px, transparent 55%);
-  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, sans-serif;
   min-width: 320px;
@@ -74,57 +61,43 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism & Soft Curved Utilities */
+/* Glassmorphism & Minimal Utilities */
 .glass-panel {
   background: var(--surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  box-shadow: var(--card-shadow);
 }
 
 .glass-card {
   background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
   border-color: var(--border-strong);
-  transform: translateY(-3px);
-  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.4);
+  background: var(--surface-hover);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 html.light .gradient-text {
-  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #7e22ce 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.accent-gradient-text {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-html.light .accent-gradient-text {
-  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  background: linear-gradient(180deg, #09090b 0%, #52525b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -132,17 +105,16 @@ html.light .accent-gradient-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-muted);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  border: 2px solid var(--background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 ::-selection {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--foreground);
 }
 
@@ -168,6 +140,7 @@ button, a, input {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 
 
 

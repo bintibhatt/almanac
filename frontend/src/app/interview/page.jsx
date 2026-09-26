@@ -78,30 +78,25 @@ export default function InterviewPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-12">
-      {/* Header */}
-      <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface)] via-[var(--surface-solid)] to-indigo-500/10 p-8 sm:p-12 backdrop-blur-2xl shadow-xl shadow-black/10">
-        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
-        <div className="relative z-10 max-w-3xl space-y-3 pt-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono text-purple-400 font-semibold">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
-            <span>Technical Interview Simulator</span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-[var(--foreground)]">
-            System Design & <br />
-            <span className="gradient-text font-normal">Tech Interview Prep</span>
-          </h1>
-          <p className="text-xs sm:text-base text-[var(--muted)] leading-relaxed">
-            Practice production-grade interview questions crafted for Staff & Senior Engineering roles. Test your architectural reasoning, write mock answers, and evaluate AI-generated model answers and follow-ups.
-          </p>
-        </div>
+      {/* Unboxed Minimal Header */}
+      <div className="space-y-2 border-b border-white/10 pb-8">
+        <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+          Interview Simulator
+        </span>
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
+          System Design & <br />
+          <span className="gradient-text font-normal">Tech Interview Prep</span>
+        </h1>
+        <p className="text-xs sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
+          Practice production-grade interview questions crafted for Staff & Senior Engineering roles. Test your architectural reasoning, write mock answers, and evaluate AI-generated model answers.
+        </p>
       </div>
 
       {/* Main Grid: Topic Selector + Practice Simulator */}
       <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
         {/* Left Column: Topic Selector */}
         <div className="space-y-3">
-          <h2 className="text-[11px] font-mono uppercase tracking-wider text-purple-400 font-semibold flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
+          <h2 className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-semibold">
             Select Drill Topic
           </h2>
 
@@ -112,18 +107,18 @@ export default function InterviewPage() {
                 <button
                   key={topic.slug}
                   onClick={() => handleStartSession(topic)}
-                  className={`w-full text-left rounded-2xl border p-4.5 backdrop-blur-xl transition-all duration-300 ${
+                  className={`w-full text-left rounded-xl border p-4.5 transition-all duration-200 ${
                     isSelected
-                      ? "border-purple-500/50 bg-gradient-to-r from-purple-500/15 via-indigo-500/10 to-sky-500/5 shadow-lg shadow-purple-500/10"
-                      : "border-[var(--border)] bg-[var(--surface)] hover:border-purple-500/30 hover:bg-[var(--surface-muted)]"
+                      ? "border-white/30 bg-white/10 text-white"
+                      : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <CategoryBadge>{topic.category}</CategoryBadge>
-                    <span className="text-[11px] font-mono text-purple-300 font-semibold">{topic.difficulty}</span>
+                    <span className="text-[11px] font-mono text-zinc-400 font-medium">{topic.difficulty}</span>
                   </div>
-                  <h3 className="mt-2.5 text-xs font-bold text-[var(--foreground)] leading-snug">{topic.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-[11px] text-[var(--muted)]">{topic.description}</p>
+                  <h3 className="mt-2.5 text-xs font-bold text-white leading-snug">{topic.title}</h3>
+                  <p className="mt-1 line-clamp-2 text-[11px] text-zinc-400">{topic.description}</p>
                 </button>
               );
             })}
@@ -131,20 +126,19 @@ export default function InterviewPage() {
         </div>
 
         {/* Right Column: Practice Arena */}
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-6 sm:p-8 backdrop-blur-2xl shadow-xl shadow-black/10">
-          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] pb-6 pt-2">
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-medium">
                 Active Scenario
               </span>
-              <h2 className="mt-1 text-xl sm:text-2xl font-bold text-[var(--foreground)]">{selectedTopic.title}</h2>
+              <h2 className="mt-1 text-xl sm:text-2xl font-bold text-white">{selectedTopic.title}</h2>
             </div>
 
             <button
               onClick={() => handleStartSession(selectedTopic)}
               disabled={loading}
-              className="inline-flex min-h-10 items-center gap-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 px-6 text-xs font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-indigo-500/40 hover:scale-[1.02] disabled:opacity-40"
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-white px-5 text-xs font-semibold text-zinc-950 transition hover:bg-zinc-200 disabled:opacity-40"
             >
               {loading ? "Generating Drills..." : "Generate New Questions"}
             </button>
@@ -153,16 +147,16 @@ export default function InterviewPage() {
           {/* Loading State */}
           {loading && (
             <div className="py-20 text-center space-y-3">
-              <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-purple-400 border-t-transparent" />
-              <p className="text-xs font-medium text-[var(--muted)]">
-                AI is compiling Senior & Staff interview questions...
+              <div className="mx-auto h-7 w-7 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              <p className="text-xs font-medium text-zinc-400">
+                Compiling Senior & Staff interview questions...
               </p>
             </div>
           )}
 
           {/* Error State */}
           {error && (
-            <div className="my-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs font-medium text-rose-300">
+            <div className="my-6 rounded-lg border border-rose-500/30 bg-rose-500/10 p-4 text-xs font-medium text-rose-300">
               {error}. Displaying fallback questions below.
             </div>
           )}
@@ -173,21 +167,21 @@ export default function InterviewPage() {
               {questions.map((q, idx) => (
                 <div
                   key={q.id || idx}
-                  className="rounded-2xl border border-[var(--border-strong)] bg-[var(--surface-solid)] p-6 backdrop-blur-md space-y-4 shadow-sm"
+                  className="rounded-xl border border-white/10 bg-white/[0.02] p-6 space-y-4"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-mono text-[var(--muted)]">
-                      Question {idx + 1} of {questions.length} • <span className="text-purple-400 font-semibold">{q.level || "Senior"} Level</span>
+                    <span className="text-[11px] font-mono text-zinc-400">
+                      Question {idx + 1} of {questions.length} • <span className="text-white font-medium">{q.level || "Senior"} Level</span>
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-[var(--foreground)] leading-snug">
+                  <h3 className="text-base font-bold text-white leading-snug">
                     {q.question}
                   </h3>
 
                   {/* Candidate Answer Box */}
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-medium text-[var(--muted)]">
+                    <label className="block text-xs font-medium text-zinc-400">
                       Your Architectural Solution Outline:
                     </label>
                     <textarea
@@ -197,7 +191,7 @@ export default function InterviewPage() {
                       onChange={(e) =>
                         setUserAnswers((prev) => ({ ...prev, [q.id || idx]: e.target.value }))
                       }
-                      className="w-full rounded-2xl border border-[var(--border-strong)] bg-[var(--surface-muted)] p-4 text-xs text-[var(--foreground)] outline-none transition focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/20"
+                      className="w-full rounded-lg border border-white/10 bg-black/40 p-3.5 text-xs text-zinc-200 outline-none transition focus:border-white/30 focus:ring-1 focus:ring-white/20"
                     />
                   </div>
 
@@ -205,7 +199,7 @@ export default function InterviewPage() {
                   <div className="flex items-center justify-between pt-2">
                     <button
                       onClick={() => toggleReveal(q.id || idx)}
-                      className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-xs font-semibold text-purple-300 transition hover:bg-purple-500/20"
+                      className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-white/10"
                     >
                       <span>{revealedAnswers[q.id || idx] ? "Hide Model Solution" : "Reveal Model Solution"}</span>
                       <svg
@@ -221,16 +215,16 @@ export default function InterviewPage() {
 
                   {/* Model Answer Body */}
                   {revealedAnswers[q.id || idx] && (
-                    <div className="mt-4 space-y-3 rounded-2xl border border-purple-500/20 bg-[var(--surface-muted)] p-5 text-xs leading-relaxed">
+                    <div className="mt-4 space-y-3 rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-relaxed">
                       <div>
-                        <h4 className="font-bold text-purple-400">Model Architectural Solution:</h4>
-                        <p className="mt-1.5 text-[var(--muted)] leading-relaxed">{q.model_answer}</p>
+                        <h4 className="font-bold text-white">Model Architectural Solution:</h4>
+                        <p className="mt-1.5 text-zinc-300 leading-relaxed">{q.model_answer}</p>
                       </div>
 
                       {q.follow_up_prompt && (
-                        <div className="border-t border-[var(--border)] pt-3">
-                          <h4 className="font-bold text-sky-400">Interviewer Follow-Up Probe:</h4>
-                          <p className="mt-1 text-[var(--muted)]">{q.follow_up_prompt}</p>
+                        <div className="border-t border-white/10 pt-3">
+                          <h4 className="font-bold text-white">Interviewer Follow-Up Probe:</h4>
+                          <p className="mt-1 text-zinc-300">{q.follow_up_prompt}</p>
                         </div>
                       )}
                     </div>
@@ -241,20 +235,20 @@ export default function InterviewPage() {
           ) : !loading ? (
             /* Prompt to generate questions */
             <div className="py-16 text-center space-y-4">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-purple-500/30 bg-purple-500/10 text-xl">
-                <svg className="h-7 w-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-xl">
+                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-[var(--foreground)]">
+              <h3 className="text-base font-bold text-white">
                 Ready to practice {selectedTopic.title}?
               </h3>
-              <p className="max-w-md mx-auto text-xs text-[var(--muted)] leading-relaxed">
+              <p className="max-w-md mx-auto text-xs text-zinc-400 leading-relaxed">
                 Click below to generate adaptive system design questions, architecture scenarios, and model answers.
               </p>
               <button
                 onClick={() => handleStartSession(selectedTopic)}
-                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 px-7 text-xs font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:opacity-90 hover:scale-[1.02]"
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-white px-6 text-xs font-semibold text-zinc-950 transition hover:bg-zinc-200"
               >
                 Start Interview Drill
               </button>
@@ -265,5 +259,6 @@ export default function InterviewPage() {
     </div>
   );
 }
+
 
 
