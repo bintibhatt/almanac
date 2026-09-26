@@ -23,19 +23,19 @@ export default async function NotesPage({ searchParams }) {
       <Sidebar categories={categories} activeCategory={activeCategory} />
 
       <section className="space-y-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 backdrop-blur-2xl">
-          <div className="space-y-3 max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-bold text-sky-400">
-              <span>📚 Almanac Library</span>
+        <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 sm:p-8 backdrop-blur-2xl">
+          <div className="space-y-2 max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-0.5 text-xs font-mono text-[var(--muted-light)]">
+              <span>Almanac Library</span>
             </span>
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--foreground)]">
-              Engineering Notes <br />
-              <span className="gradient-text">
-                {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Technical Guides"}
+              Engineering Notes{" "}
+              <span className="gradient-text font-normal">
+                {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Guides"}
               </span>
             </h1>
-            <p className="text-sm text-[var(--muted)] leading-relaxed">
-              Explore deep technical guides, system design breakdowns, and production architectures.
+            <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              Explore technical guides, system design breakdowns, and production architectures.
             </p>
           </div>
         </div>
@@ -49,4 +49,5 @@ export default async function NotesPage({ searchParams }) {
     </div>
   );
 }
+
 

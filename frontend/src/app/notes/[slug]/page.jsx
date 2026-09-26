@@ -58,42 +58,42 @@ export default async function NotePage({ params }) {
         <article className="mx-auto w-full max-w-[730px]">
           <Link
             href="/notes"
-            className="inline-flex min-h-11 items-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 text-sm font-medium text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+            className="inline-flex min-h-9 items-center rounded-full border border-[var(--border)] bg-[var(--surface-solid)] px-3.5 text-xs font-medium text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
           >
-            Back to notes
+            ← Back to notes
           </Link>
 
           <header className="mt-7 border-b border-[var(--border)] pb-7 sm:mt-9 sm:pb-9">
             <CategoryBadge>{note.categoryLabel}</CategoryBadge>
-            <h1 className="mt-5 text-[2.35rem] font-semibold leading-[1.05] tracking-tight text-[var(--foreground)] sm:text-5xl">
+            <h1 className="mt-4 text-3xl font-extrabold leading-[1.15] tracking-tight text-[var(--foreground)] sm:text-4xl lg:text-5xl">
               {note.title}
             </h1>
-            <p className="mt-5 text-lg leading-8 text-[var(--muted)] sm:text-xl sm:leading-9">
+            <p className="mt-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
               {note.description}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-[var(--muted)]">
+            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-[var(--muted)]">
               <time dateTime={note.published}>{formatDate(note.published)}</time>
-              <span aria-hidden="true">/</span>
+              <span aria-hidden="true" className="opacity-40">•</span>
               <span>{note.readingTime}</span>
-              <span aria-hidden="true">/</span>
-              <span>{note.difficulty}</span>
+              <span aria-hidden="true" className="opacity-40">•</span>
+              <span className="capitalize">{note.difficulty} Level</span>
             </div>
 
             {note.tags.length ? (
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {note.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5 text-xs text-[var(--muted)]"
+                    className="rounded-md border border-[var(--border)] bg-[var(--surface-muted)] px-2.5 py-0.5 text-[11px] font-mono text-[var(--muted)]"
                   >
-                    {tag}
+                    #{tag}
                   </span>
                 ))}
               </div>
             ) : null}
 
-            {/* Interactive Learning Suite: AI Quiz, Flashcards, Interview Prep, Ask AI */}
+            {/* Interactive Learning Suite */}
             <InteractiveActions note={note} />
           </header>
 
@@ -110,10 +110,10 @@ export default async function NotePage({ params }) {
                 href={`/notes/${previous.slug}`}
                 className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)]"
               >
-                <span className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--muted)]">
                   Previous
                 </span>
-                <p className="mt-2 font-medium">{previous.title}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--foreground)]">{previous.title}</p>
               </Link>
             ) : (
               <div />
@@ -124,10 +124,10 @@ export default async function NotePage({ params }) {
                 href={`/notes/${next.slug}`}
                 className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 text-left transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)] sm:text-right"
               >
-                <span className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--muted)]">
                   Next
                 </span>
-                <p className="mt-2 font-medium">{next.title}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--foreground)]">{next.title}</p>
               </Link>
             ) : null}
           </nav>
@@ -138,3 +138,4 @@ export default async function NotePage({ params }) {
     </>
   );
 }
+
