@@ -2,8 +2,7 @@
 @import "tailwindcss";
 @import "../styles/markdown.css";
 
-:root,
-html[data-palette="violet"] {
+:root {
   color-scheme: dark;
   --background: #0e0d15;
   --background-alt: #151420;
@@ -24,82 +23,6 @@ html[data-palette="violet"] {
   --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8);
   --font-geist-sans: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-geist-mono: "Fira Code", monospace;
-}
-
-html[data-palette="amber"] {
-  --background: #0f0e0c;
-  --background-alt: #171512;
-  --foreground: #fef7ee;
-  --muted: #a1998e;
-  --muted-light: #d4ceb8;
-  --border: rgba(245, 158, 11, 0.12);
-  --border-strong: rgba(245, 158, 11, 0.35);
-  --surface: rgba(28, 25, 20, 0.7);
-  --surface-solid: #1c1914;
-  --surface-muted: rgba(40, 36, 30, 0.6);
-  --surface-hover: rgba(50, 42, 32, 0.8);
-  --code-bg: #0b0907;
-  --accent: #f59e0b;
-  --accent-secondary: #fbbf24;
-  --accent-muted: rgba(245, 158, 11, 0.15);
-  --focus: #f59e0b;
-}
-
-html[data-palette="sage"] {
-  --background: #0b0f0d;
-  --background-alt: #121815;
-  --foreground: #ecfdf5;
-  --muted: #8e9b94;
-  --muted-light: #c2d1c9;
-  --border: rgba(16, 185, 129, 0.12);
-  --border-strong: rgba(16, 185, 129, 0.35);
-  --surface: rgba(20, 28, 24, 0.7);
-  --surface-solid: #141c18;
-  --surface-muted: rgba(28, 40, 34, 0.6);
-  --surface-hover: rgba(32, 48, 40, 0.8);
-  --code-bg: #070a08;
-  --accent: #10b981;
-  --accent-secondary: #34d399;
-  --accent-muted: rgba(16, 185, 129, 0.15);
-  --focus: #10b981;
-}
-
-html[data-palette="violet"] {
-  --background: #0e0d15;
-  --background-alt: #151420;
-  --foreground: #f5f3ff;
-  --muted: #9995b0;
-  --muted-light: #cdcae0;
-  --border: rgba(139, 92, 246, 0.14);
-  --border-strong: rgba(139, 92, 246, 0.35);
-  --surface: rgba(24, 22, 36, 0.7);
-  --surface-solid: #181624;
-  --surface-muted: rgba(35, 32, 52, 0.6);
-  --surface-hover: rgba(44, 38, 68, 0.8);
-  --code-bg: #09080e;
-  --accent: #8b5cf6;
-  --accent-secondary: #a78bfa;
-  --accent-muted: rgba(139, 92, 246, 0.15);
-  --focus: #8b5cf6;
-}
-
-html[data-palette="obsidian"] {
-  --background: #09090b;
-  --background-alt: #121215;
-  --foreground: #fafafa;
-  --muted: #a1a1aa;
-  --muted-light: #d4d4d8;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --surface: rgba(24, 24, 27, 0.65);
-  --surface-solid: #18181b;
-  --surface-muted: rgba(39, 39, 42, 0.5);
-  --surface-hover: rgba(39, 39, 42, 0.8);
-  --code-bg: #0c0c0e;
-  --accent: #ffffff;
-  --accent-secondary: #e4e4e7;
-  --accent-muted: rgba(255, 255, 255, 0.1);
-  --focus: #ffffff;
 }
 
 @theme inline {
