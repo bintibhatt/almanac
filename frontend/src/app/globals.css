@@ -4,23 +4,23 @@
 
 :root {
   color-scheme: dark;
-  --background: #090d16;
-  --background-alt: #0d1220;
-  --foreground: #f8fafc;
-  --muted: #94a3b8;
-  --muted-light: #cbd5e1;
+  --background: #09090b;
+  --background-alt: #121215;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --muted-light: #d4d4d8;
   --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(56, 189, 248, 0.25);
-  --surface: rgba(15, 23, 42, 0.6);
-  --surface-solid: #0e1424;
-  --surface-muted: rgba(30, 41, 59, 0.5);
-  --surface-hover: rgba(30, 45, 70, 0.8);
-  --code-bg: #060913;
-  --accent: #38bdf8;
-  --accent-secondary: #6366f1;
-  --accent-muted: rgba(56, 189, 248, 0.1);
-  --focus: #38bdf8;
-  --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --surface: rgba(24, 24, 27, 0.65);
+  --surface-solid: #18181b;
+  --surface-muted: rgba(39, 39, 42, 0.5);
+  --surface-hover: rgba(39, 39, 42, 0.8);
+  --code-bg: #0c0c0e;
+  --accent: #ffffff;
+  --accent-secondary: #e4e4e7;
+  --accent-muted: rgba(255, 255, 255, 0.08);
+  --focus: #ffffff;
+  --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8);
   --font-geist-sans: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-geist-mono: "Fira Code", monospace;
 }
@@ -82,17 +82,17 @@ body {
 .glass-card:hover {
   border-color: var(--border-strong);
   background: var(--surface-hover);
-  box-shadow: 0 8px 24px -8px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 html.light .gradient-text {
-  background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #0284c7 100%);
+  background: linear-gradient(180deg, #09090b 0%, #52525b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -108,16 +108,16 @@ html.light .gradient-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(56, 189, 248, 0.4);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 ::-selection {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--foreground);
 }
 
