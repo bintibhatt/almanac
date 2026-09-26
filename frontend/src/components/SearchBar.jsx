@@ -24,9 +24,9 @@ export default function SearchBar({ compact = false, defaultValue = "" }) {
           type="search"
           placeholder="Search topics, system design, architecture..."
           defaultValue={defaultValue}
-          className="min-h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--surface-solid)] pl-11 pr-12 text-xs sm:text-sm text-[var(--foreground)] outline-none backdrop-blur-md transition-all placeholder:text-[var(--muted)] focus:border-[var(--border-strong)] focus:bg-[var(--surface-hover)] focus:ring-2 focus:ring-[var(--focus)]"
+          className="min-h-11 w-full rounded-md border border-slate-800 bg-slate-900/70 pl-11 pr-12 text-xs sm:text-sm text-slate-100 outline-none backdrop-blur-md transition-all placeholder:text-slate-500 focus:border-sky-500/50 focus:bg-slate-900/90 focus:ring-1 focus:ring-sky-500/30"
         />
-        <kbd className="absolute right-4 hidden rounded-md border border-[var(--border)] bg-[var(--surface-muted)] px-2 py-0.5 text-[10px] font-mono text-[var(--muted)] sm:inline-block">
+        <kbd className="absolute right-4 hidden rounded border border-slate-700/60 bg-slate-800 px-2 py-0.5 text-[10px] font-mono text-slate-400 sm:inline-block">
           /
         </kbd>
       </div>

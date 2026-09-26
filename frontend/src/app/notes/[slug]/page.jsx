@@ -85,7 +85,7 @@ export default async function NotePage({ params }) {
                 {note.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded border border-white/10 bg-white/5 px-2.5 py-0.5 text-[11px] font-mono text-slate-300"
+                    className="rounded border border-sky-500/20 bg-sky-500/10 px-2.5 py-0.5 text-[11px] font-mono text-sky-300"
                   >
                     #{tag}
                   </span>
@@ -102,18 +102,18 @@ export default async function NotePage({ params }) {
           </div>
 
           <nav
-            className="mt-12 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2"
+            className="mt-12 grid gap-4 border-t border-slate-800/80 pt-8 sm:grid-cols-2"
             aria-label="Previous and next notes"
           >
             {previous ? (
               <Link
                 href={`/notes/${previous.slug}`}
-                className="group rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-all duration-150 hover:bg-white/[0.04] hover:border-white/20"
+                className="group rounded-md border border-slate-800 bg-slate-900/50 p-4 transition-all duration-150 hover:bg-slate-900/80 hover:border-sky-500/30"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-medium">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
                   ← Previous Article
                 </span>
-                <p className="mt-1 text-xs font-semibold text-white group-hover:text-white/90 transition-colors">{previous.title}</p>
+                <p className="mt-1 text-xs font-semibold text-white group-hover:text-sky-400 transition-colors">{previous.title}</p>
               </Link>
             ) : (
               <div />
@@ -122,12 +122,12 @@ export default async function NotePage({ params }) {
             {next ? (
               <Link
                 href={`/notes/${next.slug}`}
-                className="group rounded-xl border border-white/10 bg-white/[0.02] p-4 text-left transition-all duration-150 hover:bg-white/[0.04] hover:border-white/20 sm:text-right"
+                className="group rounded-md border border-slate-800 bg-slate-900/50 p-4 text-left transition-all duration-150 hover:bg-slate-900/80 hover:border-sky-500/30 sm:text-right"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-medium">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
                   Next Article →
                 </span>
-                <p className="mt-1 text-xs font-semibold text-white group-hover:text-white/90 transition-colors">{next.title}</p>
+                <p className="mt-1 text-xs font-semibold text-white group-hover:text-sky-400 transition-colors">{next.title}</p>
               </Link>
             ) : null}
           </nav>

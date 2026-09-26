@@ -4,22 +4,23 @@
 
 :root {
   color-scheme: dark;
-  --background: #090a0f;
-  --background-alt: #0e0f14;
+  --background: #090d16;
+  --background-alt: #0d1220;
   --foreground: #f8fafc;
   --muted: #94a3b8;
   --muted-light: #cbd5e1;
   --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --surface: rgba(255, 255, 255, 0.02);
-  --surface-solid: #0d0e14;
-  --surface-muted: rgba(255, 255, 255, 0.04);
-  --surface-hover: rgba(255, 255, 255, 0.06);
-  --code-bg: #050609;
-  --accent: #ffffff;
-  --accent-secondary: #cbd5e1;
-  --focus: #ffffff;
-  --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  --border-strong: rgba(56, 189, 248, 0.25);
+  --surface: rgba(15, 23, 42, 0.6);
+  --surface-solid: #0e1424;
+  --surface-muted: rgba(30, 41, 59, 0.5);
+  --surface-hover: rgba(30, 45, 70, 0.8);
+  --code-bg: #060913;
+  --accent: #38bdf8;
+  --accent-secondary: #6366f1;
+  --accent-muted: rgba(56, 189, 248, 0.1);
+  --focus: #38bdf8;
+  --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
   --font-geist-sans: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-geist-mono: "Fira Code", monospace;
 }
@@ -39,15 +40,16 @@ html.light {
   --muted: #71717a;
   --muted-light: #3f3f46;
   --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.15);
-  --surface: rgba(0, 0, 0, 0.02);
+  --border-strong: rgba(2, 132, 199, 0.25);
+  --surface: rgba(255, 255, 255, 0.8);
   --surface-solid: #ffffff;
-  --surface-muted: rgba(0, 0, 0, 0.04);
-  --surface-hover: rgba(0, 0, 0, 0.06);
+  --surface-muted: rgba(244, 244, 245, 0.8);
+  --surface-hover: rgba(238, 242, 255, 0.8);
   --code-bg: #f4f4f5;
-  --accent: #09090b;
-  --accent-secondary: #3f3f46;
-  --focus: #09090b;
+  --accent: #0284c7;
+  --accent-secondary: #4f46e5;
+  --accent-muted: rgba(2, 132, 199, 0.08);
+  --focus: #0284c7;
   --card-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.05);
 }
 
@@ -80,16 +82,17 @@ body {
 .glass-card:hover {
   border-color: var(--border-strong);
   background: var(--surface-hover);
+  box-shadow: 0 8px 24px -8px rgba(56, 189, 248, 0.12);
 }
 
 .gradient-text {
-  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 html.light .gradient-text {
-  background: linear-gradient(180deg, #09090b 0%, #52525b 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -105,16 +108,16 @@ html.light .gradient-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(56, 189, 248, 0.2);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(56, 189, 248, 0.4);
 }
 
 ::-selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(56, 189, 248, 0.25);
   color: var(--foreground);
 }
 
@@ -140,6 +143,7 @@ button, a, input {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 
 
 
