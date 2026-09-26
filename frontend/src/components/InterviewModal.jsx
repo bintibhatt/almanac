@@ -37,23 +37,19 @@ export default function InterviewModal({ isOpen, onClose, note }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md transition-all">
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-purple-500/30 bg-[var(--surface-solid)] p-6 shadow-2xl shadow-purple-500/10 sm:p-8">
-        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 rounded-t-3xl" />
-        <div className="flex items-center justify-between border-b border-[var(--border)] pb-4 pt-1">
+      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-slate-950 p-6 shadow-2xl sm:p-8">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-              <span className="text-[11px] font-mono uppercase tracking-wider text-purple-400">
-                Technical Interview Prep
-              </span>
-            </div>
-            <h2 className="text-lg font-bold text-[var(--foreground)] sm:text-xl line-clamp-1">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+              Technical Interview Prep
+            </span>
+            <h2 className="text-lg font-bold text-white sm:text-xl line-clamp-1">
               {note?.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-muted)] text-xs text-[var(--muted)] transition hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs text-slate-400 transition hover:bg-white/10 hover:text-white"
             aria-label="Close Modal"
           >
             ✕
@@ -61,8 +57,8 @@ export default function InterviewModal({ isOpen, onClose, note }) {
         </div>
 
         {loading ? (
-          <div className="py-20 text-center text-[var(--muted)] space-y-3">
-            <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-purple-400 border-t-transparent" />
+          <div className="py-20 text-center text-slate-400 space-y-3">
+            <div className="mx-auto h-7 w-7 animate-spin rounded-full border-2 border-white border-t-transparent" />
             <p className="text-xs font-medium">Generating interview questions...</p>
           </div>
         ) : (
@@ -70,26 +66,26 @@ export default function InterviewModal({ isOpen, onClose, note }) {
             {questions.map((q, idx) => (
               <div
                 key={q.id || idx}
-                className="rounded-2xl border border-purple-500/20 bg-[var(--surface-muted)] p-5 backdrop-blur-md transition-all hover:border-purple-500/40"
+                className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-0.5 text-[10px] font-mono text-purple-300 font-semibold">
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5 text-[10px] font-mono text-slate-300">
                     {q.level || "Senior"} Level
                   </span>
-                  <span className="text-[11px] font-mono text-[var(--muted)]">Question {idx + 1} of {questions.length}</span>
+                  <span className="text-[11px] font-mono text-slate-400">Question {idx + 1} of {questions.length}</span>
                 </div>
 
-                <h3 className="mt-2.5 text-sm font-bold text-[var(--foreground)] leading-snug">
+                <h3 className="mt-2.5 text-sm font-bold text-slate-100 leading-snug">
                   {q.question}
                 </h3>
 
                 <button
                   onClick={() => toggleReveal(idx)}
-                  className="mt-4 flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-xs font-semibold text-purple-300 transition hover:bg-purple-500/20"
+                  className="mt-4 flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-slate-200 transition hover:bg-white/10"
                 >
                   <span>{revealed[idx] ? "Hide Model Solution" : "Reveal Model Solution"}</span>
                   <svg
-                    className={`h-3.5 w-3.5 transition-transform ${revealed[idx] ? "rotate-180" : ""}`}
+                    className={`h-3.5 w-3.5 text-slate-400 transition-transform ${revealed[idx] ? "rotate-180" : ""}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -99,14 +95,14 @@ export default function InterviewModal({ isOpen, onClose, note }) {
                 </button>
 
                 {revealed[idx] && (
-                  <div className="mt-3 space-y-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-solid)] p-4 text-xs leading-relaxed text-[var(--muted)]">
+                  <div className="mt-3 space-y-3 rounded-lg border border-white/10 bg-black/30 p-4 text-xs leading-relaxed text-slate-300">
                     <div>
-                      <span className="font-semibold text-purple-400">Expected Architecture & Answer: </span>
+                      <span className="font-semibold text-white">Expected Architecture & Answer: </span>
                       {q.model_answer}
                     </div>
                     {q.follow_up_prompt && (
-                      <div className="border-t border-[var(--border)] pt-2.5 text-[var(--muted)]">
-                        <span className="font-semibold text-sky-400">Interviewer Follow-up Question: </span>
+                      <div className="border-t border-white/10 pt-2.5 text-slate-400">
+                        <span className="font-semibold text-slate-200">Interviewer Follow-up Question: </span>
                         {q.follow_up_prompt}
                       </div>
                     )}

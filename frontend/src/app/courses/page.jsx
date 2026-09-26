@@ -56,21 +56,17 @@ export default function CoursesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-12">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface)] via-[var(--surface-solid)] to-purple-500/10 p-8 sm:p-12 backdrop-blur-2xl shadow-xl shadow-black/10">
-        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
-        <div className="relative z-10 max-w-3xl space-y-3 pt-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono text-purple-400 font-semibold">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
-            <span>Learning Pathways</span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-[var(--foreground)]">
-            Engineering Courses <br />
-            <span className="gradient-text font-normal">& Track Hub</span>
-          </h1>
-          <p className="text-xs sm:text-base text-[var(--muted)] leading-relaxed">
-            Curated learning pathways designed to take you from foundational concepts to production-grade engineering architecture. Each track includes interactive AI quizzes, flashcards, and system design drills.
-          </p>
-        </div>
+      <div className="space-y-2 border-b border-white/10 pb-8">
+        <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
+          Learning Pathways
+        </span>
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
+          Engineering Courses <br />
+          <span className="gradient-text font-normal">& Track Hub</span>
+        </h1>
+        <p className="text-xs sm:text-base text-slate-400 leading-relaxed max-w-3xl">
+          Curated learning pathways designed to take you from foundational concepts to production-grade engineering architecture. Each track includes interactive AI quizzes, flashcards, and system design drills.
+        </p>
       </div>
 
       {/* Course Track Grid */}
@@ -83,33 +79,32 @@ export default function CoursesPage() {
           return (
             <div
               key={track.id}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/10"
+              className="group relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-md transition-all duration-200 hover:bg-white/[0.04] hover:border-white/20"
             >
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
-              <div className="pt-2">
+              <div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <CategoryBadge>{track.category.toUpperCase()}</CategoryBadge>
-                  <div className="flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-[11px] font-mono text-sky-300 font-semibold">
+                  <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
                     <span>{track.duration}</span>
                     <span>•</span>
                     <span>{track.level}</span>
                   </div>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-sky-400">
+                <h2 className="mt-4 text-xl font-bold tracking-tight text-white transition-colors group-hover:text-white/90">
                   {track.title}
                 </h2>
-                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
                   {track.description}
                 </p>
 
                 {/* Modules list */}
-                <div className="mt-6 border-t border-[var(--border)] pt-5">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
+                <div className="mt-6 border-t border-white/10 pt-5 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-[11px] font-mono uppercase tracking-wider text-zinc-400">
                       Included Modules
                     </h3>
-                    <span className="text-xs font-mono text-indigo-400 font-semibold">
+                    <span className="text-xs font-mono text-zinc-400">
                       {trackNotes.length > 0 ? trackNotes.length : track.modules.length} Notes
                     </span>
                   </div>
@@ -117,19 +112,19 @@ export default function CoursesPage() {
                   <ul className="space-y-2">
                     {(trackNotes.length > 0 ? trackNotes : track.modules.map(m => ({ title: m, slug: null }))).map(
                       (item, idx) => (
-                        <li key={idx} className="flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface-solid)] p-3 px-4 text-xs backdrop-blur-md">
-                          <span className="font-medium text-[var(--foreground)] truncate pr-2">
-                            <span className="text-sky-400 font-mono mr-2">0{idx + 1}.</span> {item.title}
+                        <li key={idx} className="flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.02] p-3 px-3.5 text-xs">
+                          <span className="font-medium text-zinc-200 truncate pr-2">
+                            <span className="text-zinc-500 font-mono mr-2">0{idx + 1}.</span> {item.title}
                           </span>
                           {item.slug ? (
                             <Link
                               href={`/notes/${item.slug}`}
-                              className="shrink-0 font-semibold text-sky-400 hover:text-indigo-400 transition-colors"
+                              className="shrink-0 font-medium text-zinc-300 hover:text-white transition-colors"
                             >
                               Study →
                             </Link>
                           ) : (
-                            <span className="text-xs text-[var(--muted)]">In Library</span>
+                            <span className="text-xs text-zinc-500">In Library</span>
                           )}
                         </li>
                       )
@@ -138,11 +133,11 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-[var(--border)] pt-6">
+              <div className="mt-8 border-t border-white/10 pt-5">
                 {trackNotes.length > 0 ? (
                   <Link
                     href={`/notes/${trackNotes[0].slug}`}
-                    className="flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-xs font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-indigo-500/40 hover:scale-[1.01]"
+                    className="flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-white text-xs font-semibold text-zinc-950 transition hover:bg-zinc-200"
                   >
                     <span>Start Learning Track</span>
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,7 +147,7 @@ export default function CoursesPage() {
                 ) : (
                   <Link
                     href="/notes"
-                    className="flex min-h-11 w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-muted)] text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--surface-hover)]"
+                    className="flex min-h-10 w-full items-center justify-center rounded-lg border border-white/10 bg-white/5 text-xs font-semibold text-white transition hover:bg-white/10"
                   >
                     Browse Track Notes
                   </Link>
@@ -164,21 +159,23 @@ export default function CoursesPage() {
       </div>
 
       {/* Category Overview Footer */}
-      <div className="rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-8 backdrop-blur-xl shadow-xl shadow-black/10">
-        <h2 className="text-xl font-bold tracking-tight text-[var(--foreground)]">Browse by Category Topics</h2>
-        <p className="mt-1 text-xs text-[var(--muted)]">
-          Select a category to jump directly into filtered notes, quizzes, and practice drills.
-        </p>
+      <div className="space-y-4 border-t border-white/10 pt-10">
+        <div>
+          <h2 className="text-xl font-bold tracking-tight text-white">Browse by Category Topics</h2>
+          <p className="mt-1 text-xs text-zinc-400">
+            Select a category to jump directly into filtered notes, quizzes, and practice drills.
+          </p>
+        </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2.5 pt-2">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/notes?category=${cat.slug}`}
-              className="inline-flex items-center gap-2.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2 text-xs font-semibold text-sky-300 transition-all hover:border-sky-500/60 hover:bg-sky-500/20 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.02] px-3.5 py-2 text-xs font-medium text-zinc-300 transition hover:bg-white/[0.04] hover:border-white/20"
             >
               <span>{cat.label}</span>
-              <span className="rounded-full bg-[var(--surface-solid)] border border-sky-500/30 px-2 py-0.5 text-[10px] font-mono text-sky-400">
+              <span className="font-mono text-[11px] text-zinc-500">
                 {cat.count}
               </span>
             </Link>

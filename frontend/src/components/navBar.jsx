@@ -22,23 +22,23 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/85 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-all duration-300"
+      className="sticky top-0 z-40 border-b border-white/10 bg-[#090a0f]/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-all duration-300"
     >
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link
           href="/"
           aria-label="Almanac — Home"
-          className="group flex items-center gap-3 rounded-full py-1 pr-3 text-sm font-bold tracking-tight text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          className="group flex items-center gap-2.5 py-1 pr-3 text-sm font-bold tracking-tight text-white focus:outline-none"
         >
           <span
             ref={iconRef}
             aria-hidden="true"
             style={{ willChange: "transform" }}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 via-indigo-500 to-purple-600 text-white shadow-lg shadow-sky-500/20 transition-transform duration-300 group-hover:scale-105"
+            className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/10 text-white transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/30"
           >
-            <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </span>
           <span
@@ -49,25 +49,25 @@ export default function Navbar() {
             <span
               ref={wordmarkRef}
               style={{ willChange: "transform" }}
-              className="inline-block whitespace-nowrap text-lg font-extrabold tracking-tight"
+              className="inline-block whitespace-nowrap text-base font-bold tracking-tight text-white"
             >
-              Almanac<span className="text-sky-400 font-mono">.</span>
+              Almanac
             </span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1.5 text-xs font-semibold md:flex">
+        <nav className="hidden items-center gap-1 text-xs font-medium md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2 rounded-full transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-lg transition-all duration-150 ${
                   isActive
-                    ? "bg-sky-500/15 text-sky-400 font-semibold border border-sky-500/30 shadow-sm"
-                    : "text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface-hover)]"
+                    ? "bg-white/10 text-white font-semibold"
+                    : "text-zinc-400 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.label}
@@ -80,13 +80,13 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/search"
-            className="hidden items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3.5 py-1.5 text-xs text-[var(--muted)] transition-colors hover:border-sky-500/40 hover:text-[var(--foreground)] sm:flex"
+            className="hidden items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-zinc-400 transition-colors hover:border-white/20 hover:text-white sm:flex"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <span>Search...</span>
-            <kbd className="rounded bg-[var(--surface-muted)] px-1.5 py-0.5 text-[10px] font-mono text-[var(--muted)] border border-[var(--border)]">
+            <kbd className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-white/10">
               ⌘K
             </kbd>
           </Link>
@@ -96,7 +96,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)] transition hover:bg-[var(--surface-hover)] md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white transition hover:bg-white/10 md:hidden"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? (
@@ -114,7 +114,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-[var(--border)] bg-[var(--background)]/95 px-4 py-4 backdrop-blur-xl md:hidden">
+        <div className="border-t border-white/10 bg-[#090a0f]/95 px-4 py-4 backdrop-blur-xl md:hidden">
           <nav className="flex flex-col space-y-1.5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -123,10 +123,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`rounded-2xl px-4 py-3 text-xs font-semibold transition ${
+                  className={`rounded-lg px-4 py-2.5 text-xs font-semibold transition ${
                     isActive
-                      ? "bg-sky-500/15 text-sky-400 border border-sky-500/30"
-                      : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+                      ? "bg-white/10 text-white border border-white/10"
+                      : "text-zinc-400 hover:bg-white/5 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -136,7 +136,7 @@ export default function Navbar() {
             <Link
               href="/search"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-xs text-[var(--muted)] mt-2"
+              className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-zinc-400 mt-2"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -149,6 +149,7 @@ export default function Navbar() {
     </header>
   );
 }
+
 
 
 

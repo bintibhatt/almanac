@@ -23,23 +23,19 @@ export default async function NotesPage({ searchParams }) {
       <Sidebar categories={categories} activeCategory={activeCategory} />
 
       <section className="space-y-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface)] via-[var(--surface-solid)] to-sky-500/5 p-6 sm:p-8 backdrop-blur-2xl shadow-xl shadow-black/10">
-          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500" />
-          <div className="space-y-3 max-w-2xl pt-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-mono text-sky-400 font-semibold">
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />
-              Almanac Library
+        <div className="space-y-2 border-b border-white/10 pb-6">
+          <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
+            Almanac Library
+          </span>
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+            Engineering Notes{" "}
+            <span className="gradient-text font-normal">
+              {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Guides"}
             </span>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--foreground)]">
-              Engineering Notes{" "}
-              <span className="gradient-text font-normal">
-                {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Guides"}
-              </span>
-            </h1>
-            <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
-              Explore technical guides, system design breakdowns, and production architectures.
-            </p>
-          </div>
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Explore technical guides, system design breakdowns, and production architectures.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
