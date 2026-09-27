@@ -85,10 +85,16 @@ class GeminiProvider(BaseAIProvider):
 
         # Dynamically query Google API ModelService if static candidates need expansion
         try:
+            ignore_keywords = {"tts", "embedding", "audio", "imagen", "realtime"}
             for m in client.models.list():
                 m_name = getattr(m, "name", "") or str(m)
                 m_clean = m_name.replace("models/", "").strip()
-                if m_clean and m_clean not in seen and "gemini" in m_clean.lower():
+                if (
+                    m_clean
+                    and m_clean not in seen
+                    and "gemini" in m_clean.lower()
+                    and not any(k in m_clean.lower() for k in ignore_keywords)
+                ):
                     seen.add(m_clean)
                     models_to_try.append(m_clean)
         except Exception:
@@ -103,15 +109,16 @@ class GeminiProvider(BaseAIProvider):
                     model=current_model,
                     contents=full_content,
                 )
-                return response.text or ""
+                if response and response.text:
+                    return response.text
             except Exception as err:
                 last_error = err
-                err_str = str(err).lower()
-                # If model is 404 / NOT_FOUND / unsupported, continue trying fallback models
-                if "404" in err_str or "not_found" in err_str or "not found" in err_str or "no longer available" in err_str:
-                    continue
-                raise RuntimeError(f"Gemini generation failed on model '{current_model}': {err}") from err
+                # Log model attempt failure and continue trying fallbacks
+                continue
 
-        raise RuntimeError(f"Gemini generation failed across all attempted models {models_to_try}: {last_error}") from last_error
+        raise RuntimeError(
+            f"Gemini generation failed across all attempted models {models_to_try}: {last_error}"
+        ) from last_error
+
 
 
