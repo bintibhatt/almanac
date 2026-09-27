@@ -65,11 +65,10 @@ export default function TrialNotice() {
               </div>
 
               {/* Action Footer */}
-              <div className="mt-6 flex items-center justify-between border-t border-[var(--border)] pt-4">
-                <span className="text-xs text-[var(--muted)] font-mono">Collapsing to header info badge...</span>
+              <div className="mt-6 flex items-center justify-end border-t border-[var(--border)] pt-4">
                 <button
                   onClick={handleDismiss}
-                  className="inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-4 py-2 text-xs font-bold text-white transition hover:opacity-90 shadow-md"
+                  className="inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-4 py-2 text-xs font-bold text-white transition hover:opacity-90 shadow-md cursor-pointer"
                 >
                   <span>Acknowledge</span>
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
