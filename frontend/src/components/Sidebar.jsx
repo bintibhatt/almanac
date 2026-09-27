@@ -3,22 +3,22 @@ import Link from "next/link";
 export default function Sidebar({ categories = [], activeCategory }) {
   return (
     <aside className="hidden lg:block">
-      <div className="sticky top-24 space-y-6">
-        <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-2xl">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--muted)] mb-4">
+      <div className="sticky top-24 space-y-8">
+        <section className="space-y-3">
+          <h2 className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold">
             Domain Filter
           </h2>
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Link
               href="/notes"
-              className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-bold transition-all ${
+              className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs transition-all ${
                 !activeCategory
-                  ? "bg-gradient-to-r from-sky-500/20 to-indigo-500/20 text-sky-400 border border-sky-500/30"
-                  : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+                  ? "bg-white/10 text-white font-semibold"
+                  : "text-slate-400 hover:text-white hover:bg-white/5"
               }`}
             >
               <span>All Notes</span>
-              <span className="rounded-full bg-[var(--surface-muted)] px-2 py-0.5 text-[10px]">
+              <span className="font-mono text-[11px] text-slate-500">
                 {categories.reduce((acc, curr) => acc + curr.count, 0)}
               </span>
             </Link>
@@ -29,14 +29,14 @@ export default function Sidebar({ categories = [], activeCategory }) {
                 <Link
                   key={category.slug}
                   href={`/notes?category=${category.slug}`}
-                  className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold transition-all ${
+                  className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs transition-all ${
                     isActive
-                      ? "bg-gradient-to-r from-sky-500/20 to-indigo-500/20 text-sky-400 border border-sky-500/30"
-                      : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+                      ? "bg-white/10 text-white font-semibold"
+                      : "text-slate-400 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   <span>{category.label}</span>
-                  <span className="rounded-full bg-[var(--surface-muted)] px-2 py-0.5 text-[10px] text-[var(--muted)]">
+                  <span className="font-mono text-[11px] text-slate-500">
                     {category.count}
                   </span>
                 </Link>
@@ -45,11 +45,11 @@ export default function Sidebar({ categories = [], activeCategory }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-xl">
-          <div className="flex items-center gap-2 text-xs font-bold text-sky-400">
-            <span>⚡ Zero-Latency Engine</span>
+        <section className="border-t border-white/10 pt-5 space-y-2">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-300">
+            <span>Fast Markdown Engine</span>
           </div>
-          <p className="mt-2 text-xs leading-relaxed text-[var(--muted)]">
+          <p className="text-xs leading-relaxed text-slate-400">
             Notes are parsed locally from markdown files with live search & instant indexing.
           </p>
         </section>
@@ -57,4 +57,5 @@ export default function Sidebar({ categories = [], activeCategory }) {
     </aside>
   );
 }
+
 

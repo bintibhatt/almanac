@@ -16,17 +16,16 @@ export default async function SearchPage({ searchParams }) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-10">
-      <section className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 sm:p-12 backdrop-blur-2xl">
-        <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-2xl space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-bold text-sky-400">
-            <span>🔍 Instant Knowledge Search</span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--foreground)]">
+      {/* Unboxed Search Header */}
+      <section className="space-y-4 border-b border-slate-800/80 pb-8">
+        <div className="max-w-2xl space-y-3">
+          <span className="text-xs font-mono uppercase tracking-widest text-sky-400">
+            Knowledge Search
+          </span>
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
             Search Engineering Library
           </h1>
-          <p className="text-sm text-[var(--muted)] leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
             Search titles, descriptions, categories, tags, and note content across all domain guides.
           </p>
           <div className="pt-2">
@@ -38,10 +37,10 @@ export default async function SearchPage({ searchParams }) {
       {query ? (
         <section className="space-y-6">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-2xl font-extrabold tracking-tight text-[var(--foreground)]">
+            <h2 className="text-2xl font-extrabold tracking-tight text-white">
               {results.length ? "Search Results" : "No Results Found"}
             </h2>
-            <p className="text-xs font-semibold text-sky-400">
+            <p className="text-xs font-mono text-sky-400">
               {results.length
                 ? `${results.length} result${results.length === 1 ? "" : "s"} found for "${query}"`
                 : `No exact matches for "${query}"`}
@@ -55,13 +54,15 @@ export default async function SearchPage({ searchParams }) {
               ))}
             </div>
           ) : (
-            <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 text-center space-y-3 backdrop-blur-xl">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] text-xl">
-                🔎
+            <div className="rounded-md border border-slate-800 bg-slate-900/50 p-8 text-center space-y-3">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md border border-sky-500/20 bg-sky-500/10 text-base">
+                <svg className="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
-              <h3 className="text-base font-bold text-[var(--foreground)]">No matching engineering notes</h3>
-              <p className="text-xs text-[var(--muted)] leading-relaxed max-w-md mx-auto">
-                Try searching for keywords like <span className="text-sky-400 font-semibold">system design</span>, <span className="text-sky-400 font-semibold">caching</span>, <span className="text-sky-400 font-semibold">docker</span>, or <span className="text-sky-400 font-semibold">rag</span>.
+              <h3 className="text-sm font-bold text-white">No matching engineering notes</h3>
+              <p className="text-xs text-slate-400 leading-relaxed max-w-md mx-auto">
+                Try searching for keywords like <span className="text-sky-400 font-medium">system design</span>, <span className="text-sky-400 font-medium">caching</span>, <span className="text-sky-400 font-medium">docker</span>, or <span className="text-sky-400 font-medium">rag</span>.
               </p>
             </div>
           )}
@@ -69,10 +70,10 @@ export default async function SearchPage({ searchParams }) {
       ) : (
         <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-extrabold tracking-tight text-[var(--foreground)]">Recommended Recent Reads</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight text-white">Recommended Recent Reads</h2>
             <Link
               href="/notes"
-              className="text-xs font-bold text-sky-400 hover:underline"
+              className="text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
             >
               Explore all notes →
             </Link>
@@ -87,4 +88,6 @@ export default async function SearchPage({ searchParams }) {
     </div>
   );
 }
+
+
 
