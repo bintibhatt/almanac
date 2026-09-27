@@ -68,11 +68,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-md transition-all duration-150 ${
-                    isActive
-                      ? "bg-zinc-800 text-white border border-zinc-700/80 font-semibold"
-                      : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
-                  }`}
+                  className={`px-3 py-1.5 rounded-md transition-all duration-150 ${isActive
+                    ? "bg-zinc-800 text-white border border-zinc-700/80 font-semibold"
+                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -91,9 +90,6 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <span>Search library...</span>
-              <kbd className="rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-700/60">
-                ⌘K
-              </kbd>
             </button>
 
             <TrialNotice />
@@ -129,11 +125,10 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`rounded-md px-4 py-2.5 text-xs font-semibold transition ${
-                      isActive
-                        ? "bg-zinc-800 text-white border border-zinc-700"
-                        : "text-zinc-400 hover:bg-zinc-800/60 hover:text-white"
-                    }`}
+                    className={`rounded-md px-4 py-2.5 text-xs font-semibold transition ${isActive
+                      ? "bg-zinc-800 text-white border border-zinc-700"
+                      : "text-zinc-400 hover:bg-zinc-800/60 hover:text-white"
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -149,15 +144,16 @@ export default function Navbar() {
                 <svg className="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                Search library... (⌘K)
+                Search library...
               </button>
             </nav>
           </div>
         )}
-      </header>
+      </header >
 
       {/* Global Command-K Search Modal */}
-      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      < SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)
+      } />
     </>
   );
 }
