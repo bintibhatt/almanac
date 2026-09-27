@@ -98,6 +98,17 @@
       "generated_at": "2026-09-27T06:30:22Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\ai-agents---performance-optimization.md",
       "status": "published"
+    },
+    "mcp---performance-optimization": {
+      "title": "MCP - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:34:11Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\mcp---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -112,9 +123,9 @@
   "failed_generations": [],
   "last_execution": {
     "status": "success",
-    "topic": "AI Agents - Performance Optimization",
-    "slug": "ai-agents---performance-optimization",
-    "timestamp": "2026-09-27T06:30:22Z"
+    "topic": "MCP - Performance Optimization",
+    "slug": "mcp---performance-optimization",
+    "timestamp": "2026-09-27T06:34:11Z"
   },
-  "total_generated": 9
+  "total_generated": 10
 }

@@ -61,12 +61,38 @@ class GeminiProvider(BaseAIProvider):
         client = self._get_client()
         target_model = model or self._default_model
         
-        # Build list of models to try (primary target + fallback options)
-        models_to_try = [target_model]
-        fallback_candidates = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
-        for candidate in fallback_candidates:
-            if candidate not in models_to_try:
-                models_to_try.append(candidate)
+        # Build comprehensive list of standard model candidates
+        candidates = [
+            target_model,
+            "gemini-2.5-flash",
+            "gemini-2.5-pro",
+            "gemini-2.0-flash-exp",
+            "gemini-2.0-flash",
+            "gemini-1.5-flash-latest",
+            "gemini-1.5-pro-latest",
+            "gemini-1.5-flash-002",
+            "gemini-1.5-flash-001",
+            "gemini-1.5-flash",
+        ]
+        
+        models_to_try = []
+        seen = set()
+        for candidate in candidates:
+            c_clean = candidate.strip()
+            if c_clean and c_clean not in seen:
+                seen.add(c_clean)
+                models_to_try.append(c_clean)
+
+        # Dynamically query Google API ModelService if static candidates need expansion
+        try:
+            for m in client.models.list():
+                m_name = getattr(m, "name", "") or str(m)
+                m_clean = m_name.replace("models/", "").strip()
+                if m_clean and m_clean not in seen and "gemini" in m_clean.lower():
+                    seen.add(m_clean)
+                    models_to_try.append(m_clean)
+        except Exception:
+            pass
 
         full_content = f"{system_prompt}\n\n{prompt}".strip() if system_prompt else prompt
 
@@ -81,10 +107,11 @@ class GeminiProvider(BaseAIProvider):
             except Exception as err:
                 last_error = err
                 err_str = str(err).lower()
-                # If model is 404 / NOT_FOUND / unavailable, try fallback models
-                if "404" in err_str or "not_found" in err_str or "no longer available" in err_str:
+                # If model is 404 / NOT_FOUND / unsupported, continue trying fallback models
+                if "404" in err_str or "not_found" in err_str or "not found" in err_str or "no longer available" in err_str:
                     continue
                 raise RuntimeError(f"Gemini generation failed on model '{current_model}': {err}") from err
 
-        raise RuntimeError(f"Gemini generation failed across models {models_to_try}: {last_error}") from last_error
+        raise RuntimeError(f"Gemini generation failed across all attempted models {models_to_try}: {last_error}") from last_error
+
 
