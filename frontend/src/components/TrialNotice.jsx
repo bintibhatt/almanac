@@ -4,23 +4,28 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 export default function TrialNotice() {
-  const [phase, setPhase] = useState("centered"); // "centered", "flying", "header"
+  const [phase, setPhase] = useState("header"); // "centered", "flying", "header"
   const [hovered, setHovered] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    setPhase("centered");
 
-    // Auto collapse into header icon after 4.5 seconds
-    const timer = setTimeout(() => {
-      handleDismiss();
-    }, 4500);
+    const hasSeenNotice = sessionStorage.getItem("almanac-trial-notice-seen");
+    if (!hasSeenNotice) {
+      setPhase("centered");
 
-    return () => clearTimeout(timer);
+      // Auto collapse into header icon after 4.5 seconds
+      const timer = setTimeout(() => {
+        handleDismiss();
+      }, 4500);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleDismiss = () => {
+    sessionStorage.setItem("almanac-trial-notice-seen", "true");
     setPhase("flying");
     setTimeout(() => {
       setPhase("header");
