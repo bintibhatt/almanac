@@ -19,6 +19,8 @@ jobs:
   ingest-and-publish:
     name: Discover & Publish Knowledge
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
