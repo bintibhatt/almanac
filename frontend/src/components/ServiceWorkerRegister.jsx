@@ -4,17 +4,21 @@ import { useEffect } from "react";
 
 export default function ServiceWorkerRegister() {
   useEffect(() => {
-    if (
-      process.env.NODE_ENV !== "production" ||
-      !("serviceWorker" in navigator)
-    ) {
+    if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
       return;
     }
 
-    window.addEventListener("load", () => {
+    const registerSW = () => {
       navigator.serviceWorker.register("/sw.js").catch(() => {});
-    });
+    };
+
+    if (document.readyState === "complete") {
+      registerSW();
+    } else {
+      window.addEventListener("load", registerSW);
+    }
   }, []);
+
 
   return null;
 }

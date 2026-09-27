@@ -41,10 +41,18 @@ export const metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/icons/almanac-icon.svg",
-    apple: "/icons/almanac-icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icons/almanac-icon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
   },
 };
+
 
 export const viewport = {
   width: "device-width",
