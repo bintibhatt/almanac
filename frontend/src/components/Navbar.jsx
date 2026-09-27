@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 import TrialNotice from "@/components/TrialNotice";
 import SearchModal from "@/components/SearchModal";
+import PWAInstallButton from "@/components/PWAInstallButton";
 import { useHeaderCollapse } from "@/hooks/useHeaderCollapse";
+
 
 export default function Navbar() {
   const { headerRef, iconRef, trackRef, wordmarkRef } = useHeaderCollapse();
@@ -39,11 +41,9 @@ export default function Navbar() {
               ref={iconRef}
               aria-hidden="true"
               style={{ willChange: "transform" }}
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-zinc-700 bg-zinc-800/80 text-zinc-200 transition-all duration-300 group-hover:bg-zinc-700/80 group-hover:border-zinc-600"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-violet-500/20 bg-zinc-900/90 text-zinc-200 transition-all duration-300 group-hover:border-violet-500/40 group-hover:bg-zinc-800"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+              <img src="/icons/almanac-logo.png" alt="Almanac Logo" className="h-5 w-5 object-contain" />
             </span>
             <span
               ref={trackRef}
@@ -93,7 +93,9 @@ export default function Navbar() {
             </button>
 
             <TrialNotice />
+            <PWAInstallButton />
             <ThemeToggle />
+
 
             {/* Mobile menu button */}
             <button
