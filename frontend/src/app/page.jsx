@@ -14,189 +14,132 @@ export default function Home() {
   const categories = getCategories();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-16">
-      {/* SaaS Split Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--background)] p-8 sm:p-12 lg:p-14 shadow-2xl backdrop-blur-2xl">
-        {/* Glow ambient background circles */}
-        <div className="absolute -top-24 -right-24 h-[30rem] w-[30rem] rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 h-[30rem] w-[30rem] rounded-full bg-indigo-500/15 blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          {/* Left Hero Content */}
-          <div className="space-y-6">
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-bold text-sky-400 backdrop-blur-md">
-              <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-ping" />
-              <span>Almanac v2.0 • Living Engineering Library & AI Companion</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl text-[var(--foreground)] leading-[1.1]">
-              Master Engineering <br />
-              <span className="gradient-text">Concepts & Systems</span>
-            </h1>
-
-            {/* Description */}
-            <p className="text-base text-[var(--muted)] sm:text-lg leading-relaxed max-w-xl">
-              Deep-dive technical guides, interactive spaced-repetition flashcards, AI mock interviews, and system design case studies curated for software engineers and architects.
-            </p>
-
-            {/* Search Bar Container */}
-            <div className="pt-2 max-w-xl">
-              <SearchBar />
-            </div>
-
-            {/* Quick Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/notes"
-                className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 px-6 text-sm font-bold text-white shadow-xl shadow-sky-500/20 transition-all duration-300 hover:scale-[1.02] hover:opacity-95"
-              >
-                <span>Explore Notes</span>
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-
-              <Link
-                href="/interview"
-                className="inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-6 text-sm font-bold text-[var(--foreground)] backdrop-blur-md transition-all duration-300 hover:border-violet-500/40 hover:bg-[var(--surface-hover)]"
-              >
-                <span>🎯 Practice Interview AI</span>
-              </Link>
-            </div>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 space-y-20">
+      {/* Unboxed Minimal Hero Section */}
+      <section className="relative pt-4 space-y-10">
+        <div className="max-w-3xl space-y-6">
+          {/* Top Pill Badge */}
+          <div className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 py-1 text-xs font-mono text-[var(--muted)] backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+            <span>Almanac v2.0 • Engineering Library & AI Companion</span>
           </div>
 
-          {/* Right Hero Interactive Glass Cockpit Card */}
-          <div className="relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface-solid)] to-[var(--background-alt)] p-6 shadow-2xl backdrop-blur-2xl space-y-5">
-            <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-rose-500/80" />
-                <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-                <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-              </div>
-              <span className="text-xs font-mono text-[var(--muted)]">almanac.engine.v2.0</span>
-            </div>
+          {/* Main Headline */}
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl text-[var(--foreground)] leading-[1.08]">
+            Master Engineering <br />
+            <span className="text-[var(--accent)] font-normal">
+              Systems & Architecture
+            </span>
+          </h1>
 
-            {/* Simulated Live Architecture Node Card */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/20 text-lg">
-                    ⚡
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-sky-400">RAG Vector Indexing</div>
-                    <div className="text-[11px] text-[var(--muted)]">Hybrid BM25 + HNSW dense search</div>
-                  </div>
-                </div>
-                <span className="rounded-full bg-sky-400/20 px-2.5 py-1 text-[10px] font-bold text-sky-400">ONLINE</span>
-              </div>
+          {/* Description */}
+          <p className="text-base text-[var(--muted)] sm:text-lg leading-relaxed max-w-2xl">
+            Deep technical guides, interactive concept flashcards, AI mock interviews, and system design case studies curated for software engineers and architects.
+          </p>
 
-              <div className="flex items-center justify-between rounded-2xl border border-indigo-500/30 bg-indigo-500/10 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-lg">
-                    🧠
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-indigo-400">Spaced Repetition Flashcards</div>
-                    <div className="text-[11px] text-[var(--muted)]">Adaptive concept recall active</div>
-                  </div>
-                </div>
-                <span className="rounded-full bg-indigo-400/20 px-2.5 py-1 text-[10px] font-bold text-indigo-400">READY</span>
-              </div>
+          {/* Search Bar */}
+          <div className="pt-2 max-w-xl">
+            <SearchBar />
+          </div>
 
-              <div className="flex items-center justify-between rounded-2xl border border-violet-500/30 bg-violet-500/10 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/20 text-lg">
-                    🎯
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-violet-400">System Design Mock AI</div>
-                    <div className="text-[11px] text-[var(--muted)]">Staff level architectural feedback</div>
-                  </div>
-                </div>
-                <span className="rounded-full bg-violet-400/20 px-2.5 py-1 text-[10px] font-bold text-violet-400">ACTIVE</span>
-              </div>
-            </div>
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link
+              href="/notes"
+              className="inline-flex min-h-10 items-center gap-2 rounded-md bg-[var(--accent)] px-5 text-xs font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
+            >
+              <span>Explore Notes</span>
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
 
-            {/* Mini Footer Stat */}
-            <div className="flex items-center justify-between pt-2 text-xs font-semibold text-[var(--muted)]">
-              <span>🟢 All 14 Notes Synced</span>
-              <span className="text-emerald-400">Offline PWA Ready</span>
-            </div>
+            <Link
+              href="/interview"
+              className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--surface)] px-5 text-xs font-semibold text-[var(--foreground)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)]"
+            >
+              <svg className="h-4 w-4 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Practice Interview AI</span>
+            </Link>
           </div>
         </div>
 
-        {/* Hero Stats Counter Bar */}
-        <div className="mt-12 grid grid-cols-2 gap-4 border-t border-[var(--border)] pt-8 sm:grid-cols-4">
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-3xl font-black text-sky-400">{latestNotes.length}+</div>
-            <div className="text-xs font-bold text-[var(--muted)] mt-1">Technical Notes</div>
+        {/* Unboxed Stat Counter Row */}
+        <div className="grid grid-cols-2 gap-6 border-y border-[var(--border)] py-8 sm:grid-cols-4">
+          <div className="space-y-1">
+            <div className="text-3xl font-extrabold text-[var(--foreground)] font-mono">{latestNotes.length}+</div>
+            <div className="text-xs text-[var(--muted)]">Technical Notes</div>
           </div>
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-3xl font-black text-indigo-400">{categories.length}</div>
-            <div className="text-xs font-bold text-[var(--muted)] mt-1">Core Domain Categories</div>
+          <div className="space-y-1">
+            <div className="text-3xl font-extrabold text-[var(--foreground)] font-mono">{categories.length}</div>
+            <div className="text-xs text-[var(--muted)]">Domain Categories</div>
           </div>
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-3xl font-black text-emerald-400">100%</div>
-            <div className="text-xs font-bold text-[var(--muted)] mt-1">Interactive AI Practice</div>
+          <div className="space-y-1">
+            <div className="text-3xl font-extrabold text-[var(--foreground)] font-mono">100%</div>
+            <div className="text-xs text-[var(--muted)]">Interactive AI Practice</div>
           </div>
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center backdrop-blur-md">
-            <div className="text-3xl font-black text-purple-400">PWA</div>
-            <div className="text-xs font-bold text-[var(--muted)] mt-1">Offline Reader Shell</div>
+          <div className="space-y-1">
+            <div className="text-3xl font-extrabold text-[var(--foreground)] font-mono">PWA</div>
+            <div className="text-xs text-[var(--muted)]">Offline Reader Shell</div>
           </div>
         </div>
       </section>
 
-      {/* Feature Capabilities Grid ("Why Almanac?") */}
-      <section className="space-y-6">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-sky-400">Core Features</span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)]">
-            Built for Modern Engineering Mastery
+      {/* Feature Capabilities Row ("Why Almanac?") */}
+      <section className="space-y-8">
+        <div className="space-y-1">
+          <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent)]">Capabilities</span>
+          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-3xl">
+            Built for Engineering Mastery
           </h2>
-          <p className="text-sm text-[var(--muted)]">
-            Everything you need to study, revise, and excel in senior engineering roles.
-          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:shadow-xl space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-500/30 bg-sky-500/10 text-2xl text-sky-400">
-              📚
+          <div className="space-y-3 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-md transition-all hover:border-[var(--border-strong)]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--surface-muted)] text-[var(--accent)]">
+              <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
             </div>
-            <h3 className="text-lg font-bold text-[var(--foreground)]">Engineering Notes</h3>
+            <h3 className="text-sm font-bold text-[var(--foreground)]">Engineering Notes</h3>
             <p className="text-xs text-[var(--muted)] leading-relaxed">
               Curated markdown guides on system design, distributed locks, vector search, and container memory isolation.
             </p>
           </div>
 
-          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-xl space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-500/30 bg-indigo-500/10 text-2xl text-indigo-400">
-              🧠
+          <div className="space-y-3 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-md transition-all hover:border-[var(--border-strong)]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--surface-muted)] text-[var(--accent)]">
+              <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
             </div>
-            <h3 className="text-lg font-bold text-[var(--foreground)]">3D Concept Flashcards</h3>
+            <h3 className="text-sm font-bold text-[var(--foreground)]">Concept Flashcards</h3>
             <p className="text-xs text-[var(--muted)] leading-relaxed">
               Master core concepts through interactive spaced-repetition card decks generated directly from note contents.
             </p>
           </div>
 
-          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/40 hover:shadow-xl space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/10 text-2xl text-violet-400">
-              🎯
+          <div className="space-y-3 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-md transition-all hover:border-[var(--border-strong)]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--surface-muted)] text-[var(--accent)]">
+              <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-            <h3 className="text-lg font-bold text-[var(--foreground)]">AI Interview Drills</h3>
+            <h3 className="text-sm font-bold text-[var(--foreground)]">AI Interview Drills</h3>
             <p className="text-xs text-[var(--muted)] leading-relaxed">
               Simulate Staff & Senior technical interviews with architectural problem solving, model solutions, and probes.
             </p>
           </div>
 
-          <div className="group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-2xl text-emerald-400">
-              📊
+          <div className="space-y-3 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 backdrop-blur-md transition-all hover:border-[var(--border-strong)]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--surface-muted)] text-[var(--accent)]">
+              <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
             </div>
-            <h3 className="text-lg font-bold text-[var(--foreground)]">Progress Analytics</h3>
+            <h3 className="text-sm font-bold text-[var(--foreground)]">Progress Analytics</h3>
             <p className="text-xs text-[var(--muted)] leading-relaxed">
               Track reading streaks, quiz mastery scores, and domain completion breakdown in your dashboard.
             </p>
@@ -208,9 +151,9 @@ export default function Home() {
       {featured && (
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)]">
-              Today&apos;s Featured Read
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+            <h2 className="text-xs font-mono uppercase tracking-widest text-[var(--muted)]">
+              Featured Guide
             </h2>
           </div>
           <NoteCard note={featured} featured />
@@ -230,7 +173,7 @@ export default function Home() {
           </div>
           <Link
             href="/notes"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent)] hover:underline transition-all"
           >
             Explore all notes →
           </Link>
@@ -244,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Grid Section: Categories & Activity Feed */}
-      <section className="grid gap-8 border-t border-[var(--border)] pt-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <section className="grid gap-10 border-t border-[var(--border)] pt-12 lg:grid-cols-[1fr_1fr]">
         {/* Browse Categories */}
         <div className="space-y-6">
           <div>
@@ -256,22 +199,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {categories.map((category) => (
               <Link
                 key={category.slug}
                 href={`/notes?category=${category.slug}`}
-                className="group relative flex flex-col justify-between rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-xl"
+                className="group flex items-center justify-between rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 transition-all duration-150 hover:bg-[var(--surface-hover)] hover:border-[var(--border-strong)]"
               >
-                <div className="flex items-center justify-between">
+                <div>
                   <CategoryBadge>{category.label}</CategoryBadge>
-                  <svg className="h-4 w-4 text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <p className="mt-2 text-xs text-[var(--muted)]">
+                    {pluralize(category.count, "note")} available
+                  </p>
                 </div>
-                <p className="mt-5 text-xs font-bold text-[var(--muted)]">
-                  {pluralize(category.count, "note")} available
-                </p>
+                <svg className="h-4 w-4 text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             ))}
           </div>
@@ -288,19 +231,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="divide-y divide-[var(--border)] rounded-3xl border border-[var(--border)] bg-[var(--surface)] backdrop-blur-xl overflow-hidden">
+          <div className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
             {latestNotes.slice(0, 5).map((note) => (
               <Link
                 href={`/notes/${note.slug}`}
                 key={note.slug}
-                className="block p-5 transition-colors hover:bg-[var(--surface-hover)]"
+                className="block py-4 transition-colors hover:bg-[var(--surface-hover)] px-2 rounded-md"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <p className="font-bold text-sm text-[var(--foreground)] line-clamp-1">
+                  <p className="font-semibold text-sm text-[var(--foreground)] line-clamp-1">
                     {note.title}
                   </p>
                   <time
-                    className="shrink-0 text-xs font-semibold text-[var(--muted)]"
+                    className="shrink-0 text-xs font-mono text-[var(--muted)]"
                     dateTime={note.published}
                   >
                     {formatDate(note.published, {
@@ -309,9 +252,9 @@ export default function Home() {
                     })}
                   </time>
                 </div>
-                <div className="mt-2 flex items-center justify-between text-xs text-[var(--muted)]">
-                  <span>{note.categoryLabel}</span>
-                  <span className="text-sky-400 font-bold">{note.readingTime}</span>
+                <div className="mt-1.5 flex items-center justify-between text-xs text-[var(--muted)]">
+                  <span className="text-[var(--accent)] font-medium">{note.categoryLabel}</span>
+                  <span className="font-mono opacity-80">{note.readingTime}</span>
                 </div>
               </Link>
             ))}
@@ -321,6 +264,10 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
 
 
 

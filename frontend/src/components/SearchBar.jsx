@@ -24,13 +24,14 @@ export default function SearchBar({ compact = false, defaultValue = "" }) {
           type="search"
           placeholder="Search topics, system design, architecture..."
           defaultValue={defaultValue}
-          className="min-h-12 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface)] pl-11 pr-12 text-sm text-[var(--foreground)] outline-none backdrop-blur-md transition-all placeholder:text-[var(--muted)] focus:border-sky-500/50 focus:bg-[var(--surface-hover)] focus:ring-4 focus:ring-sky-500/10"
+          className="min-h-11 w-full rounded-md border border-zinc-800 bg-zinc-900/70 pl-11 pr-12 text-xs sm:text-sm text-zinc-100 outline-none backdrop-blur-md transition-all placeholder:text-zinc-500 focus:border-zinc-700 focus:bg-zinc-900 focus:ring-1 focus:ring-zinc-700"
         />
-        <kbd className="absolute right-4 hidden rounded-md border border-[var(--border)] bg-[var(--surface-muted)] px-2 py-0.5 text-xs font-mono text-[var(--muted)] sm:inline-block">
+        <kbd className="absolute right-4 hidden rounded border border-zinc-700/60 bg-zinc-800 px-2 py-0.5 text-[10px] font-mono text-zinc-400 sm:inline-block">
           /
         </kbd>
       </div>
     </form>
   );
 }
+
 

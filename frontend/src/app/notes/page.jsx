@@ -23,21 +23,19 @@ export default async function NotesPage({ searchParams }) {
       <Sidebar categories={categories} activeCategory={activeCategory} />
 
       <section className="space-y-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 backdrop-blur-2xl">
-          <div className="space-y-3 max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-bold text-sky-400">
-              <span>📚 Almanac Library</span>
+        <div className="space-y-2 border-b border-white/10 pb-6">
+          <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
+            Almanac Library
+          </span>
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+            Engineering Notes{" "}
+            <span className="gradient-text font-normal">
+              {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Guides"}
             </span>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--foreground)]">
-              Engineering Notes <br />
-              <span className="gradient-text">
-                {activeCategory ? `• ${activeCategory.toUpperCase()}` : "& Technical Guides"}
-              </span>
-            </h1>
-            <p className="text-sm text-[var(--muted)] leading-relaxed">
-              Explore deep technical guides, system design breakdowns, and production architectures.
-            </p>
-          </div>
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Explore technical guides, system design breakdowns, and production architectures.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -49,4 +47,5 @@ export default async function NotesPage({ searchParams }) {
     </div>
   );
 }
+
 
