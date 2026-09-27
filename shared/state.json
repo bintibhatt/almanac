@@ -131,6 +131,28 @@
       "generated_at": "2026-09-27T06:39:30Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\tool-calling---performance-optimization.md",
       "status": "published"
+    },
+    "function-calling---performance-optimization": {
+      "title": "Function Calling - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:56:06Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/function-calling---performance-optimization.md",
+      "status": "published"
+    },
+    "llm-memory---performance-optimization": {
+      "title": "LLM Memory - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-09-27T06:56:38Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/llm-memory---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -153,9 +175,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Tool Calling - Performance Optimization",
-    "slug": "tool-calling---performance-optimization",
-    "timestamp": "2026-09-27T06:39:30Z"
+    "topic": "LLM Memory - Performance Optimization",
+    "slug": "llm-memory---performance-optimization",
+    "timestamp": "2026-09-27T06:56:38Z"
   },
-  "total_generated": 12
+  "total_generated": 14
 }
