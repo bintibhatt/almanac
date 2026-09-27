@@ -10,6 +10,7 @@ import json
 import os
 import sys
 from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
 # Configure UTF-8 encoding for Windows consoles
 if hasattr(sys.stdout, "reconfigure"):

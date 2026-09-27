@@ -54,6 +54,39 @@
       "generated_at": "2026-09-22T05:22:28Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\system-design\\distributed-locks---performance-optimization.md",
       "status": "published"
+    },
+    "kv-cache---performance-optimization": {
+      "title": "KV Cache - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:00:10Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\kv-cache---performance-optimization.md",
+      "status": "published"
+    },
+    "context-engineering---performance-optimization": {
+      "title": "Context Engineering - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:22:09Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\context-engineering---performance-optimization.md",
+      "status": "published"
+    },
+    "prompt-engineering---performance-optimization": {
+      "title": "Prompt Engineering - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:25:12Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\prompt-engineering---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -68,9 +101,9 @@
   "failed_generations": [],
   "last_execution": {
     "status": "success",
-    "topic": "Distributed Locks - Performance Optimization",
-    "slug": "distributed-locks---performance-optimization",
-    "timestamp": "2026-09-22T05:22:28Z"
+    "topic": "Prompt Engineering - Performance Optimization",
+    "slug": "prompt-engineering---performance-optimization",
+    "timestamp": "2026-09-27T06:25:12Z"
   },
-  "total_generated": 5
+  "total_generated": 8
 }
