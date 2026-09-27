@@ -60,14 +60,31 @@ class GeminiProvider(BaseAIProvider):
     ) -> str:
         client = self._get_client()
         target_model = model or self._default_model
+        
+        # Build list of models to try (primary target + fallback options)
+        models_to_try = [target_model]
+        fallback_candidates = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+        for candidate in fallback_candidates:
+            if candidate not in models_to_try:
+                models_to_try.append(candidate)
 
         full_content = f"{system_prompt}\n\n{prompt}".strip() if system_prompt else prompt
 
-        try:
-            response = client.models.generate_content(
-                model=target_model,
-                contents=full_content,
-            )
-            return response.text or ""
-        except Exception as err:
-            raise RuntimeError(f"Gemini generation failed on model '{target_model}': {err}") from err
+        last_error = None
+        for current_model in models_to_try:
+            try:
+                response = client.models.generate_content(
+                    model=current_model,
+                    contents=full_content,
+                )
+                return response.text or ""
+            except Exception as err:
+                last_error = err
+                err_str = str(err).lower()
+                # If model is 404 / NOT_FOUND / unavailable, try fallback models
+                if "404" in err_str or "not_found" in err_str or "no longer available" in err_str:
+                    continue
+                raise RuntimeError(f"Gemini generation failed on model '{current_model}': {err}") from err
+
+        raise RuntimeError(f"Gemini generation failed across models {models_to_try}: {last_error}") from last_error
+
