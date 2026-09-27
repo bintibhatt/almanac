@@ -87,6 +87,17 @@
       "generated_at": "2026-09-27T06:25:12Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\prompt-engineering---performance-optimization.md",
       "status": "published"
+    },
+    "ai-agents---performance-optimization": {
+      "title": "AI Agents - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:30:22Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\ai-agents---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -101,9 +112,9 @@
   "failed_generations": [],
   "last_execution": {
     "status": "success",
-    "topic": "Prompt Engineering - Performance Optimization",
-    "slug": "prompt-engineering---performance-optimization",
-    "timestamp": "2026-09-27T06:25:12Z"
+    "topic": "AI Agents - Performance Optimization",
+    "slug": "ai-agents---performance-optimization",
+    "timestamp": "2026-09-27T06:30:22Z"
   },
-  "total_generated": 8
+  "total_generated": 9
 }
