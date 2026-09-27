@@ -109,6 +109,28 @@
       "generated_at": "2026-09-27T06:34:11Z",
       "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\mcp---performance-optimization.md",
       "status": "published"
+    },
+    "embeddings---performance-optimization": {
+      "title": "Embeddings - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-09-27T06:36:45Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\embeddings---performance-optimization.md",
+      "status": "published"
+    },
+    "tool-calling---performance-optimization": {
+      "title": "Tool Calling - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-09-27T06:39:30Z",
+      "file_path": "D:\\PROJECTS\\Almanac\\almanac\\knowledge\\ai\\tool-calling---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -120,12 +142,20 @@
       "timestamp": "2026-09-12T17:38:00Z"
     }
   ],
-  "failed_generations": [],
+  "failed_generations": [
+    {
+      "title": "Tool Calling - Performance Optimization",
+      "slug": "tool-calling---performance-optimization",
+      "category": "ai",
+      "error": "Generation error: Gemini generation failed on model 'gemini-2.5-flash-preview-tts': 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'The requested combination of response modalities (TEXT) is not supported by the model. models/gemini-2.5-flash-preview-tts accepts the following combination of response modalities:\\n* AUDIO\\n', 'status': 'INVALID_ARGUMENT'}}",
+      "timestamp": "2026-09-27T06:38:10Z"
+    }
+  ],
   "last_execution": {
     "status": "success",
-    "topic": "MCP - Performance Optimization",
-    "slug": "mcp---performance-optimization",
-    "timestamp": "2026-09-27T06:34:11Z"
+    "topic": "Tool Calling - Performance Optimization",
+    "slug": "tool-calling---performance-optimization",
+    "timestamp": "2026-09-27T06:39:30Z"
   },
-  "total_generated": 10
+  "total_generated": 12
 }
