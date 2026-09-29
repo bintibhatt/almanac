@@ -12,34 +12,35 @@ const principles = [
   },
   {
     eyebrow: "02",
-    title: "Local Knowledge",
+    title: "Local Knowledge & Vector Embeddings",
     description:
-      "Markdown files in the knowledge directory are the source of truth. The app adds structure without taking ownership away from the files.",
+      "Markdown files in the knowledge directory are the source of truth, augmented with precomputed dense vector embeddings for semantic retrieval.",
   },
   {
     eyebrow: "03",
-    title: "Progressive",
+    title: "Autonomous Ingestion",
     description:
-      "PWA metadata, large touch targets, cached pages, and an offline fallback make the library feel closer to an installed reader.",
+      "Daily background pipelines crawl technical discussion boards, filter for architectural originality, validate against LLM guidelines, and expand the graph.",
   },
   {
     eyebrow: "04",
-    title: "Expandable",
+    title: "Active Learning Suite",
     description:
-      "Categories, tags, reading time, table of contents, and adjacent-note navigation are generated from the content layer.",
+      "Every article includes contextual AI Q&A, spaced-repetition flashcards, recall quizzes, and Staff-level system design drills.",
   },
 ];
 
 const architecture = [
-  ["Source", "../knowledge markdown files"],
-  ["Parser", "gray-matter frontmatter"],
-  ["Renderer", "react-markdown with GFM"],
-  ["Offline", "service worker page cache"],
+  ["Content Source", "Markdown in /knowledge"],
+  ["Vector Index", "fastembed (BAAI/bge-small-en-v1.5)"],
+  ["AI Layer", "OpenRouter / Gemini / OpenAI"],
+  ["Pipeline", "Autonomous GitHub Actions workflow"],
+  ["Frontend Shell", "Next.js 15 App Router & PWA Service Worker"],
 ];
 
 export const metadata = {
-  title: "About | Almanac",
-  description: "About Almanac, a focused engineering reading library.",
+  title: "About Almanac | Engineering Knowledge Base",
+  description: "About Almanac, an autonomous AI-powered engineering knowledge and learning platform.",
 };
 
 export default function AboutPage() {
@@ -47,153 +48,70 @@ export default function AboutPage() {
   const categories = getCategories();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-16">
-      {/* Unboxed Header */}
-      <section className="space-y-6 border-b border-slate-800/80 pb-10">
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] pt-2">
-          <div className="space-y-4">
-            <CategoryBadge>About Almanac</CategoryBadge>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white leading-[1.1]">
-              A focused reading library <br />
-              <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent font-normal">
-                for engineering knowledge
-              </span>
-            </h1>
-            <p className="text-xs sm:text-base text-slate-400 leading-relaxed max-w-xl">
-              Almanac is built for notes that are worth returning to: system design ideas, implementation patterns, technical papers, infrastructure concepts, and practical engineering references.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href="/notes"
-                className="inline-flex min-h-10 items-center justify-center rounded-md bg-sky-500 px-5 text-xs font-semibold text-slate-950 transition hover:bg-sky-400 shadow-sm"
-              >
-                Browse notes →
-              </Link>
-              <Link
-                href="/"
-                className="inline-flex min-h-10 items-center justify-center rounded-md border border-slate-700 bg-slate-800/80 px-5 text-xs font-semibold text-slate-200 transition hover:bg-slate-700/80"
-              >
-                Today&apos;s read
-              </Link>
-            </div>
-          </div>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-14">
+      {/* Header */}
+      <section className="space-y-4 border-b border-zinc-800 pb-8">
+        <CategoryBadge>Autonomous Engineering Knowledge</CategoryBadge>
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-100">
+          About Almanac<span className="text-violet-400">.</span>
+        </h1>
+        <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
+          Almanac is built for notes that are worth returning to: distributed systems patterns, Linux kernel memory management, vector search algorithms, and production backend architecture.
+        </p>
 
-          <div className="grid gap-3 self-end">
-            {[
-              [notes.length, pluralize(notes.length, "note")],
-              [categories.length, pluralize(categories.length, "category", "categories")],
-              ["PWA", "Installable reader shell"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-md border border-sky-500/20 bg-sky-500/10 p-4"
-              >
-                <div className="text-2xl font-bold text-sky-400 font-mono">{value}</div>
-                <p className="mt-0.5 text-xs font-medium text-slate-400">{label}</p>
-              </div>
-            ))}
+        <div className="grid grid-cols-3 gap-3 pt-4 max-w-md">
+          <div className="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg text-center">
+            <span className="text-xl font-semibold font-mono text-zinc-100">{notes.length}</span>
+            <p className="text-[11px] text-zinc-500 mt-0.5">{pluralize(notes.length, "note")}</p>
+          </div>
+          <div className="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg text-center">
+            <span className="text-xl font-semibold font-mono text-zinc-100">{categories.length}</span>
+            <p className="text-[11px] text-zinc-500 mt-0.5">Domains</p>
+          </div>
+          <div className="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg text-center">
+            <span className="text-xl font-semibold font-mono text-violet-400">PWA</span>
+            <p className="text-[11px] text-zinc-500 mt-0.5">Offline Shell</p>
           </div>
         </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-        <div className="space-y-1.5">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
-            Purpose
-          </span>
-          <h2 className="text-2xl font-extrabold text-white">Why It Exists</h2>
-        </div>
-        <div className="rounded-md border border-slate-800 bg-slate-900/50 p-6 sm:p-8 space-y-4 text-xs sm:text-sm leading-relaxed text-slate-400">
-          <p>
-            Engineering knowledge gets noisy fast. Almanac keeps the interface quiet so the note can do the work. It favors durable explanations, clear examples, and easy revisiting over feeds, reactions, or publication ceremony.
-          </p>
-          <p>
-            The app reads directly from the local knowledge directory, which keeps writing simple and ownership clear. Markdown remains the source of truth, while the frontend provides search-ready structure, typography, navigation, and offline-friendly reading.
-          </p>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="space-y-1">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
-            Principles
-          </span>
-          <h2 className="text-2xl font-extrabold text-white">Designed Like a Reader</h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2">
+      {/* Principles */}
+      <section className="space-y-4">
+        <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+          Core Engineering Principles
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2">
           {principles.map((item) => (
-            <article
+            <div
               key={item.title}
-              className="group rounded-md border border-slate-800 bg-slate-900/50 p-6 transition-all duration-200 hover:bg-slate-900/80 hover:border-sky-500/30"
+              className="p-5 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-zinc-700 transition"
             >
-              <span className="text-[11px] font-mono text-sky-400 font-bold">
+              <span className="text-xs font-mono font-medium text-violet-400">
                 {item.eyebrow}
               </span>
-              <h3 className="mt-2 text-base font-bold text-white transition-colors group-hover:text-sky-400">{item.title}</h3>
-              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+              <h3 className="mt-1.5 text-sm font-medium text-zinc-100">{item.title}</h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
                 {item.description}
               </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-2">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
-            Architecture
-          </span>
-          <h2 className="text-2xl font-extrabold text-white">Markdown In, Reading App Out</h2>
-          <p className="text-xs leading-relaxed text-slate-400 max-w-xl">
-            The frontend stays fast by using server-rendered data from the local filesystem and only adding client JavaScript where interaction is useful: theme switching, reading progress, and copying code.
-          </p>
-        </div>
-
-        <div className="divide-y divide-slate-800/80 rounded-md border border-slate-800 bg-slate-900/50 overflow-hidden">
-          {architecture.map(([label, value]) => (
-            <div key={label} className="flex items-center justify-between gap-4 p-4 text-xs">
-              <span className="font-semibold text-white">{label}</span>
-              <span className="font-mono text-sky-400 font-medium">{value}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="space-y-6 pt-4 border-t border-slate-800/80">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
-              Library
-            </span>
-            <h2 className="mt-1 text-2xl font-extrabold text-white">Browse by Category</h2>
-          </div>
-          <Link
-            href="/notes"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
-          >
-            View all notes →
-          </Link>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/notes?category=${category.slug}`}
-              className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-900/50 px-5 py-3.5 text-xs transition-all hover:border-sky-500/30 hover:bg-slate-900/80"
-            >
-              <span className="font-bold text-slate-200 group-hover:text-sky-400">{category.label}</span>
-              <span className="rounded bg-sky-500/10 border border-sky-500/20 px-2.5 py-0.5 font-mono text-[11px] text-sky-300">
-                {category.count}
-              </span>
-            </Link>
+      {/* Architecture */}
+      <section className="space-y-4">
+        <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+          Technical Stack
+        </h2>
+        <div className="divide-y divide-zinc-800 border border-zinc-800 rounded-lg bg-zinc-900/40 overflow-hidden">
+          {architecture.map(([label, value]) => (
+            <div key={label} className="flex items-center justify-between p-3.5 text-xs">
+              <span className="font-medium text-zinc-300">{label}</span>
+              <span className="font-mono text-zinc-400">{value}</span>
+            </div>
           ))}
         </div>
       </section>
     </div>
   );
 }
-
-
-

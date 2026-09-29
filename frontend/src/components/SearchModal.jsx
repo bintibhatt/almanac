@@ -1,211 +1,283 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import CategoryBadge from "./CategoryBadge";
 
 export default function SearchModal({ isOpen, onClose }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const inputRef = useRef(null);
+  const modalRef = useRef(null);
   const router = useRouter();
 
+  // Reset when opening/closing
   useEffect(() => {
+    if (isOpen) {
+      setSelectedIndex(0);
+      setTimeout(() => inputRef.current?.focus(), 40);
+    } else {
+      setQuery("");
+      setResults([]);
+      setSelectedIndex(0);
+    }
+  }, [isOpen]);
+
+  // Handle keyboard shortcuts when modal is open
+  useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      if (e.key === "Escape") {
         e.preventDefault();
-        if (isOpen) {
-          onClose();
-        } else {
-          // Open trigger handled by parent or state
-        }
-      }
-      if (e.key === "Escape" && isOpen) {
         onClose();
+        return;
+      }
+
+      if (results.length > 0) {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          setSelectedIndex((prev) => (prev + 1) % results.length);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          setSelectedIndex((prev) => (prev - 1 + results.length) % results.length);
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          const selected = results[selectedIndex];
+          if (selected) {
+            onClose();
+            router.push(`/notes/${selected.slug}`);
+          }
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, results, selectedIndex, onClose, router]);
 
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 50);
-    } else {
-      setQuery("");
-      setResults([]);
-    }
-  }, [isOpen]);
-
+  // Debounced search query calling dedicated /api/search
   useEffect(() => {
     if (!query.trim()) {
       setResults([]);
+      setLoading(false);
+      setSelectedIndex(0);
       return;
     }
 
     setLoading(true);
-    const timer = setTimeout(() => {
-      fetch(`/api/ask?q=${encodeURIComponent(query)}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setResults(data.notes || []);
-          setLoading(false);
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    }, 150);
+    const controller = new AbortController();
 
-    return () => clearTimeout(timer);
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`, {
+          signal: controller.signal,
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setResults(data.results || []);
+          setSelectedIndex(0);
+        }
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Search fetch error:", err);
+        }
+      } finally {
+        setLoading(false);
+      }
+    }, 160);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [query]);
 
-  if (!isOpen) return null;
+  // Click outside to close
+  const handleBackdropClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
 
-  const handleSelectNote = (slug) => {
+  const handleSelect = (slug) => {
     onClose();
     router.push(`/notes/${slug}`);
   };
 
-  const getCategoryColor = (cat) => {
-    switch (cat?.toLowerCase()) {
-      case "ai":
-      case "ai / search":
-        return "border-zinc-700 bg-zinc-800/80 text-zinc-200";
-      case "system-design":
-      case "system design":
-        return "border-emerald-500/30 bg-emerald-500/10 text-emerald-400";
-      case "backend":
-      case "infra":
-        return "border-indigo-500/30 bg-indigo-500/10 text-indigo-400";
-      case "security":
-        return "border-amber-500/30 bg-amber-500/10 text-amber-400";
-      default:
-        return "border-zinc-700 bg-zinc-800/60 text-zinc-300";
-    }
-  };
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-16 backdrop-blur-md transition-all">
-      <div className="relative w-full max-w-2xl overflow-hidden rounded-md border border-zinc-800 bg-[#0c0c0e] shadow-2xl">
-        {/* Search Input Bar */}
-        <div className="flex items-center border-b border-zinc-800 px-4 py-3.5">
-          <svg className="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    <div
+      onClick={handleBackdropClick}
+      className="fixed inset-0 z-50 flex items-start justify-center bg-black/75 backdrop-blur-sm p-4 pt-16 sm:pt-24 transition-opacity duration-150"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Command Palette"
+    >
+      <div
+        ref={modalRef}
+        className="w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+      >
+        {/* Command Search Header */}
+        <div className="relative flex items-center border-b border-zinc-800 px-4 py-3">
+          <svg className="w-4 h-4 text-zinc-400 shrink-0 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
             ref={inputRef}
             type="text"
-            placeholder="Type to search notes, architecture, concepts..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent px-3 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none"
+            placeholder="Type a command or search library..."
+            className="w-full bg-transparent text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"
           />
-          <kbd className="hidden rounded border border-zinc-700 bg-zinc-800/80 px-2 py-0.5 text-[10px] font-mono text-zinc-400 sm:inline-block">
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="text-zinc-500 hover:text-zinc-300 text-xs px-1.5 py-0.5"
+            >
+              Clear
+            </button>
+          )}
+          <span className="hidden sm:inline-block ml-2 text-[10px] font-mono text-zinc-400 border border-zinc-700 rounded px-1.5 py-0.5">
             ESC
-          </kbd>
+          </span>
         </div>
 
-        {/* Search Results Area */}
-        <div className="max-h-[60vh] overflow-y-auto p-4">
+        {/* Results / Suggestions Container */}
+        <div className="overflow-y-auto p-2">
           {loading ? (
-            <div className="py-12 text-center text-xs text-zinc-400">
-              <div className="mx-auto h-5 w-5 animate-spin rounded-full border-2 border-zinc-400 border-t-transparent mb-2" />
-              Searching library notes...
-            </div>
-          ) : results.length > 0 ? (
-            <div className="space-y-2">
-              <div className="px-2 pb-1 text-[11px] font-mono uppercase tracking-wider text-zinc-400">
-                Matching Notes ({results.length})
-              </div>
-              {results.map((note) => (
-                <button
-                  key={note.slug}
-                  onClick={() => handleSelectNote(note.slug)}
-                  className="w-full text-left flex items-center justify-between rounded-md border border-zinc-800/80 bg-zinc-900/50 p-3 transition hover:border-zinc-700 hover:bg-zinc-900/90"
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className={`rounded border px-2 py-0.5 text-[10px] font-mono font-medium ${getCategoryColor(note.category)}`}>
-                        {note.categoryLabel || note.category}
-                      </span>
-                      <h4 className="text-xs font-bold text-white line-clamp-1">{note.title}</h4>
-                    </div>
-                    <p className="text-[11px] text-zinc-400 line-clamp-1">{note.description}</p>
-                  </div>
-                  <span className="shrink-0 text-xs text-zinc-300 font-medium ml-4">View →</span>
-                </button>
-              ))}
+            <div className="py-12 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2">
+              <div className="w-5 h-5 border-2 border-violet-500/40 border-t-violet-400 rounded-full animate-spin" />
+              <span>Searching library...</span>
             </div>
           ) : query.trim() ? (
-            <div className="py-12 text-center text-xs text-zinc-400">
-              No notes found for &quot;<span className="text-white font-medium">{query}</span>&quot;
-            </div>
+            results.length > 0 ? (
+              <div className="space-y-1">
+                <div className="px-2 py-1 text-[11px] font-mono text-zinc-500 uppercase tracking-wider flex justify-between">
+                  <span>Results</span>
+                  <span>{results.length} found</span>
+                </div>
+                {results.map((note, idx) => (
+                  <button
+                    key={note.slug}
+                    onClick={() => handleSelect(note.slug)}
+                    onMouseEnter={() => setSelectedIndex(idx)}
+                    className={`w-full text-left p-3 rounded-lg flex items-center justify-between gap-3 transition ${
+                      selectedIndex === idx
+                        ? "bg-violet-950/40 border border-violet-800/50 text-zinc-100"
+                        : "bg-transparent border border-transparent text-zinc-300 hover:bg-zinc-800/50"
+                    }`}
+                  >
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <CategoryBadge category={note.category} label={note.categoryLabel} />
+                        <span className="text-[11px] text-zinc-500 font-mono">{note.readingTime}</span>
+                      </div>
+                      <h4 className="text-sm font-medium text-zinc-100 truncate">{note.title}</h4>
+                      <p className="text-xs text-zinc-400 truncate mt-0.5">{note.description}</p>
+                    </div>
+                    <span className="text-xs text-zinc-500 font-mono shrink-0">↵</span>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="py-12 text-center text-xs text-zinc-500">
+                No matching articles for &ldquo;<span className="text-zinc-300">{query}</span>&rdquo;
+              </div>
+            )
           ) : (
-            <div className="space-y-4 py-2">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2">
-                Quick Category Shortcuts
+            <div className="p-3 space-y-3">
+              <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
+                Quick Actions
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => {
                     onClose();
-                    router.push("/notes?category=ai");
+                    router.push("/notes");
                   }}
-                  className="flex items-center gap-2.5 rounded-md border border-zinc-800 bg-zinc-900/60 p-3 text-left transition hover:border-zinc-700 hover:bg-zinc-900"
+                  className="flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-700 text-left transition"
                 >
-                  <span className="h-2 w-2 rounded-full bg-zinc-400" />
+                  <span className="w-2 h-2 rounded-full bg-violet-400" />
                   <div>
-                    <div className="text-xs font-bold text-zinc-200">AI & RAG Systems</div>
-                    <div className="text-[10px] text-zinc-400">Vector DB, Hybrid Search</div>
+                    <div className="text-xs font-medium text-zinc-200">Browse Library</div>
+                    <div className="text-[10px] text-zinc-500">All engineering notes</div>
                   </div>
                 </button>
-
                 <button
                   onClick={() => {
                     onClose();
-                    router.push("/notes?category=system-design");
+                    router.push("/dashboard");
                   }}
-                  className="flex items-center gap-2.5 rounded-md border border-emerald-500/20 bg-emerald-500/10 p-3 text-left transition hover:border-emerald-500/40"
+                  className="flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-700 text-left transition"
                 >
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <div>
-                    <div className="text-xs font-bold text-emerald-300">System Design</div>
-                    <div className="text-[10px] text-zinc-400">Load Balancers, Locks</div>
+                    <div className="text-xs font-medium text-zinc-200">View Telemetry</div>
+                    <div className="text-[10px] text-zinc-500">System & learning stats</div>
                   </div>
                 </button>
-
                 <button
                   onClick={() => {
                     onClose();
-                    router.push("/notes?category=backend");
+                    router.push("/interview");
                   }}
-                  className="flex items-center gap-2.5 rounded-md border border-indigo-500/20 bg-indigo-500/10 p-3 text-left transition hover:border-indigo-500/40"
+                  className="flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-700 text-left transition"
                 >
-                  <span className="h-2 w-2 rounded-full bg-indigo-400" />
+                  <span className="w-2 h-2 rounded-full bg-blue-400" />
                   <div>
-                    <div className="text-xs font-bold text-indigo-300">Backend & Infra</div>
-                    <div className="text-[10px] text-zinc-400">cgroups, Docker, Caching</div>
+                    <div className="text-xs font-medium text-zinc-200">System Design Drills</div>
+                    <div className="text-[10px] text-zinc-500">Mock interview questions</div>
                   </div>
                 </button>
-
                 <button
                   onClick={() => {
                     onClose();
-                    router.push("/notes?category=security");
+                    router.push("/courses");
                   }}
-                  className="flex items-center gap-2.5 rounded-md border border-amber-500/20 bg-amber-500/10 p-3 text-left transition hover:border-amber-500/40"
+                  className="flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-700 text-left transition"
                 >
-                  <span className="h-2 w-2 rounded-full bg-amber-400" />
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
                   <div>
-                    <div className="text-xs font-bold text-amber-300">Web Security</div>
-                    <div className="text-[10px] text-zinc-400">HTTPS, TLS 1.3, Auth</div>
+                    <div className="text-xs font-medium text-zinc-200">Learning Tracks</div>
+                    <div className="text-[10px] text-zinc-500">Domain roadmaps</div>
                   </div>
                 </button>
               </div>
             </div>
           )}
+        </div>
+
+        {/* Footer shortcuts */}
+        <div className="flex items-center justify-between px-4 py-2 border-t border-zinc-800/80 bg-zinc-950 text-[11px] text-zinc-500">
+          <div className="flex items-center gap-3">
+            <span>
+              <kbd className="px-1.5 py-0.5 border border-zinc-800 rounded bg-zinc-900 font-mono text-[10px] mr-1">
+                ↑
+              </kbd>
+              <kbd className="px-1.5 py-0.5 border border-zinc-800 rounded bg-zinc-900 font-mono text-[10px] mr-1">
+                ↓
+              </kbd>
+              Navigate
+            </span>
+            <span>
+              <kbd className="px-1.5 py-0.5 border border-zinc-800 rounded bg-zinc-900 font-mono text-[10px] mr-1">
+                ↵
+              </kbd>
+              Open
+            </span>
+          </div>
+          <span>
+            <kbd className="px-1.5 py-0.5 border border-zinc-800 rounded bg-zinc-900 font-mono text-[10px] mr-1">
+              ESC
+            </kbd>
+            Close
+          </span>
         </div>
       </div>
     </div>
