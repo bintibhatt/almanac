@@ -10,7 +10,7 @@
   --muted: #a1a1aa;
   --muted-light: #d4d4d8;
   --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(167, 139, 250, 0.25);
+  --border-strong: rgba(167, 139, 250, 0.3);
   --surface: rgba(24, 24, 27, 0.65);
   --surface-solid: #18181b;
   --surface-muted: rgba(39, 39, 42, 0.5);
@@ -40,16 +40,16 @@ html.light {
   --muted: #71717a;
   --muted-light: #3f3f46;
   --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(2, 132, 199, 0.25);
+  --border-strong: rgba(124, 58, 237, 0.25);
   --surface: rgba(255, 255, 255, 0.8);
   --surface-solid: #ffffff;
   --surface-muted: rgba(244, 244, 245, 0.8);
-  --surface-hover: rgba(238, 242, 255, 0.8);
+  --surface-hover: rgba(245, 243, 255, 0.8);
   --code-bg: #f4f4f5;
-  --accent: #0284c7;
-  --accent-secondary: #4f46e5;
-  --accent-muted: rgba(2, 132, 199, 0.08);
-  --focus: #0284c7;
+  --accent: #7c3aed;
+  --accent-secondary: #8b5cf6;
+  --accent-muted: rgba(124, 58, 237, 0.08);
+  --focus: #7c3aed;
   --card-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.05);
 }
 
@@ -63,7 +63,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism & Minimal Utilities */
+/* Minimal Utilities */
 .glass-panel {
   background: var(--surface);
   backdrop-filter: blur(16px);
@@ -99,8 +99,8 @@ html.light .gradient-text {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -108,16 +108,16 @@ html.light .gradient-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 ::-selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(167, 139, 250, 0.3);
   color: var(--foreground);
 }
 
@@ -127,7 +127,14 @@ button, a, input {
 
 :focus-visible {
   outline: 2px solid var(--focus);
-  outline-offset: 3px;
+  outline-offset: 2px;
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .line-clamp-2 {
@@ -143,8 +150,3 @@ button, a, input {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-
-
-
-

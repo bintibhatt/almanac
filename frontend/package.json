@@ -2,11 +2,13 @@
   "name": "almanac",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/search.test.mjs"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",

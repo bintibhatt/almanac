@@ -10,7 +10,7 @@ const themeScript = `
     var storedTheme = window.localStorage.getItem(storageKey);
     var theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
     var root = document.documentElement;
-    var themeColor = theme === "light" ? "#dfe5eb" : "#0b0f14";
+    var themeColor = theme === "light" ? "#fafafa" : "#09090b";
 
     root.classList.toggle("light", theme === "light");
     root.dataset.theme = theme;
@@ -26,10 +26,10 @@ const themeScript = `
 export const metadata = {
   metadataBase: new URL("http://localhost:3000"),
   title: {
-    default: "Almanac",
+    default: "Almanac — Autonomous Engineering Knowledge Base",
     template: "%s | Almanac",
   },
-  description: "A living engineering library.",
+  description: "High-signal production engineering guides, system design patterns, dense vector search, and interactive AI learning.",
   manifest: "/manifest.webmanifest",
   applicationName: "Almanac",
   appleWebApp: {
@@ -53,13 +53,12 @@ export const metadata = {
   },
 };
 
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#0b0f14",
+  themeColor: "#09090b",
 };
 
 export default function RootLayout({ children }) {
@@ -72,7 +71,7 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-[#09090b] text-[#f4f4f5]">
         <ServiceWorkerRegister />
         <Navbar />
         <main className="flex-1">{children}</main>

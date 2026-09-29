@@ -8,6 +8,16 @@ export default function InterviewModal({ isOpen, onClose, note }) {
   const [revealed, setRevealed] = useState({});
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
     if (isOpen && note) {
       setLoading(true);
       setRevealed({});
@@ -32,24 +42,41 @@ export default function InterviewModal({ isOpen, onClose, note }) {
   if (!isOpen) return null;
 
   const toggleReveal = (idx) => {
-    setRevealed((prev) => ({ ...prev, [idx]: !prev[idx] }));
+    setRevealed((prev) => {
+      const updated = { ...prev, [idx]: !prev[idx] };
+      try {
+        const history = JSON.parse(localStorage.getItem("almanac_interview_history") || "[]");
+        if (!history.includes(note.slug)) {
+          history.push(note.slug);
+          localStorage.setItem("almanac_interview_history", JSON.stringify(history));
+        }
+      } catch {
+        // Failsafe
+      }
+      return updated;
+    });
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md transition-all">
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-slate-950 p-6 shadow-2xl sm:p-8">
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-              Technical Interview Prep
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+    >
+      <div className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl">
+        <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+          <div className="space-y-0.5">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+              Technical Interview Practice
             </span>
-            <h2 className="text-lg font-bold text-white sm:text-xl line-clamp-1">
+            <h2 className="text-xs font-medium text-zinc-200 line-clamp-1">
               {note?.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs text-slate-400 transition hover:bg-white/10 hover:text-white"
+            className="flex h-7 w-7 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-xs text-zinc-400 hover:text-zinc-200 transition"
             aria-label="Close Modal"
           >
             ✕
@@ -57,35 +84,37 @@ export default function InterviewModal({ isOpen, onClose, note }) {
         </div>
 
         {loading ? (
-          <div className="py-20 text-center text-slate-400 space-y-3">
-            <div className="mx-auto h-7 w-7 animate-spin rounded-full border-2 border-white border-t-transparent" />
-            <p className="text-xs font-medium">Generating interview questions...</p>
+          <div className="py-16 text-center text-zinc-500 space-y-2">
+            <div className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-violet-500/40 border-t-violet-400" />
+            <p className="text-xs font-mono">Generating architectural drills...</p>
           </div>
         ) : (
-          <div className="mt-6 space-y-6">
+          <div className="space-y-4">
             {questions.map((q, idx) => (
               <div
                 key={q.id || idx}
-                className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition-all"
+                className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4 transition"
               >
-                <div className="flex items-center justify-between">
-                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5 text-[10px] font-mono text-slate-300">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="rounded bg-violet-950/40 border border-violet-800/40 px-2 py-0.5 text-[10px] font-mono text-violet-300">
                     {q.level || "Senior"} Level
                   </span>
-                  <span className="text-[11px] font-mono text-slate-400">Question {idx + 1} of {questions.length}</span>
+                  <span className="text-[10px] font-mono text-zinc-500">
+                    Question {idx + 1} of {questions.length}
+                  </span>
                 </div>
 
-                <h3 className="mt-2.5 text-sm font-bold text-slate-100 leading-snug">
+                <h3 className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
                   {q.question}
                 </h3>
 
                 <button
                   onClick={() => toggleReveal(idx)}
-                  className="mt-4 flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-slate-200 transition hover:bg-white/10"
+                  className="mt-3.5 inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-zinc-100 hover:border-zinc-700 transition"
                 >
-                  <span>{revealed[idx] ? "Hide Model Solution" : "Reveal Model Solution"}</span>
+                  <span>{revealed[idx] ? "Hide Solution" : "Reveal Model Solution"}</span>
                   <svg
-                    className={`h-3.5 w-3.5 text-slate-400 transition-transform ${revealed[idx] ? "rotate-180" : ""}`}
+                    className={`h-3 w-3 text-zinc-400 transition-transform ${revealed[idx] ? "rotate-180" : ""}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -95,14 +124,14 @@ export default function InterviewModal({ isOpen, onClose, note }) {
                 </button>
 
                 {revealed[idx] && (
-                  <div className="mt-3 space-y-3 rounded-lg border border-white/10 bg-black/30 p-4 text-xs leading-relaxed text-slate-300">
+                  <div className="mt-3 space-y-2.5 rounded border border-zinc-800/80 bg-zinc-950 p-3 text-xs leading-relaxed text-zinc-300">
                     <div>
-                      <span className="font-semibold text-white">Expected Architecture & Answer: </span>
+                      <span className="font-medium text-violet-300">Model Architecture &amp; Rationale: </span>
                       {q.model_answer}
                     </div>
                     {q.follow_up_prompt && (
-                      <div className="border-t border-white/10 pt-2.5 text-slate-400">
-                        <span className="font-semibold text-slate-200">Interviewer Follow-up Question: </span>
+                      <div className="border-t border-zinc-800/60 pt-2 text-zinc-400">
+                        <span className="font-medium text-zinc-300">Follow-up Probe: </span>
                         {q.follow_up_prompt}
                       </div>
                     )}
@@ -116,5 +145,3 @@ export default function InterviewModal({ isOpen, onClose, note }) {
     </div>
   );
 }
-
-
