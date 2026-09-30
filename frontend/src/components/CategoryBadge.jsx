@@ -1,5 +1,20 @@
+const ACRONYM_MAP = {
+  ai: "AI",
+  api: "API",
+  rag: "RAG",
+  mcp: "MCP",
+  rest: "REST",
+  sql: "SQL",
+};
+
 export default function CategoryBadge({ category, label, children, className = "" }) {
-  const displayLabel = label || children || category || "General";
+  const raw = label || children || category || "General";
+  const displayLabel =
+    typeof raw === "string" && ACRONYM_MAP[raw.toLowerCase()]
+      ? ACRONYM_MAP[raw.toLowerCase()]
+      : typeof raw === "string"
+        ? raw.replace(/\bAi\b/g, "AI")
+        : raw;
 
   return (
     <span

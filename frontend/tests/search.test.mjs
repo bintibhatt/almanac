@@ -1,6 +1,6 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { searchNotes, getAllNotes, getCategories } from "../src/lib/notes.js";
+import { searchNotes, getAllNotes, getCategories, formatCategory, formatTag } from "../src/lib/notes.js";
 
 describe("Almanac Search Architecture & Ranking", () => {
   const allNotes = getAllNotes();
@@ -83,5 +83,19 @@ describe("Almanac Search Architecture & Ranking", () => {
       assert.ok(cat.label, "Category must have label");
       assert.ok(cat.count > 0, "Category count must be greater than zero");
     });
+  });
+
+  test("11. formatCategory and formatTag format AI in all uppercase", () => {
+    assert.equal(formatCategory("ai"), "AI", "ai category should format as AI");
+    assert.equal(formatCategory("system-design"), "System Design", "system-design should format as System Design");
+    assert.equal(formatTag("ai"), "AI", "ai tag should format as AI");
+    assert.equal(formatTag("ai-agents"), "AI-agents", "ai-agents tag should format with AI capitalized");
+  });
+
+  test("12. Dynamic category label for ai slug is 'AI' not 'Ai'", () => {
+    const categories = getCategories();
+    const aiCategory = categories.find((c) => c.slug === "ai");
+    assert.ok(aiCategory, "AI category should exist");
+    assert.equal(aiCategory.label, "AI", "Category label must be 'AI' instead of 'Ai'");
   });
 });

@@ -5,7 +5,7 @@ import CategoryBadge from "@/components/CategoryBadge";
 import InteractiveActions from "@/components/InteractiveActions";
 import ReadingProgress from "@/components/ReadingProgress";
 import TableOfContents from "@/components/TableOfContents";
-import { getAdjacentNotes, getAllNotes, getNoteBySlug, getRelatedNotes } from "@/lib/notes";
+import { formatTag, getAdjacentNotes, getAllNotes, getNoteBySlug, getRelatedNotes } from "@/lib/notes";
 import { formatDate } from "@/utils/format";
 
 const MarkdownRenderer = nextDynamic(() => import("@/components/MarkdownRenderer"), {
@@ -97,7 +97,7 @@ export default async function NotePage({ params }) {
                       key={tag}
                       className="px-2 py-0.5 rounded text-[10px] font-mono text-zinc-400 bg-zinc-900 border border-zinc-800"
                     >
-                      #{tag}
+                      #{formatTag(tag)}
                     </span>
                   ))}
                 </div>
