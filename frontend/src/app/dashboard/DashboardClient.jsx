@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
+import { getAllCourses, getAllInterviewPlans, getAllInterviewSessions } from "@/lib/storage";
 
 export default function DashboardClient({ libraryStats, systemState, recentNotes }) {
   const [localStats, setLocalStats] = useState({
@@ -10,24 +11,47 @@ export default function DashboardClient({ libraryStats, systemState, recentNotes
     cardsReviewed: 0,
     completedInterviews: 0,
     readArticles: 0,
+    coursesCount: 0,
+    interviewPlansCount: 0,
+    interviewSessionsCount: 0,
   });
+  const [userCourses, setUserCourses] = useState([]);
+  const [userInterviews, setUserInterviews] = useState([]);
 
   useEffect(() => {
+    // 1. Load localStorage metrics
     try {
       const readSet = JSON.parse(localStorage.getItem("almanac_read_articles") || "[]");
       const quizHistory = JSON.parse(localStorage.getItem("almanac_quiz_history") || "[]");
       const cardHistory = JSON.parse(localStorage.getItem("almanac_flashcard_reviews") || "0");
       const interviewHistory = JSON.parse(localStorage.getItem("almanac_interview_history") || "[]");
 
-      setLocalStats({
+      setLocalStats((prev) => ({
+        ...prev,
         completedQuizzes: quizHistory.length,
         cardsReviewed: Number(cardHistory) || 0,
         completedInterviews: interviewHistory.length,
         readArticles: readSet.length,
-      });
+      }));
     } catch {
       // LocalStorage access failsafe
     }
+
+    // 2. Load IndexedDB v2 Personal Learning metrics
+    Promise.all([
+      getAllCourses().catch(() => []),
+      getAllInterviewPlans().catch(() => []),
+      getAllInterviewSessions().catch(() => []),
+    ]).then(([courses, plans, sessions]) => {
+      setUserCourses(courses || []);
+      setUserInterviews(plans || []);
+      setLocalStats((prev) => ({
+        ...prev,
+        coursesCount: (courses || []).length,
+        interviewPlansCount: (plans || []).length,
+        interviewSessionsCount: (sessions || []).length,
+      }));
+    });
   }, []);
 
   return (
@@ -88,10 +112,10 @@ export default function DashboardClient({ libraryStats, systemState, recentNotes
             Learning Milestones
           </span>
           <div className="text-2xl font-semibold text-violet-400 font-mono">
-            {localStats.completedQuizzes + localStats.completedInterviews}
+            {localStats.coursesCount + localStats.interviewPlansCount + localStats.completedQuizzes + localStats.completedInterviews}
           </div>
           <span className="text-[11px] text-zinc-500 mt-1 block">
-            Quizzes & mock interviews
+            Courses, plans & drills
           </span>
         </div>
       </div>
@@ -184,6 +208,96 @@ export default function DashboardClient({ libraryStats, systemState, recentNotes
             <Link href="/updates" className="text-violet-400 hover:text-violet-300">
               View platform roadmap →
             </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Personal Learning Engine (v2) */}
+      <div className="mb-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-300">
+              Personal Learning Workspace
+            </h2>
+            <p className="text-xs text-zinc-500 mt-0.5">
+              Client-side courses and interview prep plans generated for your unique goals.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Link
+              href="/courses"
+              className="text-xs px-2.5 py-1 rounded bg-violet-950/60 border border-violet-800 text-violet-300 hover:bg-violet-900 transition"
+            >
+              + Create Course
+            </Link>
+            <Link
+              href="/interview"
+              className="text-xs px-2.5 py-1 rounded bg-zinc-800 border border-zinc-700 text-zinc-300 hover:bg-zinc-750 transition"
+            >
+              Practice Interview
+            </Link>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          {/* Courses card */}
+          <div className="p-5 bg-zinc-900/40 border border-zinc-800 rounded-lg">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider font-mono">
+                Active Courses
+              </span>
+              <span className="text-xs font-mono text-violet-400">
+                {localStats.coursesCount} enrolled
+              </span>
+            </div>
+            {userCourses.length === 0 ? (
+              <p className="text-xs text-zinc-500 py-3">
+                No courses created yet. Enter any engineering topic to generate a full structured curriculum.
+              </p>
+            ) : (
+              <div className="space-y-2">
+                {userCourses.slice(0, 3).map((c) => (
+                  <Link
+                    key={c.id}
+                    href={`/courses/${c.id}`}
+                    className="flex items-center justify-between p-2.5 bg-zinc-950/50 hover:bg-zinc-950 border border-zinc-800/60 rounded text-xs transition"
+                  >
+                    <span className="font-medium text-zinc-200 truncate pr-2">{c.title}</span>
+                    <span className="text-zinc-500 font-mono shrink-0">{c.modules?.length || 0} modules</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Interview Plans card */}
+          <div className="p-5 bg-zinc-900/40 border border-zinc-800 rounded-lg">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider font-mono">
+                Interview Prep Plans
+              </span>
+              <span className="text-xs font-mono text-violet-400">
+                {localStats.interviewPlansCount} plans ({localStats.interviewSessionsCount} practices)
+              </span>
+            </div>
+            {userInterviews.length === 0 ? (
+              <p className="text-xs text-zinc-500 py-3">
+                No interview plans generated yet. Pick an engineering role to get graded scenario questions and AI evaluations.
+              </p>
+            ) : (
+              <div className="space-y-2">
+                {userInterviews.slice(0, 3).map((p) => (
+                  <Link
+                    key={p.id}
+                    href="/interview"
+                    className="flex items-center justify-between p-2.5 bg-zinc-950/50 hover:bg-zinc-950 border border-zinc-800/60 rounded text-xs transition"
+                  >
+                    <span className="font-medium text-zinc-200 truncate pr-2">{p.targetRole}</span>
+                    <span className="text-zinc-500 font-mono shrink-0 capitalize">{p.experienceLevel}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

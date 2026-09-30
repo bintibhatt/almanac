@@ -26,10 +26,12 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from backend.ai.service import AIService
+from backend.providers.base import Topic
 from backend.scripts.config import AI_PROVIDER, validate_provider_config
 from backend.scripts.git_utils import commit_and_push
 from backend.services.article_rag_service import ArticleRAGService
 from backend.services.article_service import ArticleService
+from backend.services.course_service import CourseService
 from backend.services.duplicate_service import DuplicateService
 from backend.services.embedding_service import EmbeddingService
 from backend.services.flashcard_service import FlashcardService
@@ -151,7 +153,80 @@ def parse_args():
         action="store_true",
         help="Skip Git commit and push step",
     )
+    # Almanac v2 CLI Arguments
+    parser.add_argument(
+        "--generate-note",
+        type=str,
+        default=None,
+        help="Generate or retrieve a user-requested note on any engineering topic",
+    )
+    parser.add_argument(
+        "--generate-course",
+        type=str,
+        default=None,
+        help="Generate an independent, structured engineering course curriculum",
+    )
+    parser.add_argument(
+        "--course-level",
+        type=str,
+        default="Intermediate",
+        help="Target course level ('Beginner', 'Intermediate', 'Advanced')",
+    )
+    parser.add_argument(
+        "--course-goal",
+        type=str,
+        default=None,
+        help="User-defined learning goal for course generation",
+    )
+    parser.add_argument(
+        "--course-time",
+        type=str,
+        default=None,
+        help="Target time commitment per day/week for course generation",
+    )
+    parser.add_argument(
+        "--generate-interview-plan",
+        type=str,
+        default=None,
+        help="Generate a role-based interview preparation plan and graded question bank",
+    )
+    parser.add_argument(
+        "--interview-exp",
+        type=str,
+        default="Mid-Level (2-4 yrs)",
+        help="Experience level for interview plan generation",
+    )
+    parser.add_argument(
+        "--interview-focus",
+        type=str,
+        default=None,
+        help="Primary focus technologies/domains for interview prep",
+    )
+    parser.add_argument(
+        "--interview-company",
+        type=str,
+        default=None,
+        help="Optional company context for interview prep",
+    )
+    parser.add_argument(
+        "--evaluate-interview-answer",
+        action="store_true",
+        help="Evaluate candidate technical answer against question and model answer",
+    )
+    parser.add_argument(
+        "--model-answer",
+        type=str,
+        default="",
+        help="Model reference answer for interview evaluation",
+    )
+    parser.add_argument(
+        "--user-answer",
+        type=str,
+        default="",
+        help="Candidate submitted answer to evaluate",
+    )
     return parser.parse_args()
+
 
 
 def load_article_content(knowledge_dir: Path, slug: str):
@@ -300,6 +375,99 @@ def handle_rank_topics(topic_service: TopicService, topic_intelligence: TopicInt
     print("\n✨ Ranking completed.\n")
 
 
+def handle_generate_note(
+    topic_title: str,
+    category: Optional[str],
+    duplicate_service: DuplicateService,
+    article_service: ArticleService,
+    validation_service: ValidationService,
+    state_service: StateService,
+    vector_store_service: VectorStoreService,
+    retrieval_service: RetrievalService,
+    model: Optional[str] = None,
+    force: bool = False,
+    no_git: bool = True,
+):
+    """
+    Handle user-requested note generation.
+    Checks duplicate first; if highly similar, returns existing note info.
+    Otherwise generates, validates, saves, indexes, and returns note details.
+    """
+    clean_title = topic_title.strip()
+    if not clean_title:
+        print(json.dumps({"success": False, "error": "Topic title cannot be empty."}))
+        return
+
+    if len(clean_title) > 200:
+        print(json.dumps({"success": False, "error": "Topic title exceeds 200 character limit."}))
+        return
+
+    topic = Topic(
+        title=clean_title,
+        category=category or "backend",
+        description=f"Deep-dive technical note on {clean_title}.",
+        source="user-request",
+    )
+
+    dup_result = duplicate_service.check_duplicate(topic)
+    if dup_result.is_duplicate and not force:
+        print(json.dumps({
+            "success": True,
+            "already_exists": True,
+            "note": {
+                "slug": dup_result.matched_slug,
+                "title": dup_result.matched_title,
+                "reason": dup_result.reason,
+            }
+        }))
+        return
+
+    retrieved_context = retrieval_service.retrieve_context(topic)
+    try:
+        body_content, metadata = article_service.generate_article(
+            topic, model=model, retrieved_context=retrieved_context
+        )
+    except Exception as err:
+        print(json.dumps({"success": False, "error": f"Generation failed: {err}"}))
+        return
+
+    val_result = validation_service.validate(body_content, metadata)
+    if not val_result.is_valid:
+        print(json.dumps({
+            "success": False,
+            "error": "Validation failed: " + "; ".join(val_result.errors)
+        }))
+        return
+
+    saved_path = article_service.save_article(topic, body_content, metadata)
+    state_service.record_success(topic, metadata, file_path=saved_path)
+    vector_store_service.upsert_article(
+        slug=topic.slug,
+        title=topic.title,
+        category=topic.category,
+        content=body_content,
+        metadata=metadata,
+    )
+
+    if not no_git:
+        try:
+            commit_message = f"docs({topic.category}): add user-requested note on {topic.title}"
+            commit_and_push(saved_path, commit_message)
+        except Exception:
+            pass
+
+    print(json.dumps({
+        "success": True,
+        "already_exists": False,
+        "slug": topic.slug,
+        "title": topic.title,
+        "category": topic.category,
+        "reading_time": metadata.get("readingTime", "5 min read"),
+        "description": metadata.get("description", ""),
+        "file_path": str(saved_path),
+    }))
+
+
 def main():
     args = parse_args()
 
@@ -326,16 +494,76 @@ def main():
         state_service=state_service,
         vector_store_service=vector_store_service,
     )
-    topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service)
+    topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service, state_service=state_service)
     validation_service = ValidationService()
     topic_service = TopicService()
 
     quiz_service = QuizService(ai_service=ai_service, prompt_service=prompt_service)
     flashcard_service = FlashcardService(ai_service=ai_service, prompt_service=prompt_service)
-    interview_service = InterviewService(ai_service=ai_service, prompt_service=prompt_service)
+    interview_service = InterviewService(
+        ai_service=ai_service,
+        prompt_service=prompt_service,
+        vector_store_service=vector_store_service,
+    )
+    course_service = CourseService(
+        ai_service=ai_service,
+        prompt_service=prompt_service,
+        vector_store_service=vector_store_service,
+    )
     article_rag_service = ArticleRAGService(ai_service=ai_service, prompt_service=prompt_service)
 
     knowledge_dir = ROOT_DIR / "knowledge"
+
+    # Handle Almanac v2 Course Generation CLI
+    if args.generate_course:
+        course = course_service.generate_course(
+            topic=args.generate_course,
+            level=args.course_level,
+            goal=args.course_goal,
+            time_commitment=args.course_time,
+        )
+        print(json.dumps(course, indent=2))
+        return
+
+    # Handle Almanac v2 Interview Plan Generation CLI
+    if args.generate_interview_plan:
+        plan = interview_service.generate_interview_plan(
+            role=args.generate_interview_plan,
+            experience_level=args.interview_exp,
+            focus=args.interview_focus,
+            company=args.interview_company,
+        )
+        print(json.dumps(plan, indent=2))
+        return
+
+    # Handle Almanac v2 Interview Answer Evaluation CLI
+    if args.evaluate_interview_answer:
+        eval_result = interview_service.evaluate_answer(
+            question=args.question or "Technical Interview Question",
+            model_answer=args.model_answer or "",
+            user_answer=args.user_answer or "",
+            role=args.category or "Backend Software Engineer",
+        )
+        print(json.dumps(eval_result, indent=2))
+        return
+
+    # Handle Almanac v2 Manual User Note Generation CLI
+    if args.generate_note:
+        handle_generate_note(
+            topic_title=args.generate_note,
+            category=args.category,
+            duplicate_service=duplicate_service,
+            article_service=ArticleService(ai_service=ai_service, prompt_service=prompt_service),
+            validation_service=validation_service,
+            state_service=state_service,
+            vector_store_service=vector_store_service,
+            retrieval_service=retrieval_service,
+            model=args.model,
+            force=args.force,
+            no_git=args.no_git,
+        )
+        return
+
 
     # Handle Interactive Learning CLI modes
     if args.quiz:

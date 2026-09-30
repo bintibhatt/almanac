@@ -11,50 +11,106 @@ const ROADMAP_ITEMS = [
   {
     status: "SHIPPED",
     statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
-    title: "Dense Vector Semantic Similarity & Cosine Cross-Referencing",
-    date: "Latest Release",
+    title: "Almanac v2 Architecture: Global Knowledge & Personal Learning",
+    date: "v2.0 Release",
     description:
-      "Integrated fastembed with BAAI/bge-small-en-v1.5 precomputed vector indexing for sub-millisecond semantic similarity note recommendations.",
+      "Decoupled global shared knowledge from personal learning engines. Notes remain a shared public library while courses and interview preparations are generated uniquely for individual learning goals.",
   },
   {
     status: "SHIPPED",
     statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
-    title: "Command Palette & Multi-Word Ranked Search",
-    date: "Latest Release",
+    title: "Intelligent Daily Topic Discovery Flow",
+    date: "v2.0 Release",
     description:
-      "Dedicated /api/search architecture with multi-word scoring, exact phrase boosting, tag filtering, keyboard shortcuts (/, Cmd+K, arrow keys), and live category pills.",
+      "Replaced random selection with deterministic scoring across GitHub Trending, Hacker News, knowledge gap heuristics, and user requests with duplicate vector suppression.",
   },
   {
     status: "SHIPPED",
     statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
-    title: "AI Knowledge Suite: Flashcards, Quizzes & Mock System Design",
-    date: "Latest Release",
+    title: "On-Demand Manual Note Generation",
+    date: "v2.0 Release",
     description:
-      "Interactive learning modules per note: 5-card flashcard decks with flip animations, 4-question quizzes with instant explanation feedback, and 3-stage mock interview drills.",
+      "Request deep technical notes on any topic directly from the library. Automatic vector duplicate detection guides you to existing notes or researches and compiles new validated knowledge.",
+  },
+  {
+    status: "SHIPPED",
+    statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+    title: "Independent Course Curriculum Engine",
+    date: "v2.0 Release",
+    description:
+      "Generate custom, multi-module structured courses with detailed lessons, runnable code blocks, interactive practice exercises, self-assessments, and cross-references to Almanac notes.",
+  },
+  {
+    status: "SHIPPED",
+    statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+    title: "Independent Role-Based Interview Preparation",
+    date: "v2.0 Release",
+    description:
+      "Tailor-made interview study plans mapped to engineering roles and difficulty tiers (Junior to Staff), with interactive practice sessions and AI rubric-graded critique.",
+  },
+  {
+    status: "SHIPPED",
+    statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+    title: "Local-First Client Storage (IndexedDB almanac_personal_v2)",
+    date: "v2.0 Release",
+    description:
+      "Full offline-first persistence for generated courses, lesson progress, interview plans, practice responses, and telemetry using IndexedDB without requiring account creation.",
+  },
+  {
+    status: "SHIPPED",
+    statusColor: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+    title: "PWA Service Worker Update Detection",
+    date: "v2.0 Release",
+    description:
+      "Autonomous deploy detection in service worker with a non-intrusive 'New version available' toast and instant cache refresh activation.",
   },
   {
     status: "IN PROGRESS",
     statusColor: "bg-violet-950/60 text-violet-400 border-violet-800/60",
-    title: "Custom Curated Learning Paths & Skill Certification",
-    date: "Q2 2026",
+    title: "Web Push Notifications for Daily Note Releases",
+    date: "Active",
     description:
-      "Structured learning paths with sequential prerequisites, knowledge checkpoints, and verifiable skill completion badges.",
+      "Opt-in browser push notification integration delivering daily alerts when new validated engineering notes are added to the library.",
+  },
+  {
+    status: "IN PROGRESS",
+    statusColor: "bg-violet-950/60 text-violet-400 border-violet-800/60",
+    title: "Personal Learning Preferences & Pacing Controls",
+    date: "Active",
+    description:
+      "Granular customization for course pacing, code language preferences (Go, Rust, TypeScript, Python), and interview focus areas.",
   },
   {
     status: "NEXT",
     statusColor: "bg-blue-950/60 text-blue-400 border-blue-800/60",
-    title: "Interactive Architecture Diagrams with Mermaid Live Sandbox",
-    date: "Q3 2026",
+    title: "AWS Autonomous Ingestion & Background Scheduler",
+    date: "Upcoming",
     description:
-      "Live interactive system design canvas rendering distributed topologies, message queues, and consensus flows embedded directly in engineering guides.",
+      "Cloud architecture migration using AWS EventBridge, ECS Fargate / Lambda tasks, and S3 for distributed daily research and validation runs.",
+  },
+  {
+    status: "NEXT",
+    statusColor: "bg-blue-950/60 text-blue-400 border-blue-800/60",
+    title: "Cloud Backup & Multi-Device Sync for Personal Learning",
+    date: "Upcoming",
+    description:
+      "Encrypted end-to-end cloud sync allowing courses, interview plans, and notes progress to synchronize across devices while preserving local-first speed.",
   },
   {
     status: "EXPLORING",
     statusColor: "bg-zinc-800 text-zinc-400 border-zinc-700",
     title: "Autonomous Knowledge Ingestion from ArXiv Systems Papers",
-    date: "Future Exploration",
+    date: "Research",
     description:
       "Extending topic extraction to parse recent peer-reviewed systems papers (OSDI, SOSP, NSDI) into production-oriented engineering guides.",
+  },
+  {
+    status: "EXPLORING",
+    statusColor: "bg-zinc-800 text-zinc-400 border-zinc-700",
+    title: "Learning Activity Streaks & Spaced Repetition Reminders",
+    date: "Research",
+    description:
+      "Telemetry-backed spaced repetition schedule prompting recall tests on previously learned concepts to solidify long-term retention.",
   },
 ];
 

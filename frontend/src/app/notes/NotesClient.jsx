@@ -3,12 +3,14 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
+import RequestNoteModal from "@/components/RequestNoteModal";
 
 export default function NotesClient({ notes = [], categories = [] }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest"); // "newest" | "oldest" | "reading-time" | "category"
   const [viewMode, setViewMode] = useState("grid"); // "grid" | "list"
+  const [requestModalOpen, setRequestModalOpen] = useState(false);
 
   const filteredAndSortedNotes = useMemo(() => {
     let list = [...notes];
@@ -132,6 +134,15 @@ export default function NotesClient({ notes = [], categories = [] }) {
               </svg>
             </button>
           </div>
+
+          <button
+            onClick={() => setRequestModalOpen(true)}
+            className="flex items-center gap-1.5 rounded-md bg-violet-600 hover:bg-violet-500 px-3 py-1.5 text-xs font-medium text-white transition cursor-pointer shrink-0"
+          >
+            <span>+</span>
+            <span className="hidden sm:inline">Request Note</span>
+            <span className="sm:hidden">Request</span>
+          </button>
         </div>
       </div>
 
@@ -239,6 +250,13 @@ export default function NotesClient({ notes = [], categories = [] }) {
           </button>
         </div>
       )}
+
+      {/* Manual User Note Request Modal */}
+      <RequestNoteModal
+        isOpen={requestModalOpen}
+        onClose={() => setRequestModalOpen(false)}
+      />
     </div>
   );
 }
+

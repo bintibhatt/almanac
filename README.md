@@ -1,132 +1,292 @@
-# Almanac
+# Almanac v2 — Personal Learning & Autonomous Knowledge
 
-> An AI-powered engineering companion and autonomous knowledge platform that continuously discovers, validates, embeds, and publishes production-grade software engineering knowledge.
-
-Almanac is a living engineering knowledge base and interactive learning platform. Every automated pipeline run indexes high-signal architectural patterns, distributed systems deep-dives, Linux internals, and AI system design guides into a structured, searchable library.
+> An AI-powered engineering knowledge base and personal learning system that continuously discovers, validates, and publishes production-grade engineering knowledge, while generating customized learning courses and role-based interview preparation for individual engineers.
 
 ---
 
-## Architecture Overview
+## 1. Product Direction & Architecture Overview
+
+Almanac has evolved from an "AI-generated engineering notes" repository into an **AI-powered engineering knowledge and personal learning system**.
+
+The core architectural pillar of Almanac v2 is the separation of **Global Knowledge** and **Personal Learning**:
 
 ```
-                      Autonomous Ingestion Sources
-               (Hacker News • GitHub Trending • Manual Topics)
-                                    │
-                                    ▼
-                         Topic Intelligence & Ranker
-                                    │
-                                    ▼
-                     AI Research & Validation Engine
-               (OpenRouter • OpenAI • Gemini • FastEmbed)
-                                    │
-                                    ▼
-                      Dense Vector Index & Embeddings
-                        (shared/vector_index.json)
-                                    │
-                                    ▼
-                       Curated Markdown Knowledge
-                              (/knowledge)
-                                    │
-          ┌─────────────────────────┴─────────────────────────┐
-          ▼                                                   ▼
- Next.js 15 Reading Shell                             Interactive Suite
- • Ranked Command Palette Search                      • Contextual AI Chat (/api/ask)
- • Precomputed Vector Similarity                      • Recall Quizzes (/api/quiz)
- • Clean Dark System (#09090b / #a78bfa)              • Spaced Flashcards (/api/flashcards)
- • PWA Offline Precaching                             • System Design Drills (/api/interview)
+                    ALMANAC
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+     KNOWLEDGE ENGINE          LEARNING ENGINE
+          │                         │
+          │                  ┌──────┼──────┐
+          │                  │      │      │
+       Daily Notes        Courses Interview Future
+       Research           Paths   Prep    Learning
+       Search
+       Retrieval
+          │                  │      │
+          └────────────┬─────┘      │
+                       │            │
+                    Shared AI       │
+                 / Research Layer   │
+                       │            │
+                       └────────────┘
 ```
 
----
+### Global Knowledge vs Personal Learning
 
-## Core Features
-
-### 1. Autonomous Ingestion & Vector Indexing
-- **Topic Discovery**: Automatically ranks topics from Hacker News, GitHub Trending, and curated queues.
-- **AI Generation & Guardrails**: Evaluates originality, validates against structural engineering guidelines, and generates comprehensive markdown notes.
-- **Vector Semantic Search**: Embeds all articles using `fastembed` with `BAAI/bge-small-en-v1.5` precomputed embeddings stored in `shared/vector_index.json`.
-
-### 2. High-Performance Search Architecture
-- **Dedicated Search API**: Fast GET `/api/search?q=...&category=...` separated cleanly from AI endpoints.
-- **Multi-Word Ranked Scoring**: Boosts exact title matches, exact phrases, tags, categories, descriptions, and content keywords.
-- **Command Palette**: Triggered anywhere via `/` or `Cmd+K` / `Ctrl+K`, with arrow key navigation, Enter to open, and live debounced results.
-
-### 3. Active Learning & Verification Suite
-- **Article Assistant**: Ask AI targeted questions grounded strictly in the current article.
-- **Spaced Repetition Flashcards**: Interactive 3D flip card decks with keyboard controls.
-- **Knowledge Verification Quizzes**: Instant multi-choice feedback with architectural explanations.
-- **Technical Interview Drills**: Staff and Senior-level scenario questions, model architectures, and follow-up interviewer probes.
-
-### 4. Minimalist Design System
-- **Developer-Focused Palette**: Clean, dark-first UI (#09090B background, #18181B surface, #A78BFA violet brand accent, #F4F4F5 foreground).
-- **Progressive Web App**: Offline page shell caching via Service Worker (`sw.js`).
-- **Responsive Navigation**: Compact sticky navbar, scroll-spy table of contents, and 2px reading progress bar.
+| Characteristic | Global Knowledge Engine | Personal Learning Engine |
+| :--- | :--- | :--- |
+| **Scope** | Public, universal, shared across all users | Private, local-first, tailored to individual goals |
+| **Primary Entities** | Daily engineering notes, categories, tags, vector index | Generated courses, curriculum progress, interview prep plans, evaluation history |
+| **Generation Flow** | Autonomous daily pipeline from external sources & knowledge gaps | On-demand generation triggered by user learning goals or interview targets |
+| **Storage** | Git repository (`knowledge/`), `shared/vector_index.json` | Local-First IndexedDB (`almanac_personal_v2`) |
+| **Relationship** | Serves as authoritative reference material | Independently structured curriculum and drills that cross-reference notes |
 
 ---
 
-## Project Structure
+## 2. Global Knowledge Engine
+
+The Global Knowledge Engine autonomously discovers, validates, embeds, and publishes in-depth engineering deep dives.
+
+### Intelligent Daily Topic Discovery Flow
+
+Unlike earlier models relying on `random.choice(topics.json)`, Almanac v2 uses an intelligent, deterministic discovery pipeline:
+
+```
+External Sources (GitHub Trending, Hacker News)
+      + Knowledge Gap Provider (Underrepresented Domains)
+      + User Request Provider (shared/requested_topics.json)
+                         │
+                         ▼
+                  Topic Discovery
+                         │
+                         ▼
+                Topic Normalization
+                         │
+                         ▼
+        Duplicate Detection (Slug + Title + Vector Cosine)
+                         │
+                         ▼
+   Topic Intelligence Scoring (Freshness, Depth, Category Diversity)
+                         │
+                         ▼
+                  Topic Selection
+                         │
+                         ▼
+           Autonomous Research & Synthesis
+                         │
+                         ▼
+                 Article Generation
+                         │
+                         ▼
+       Strict Engineering Validation Guardrails
+                         │
+                         ▼
+            Vector Embedding & Knowledge Storage
+                         │
+                         ▼
+              Git Commit & Web Push Alert
+```
+
+- **Knowledge Gap Provider** (`backend/providers/knowledge_gap_provider.py`): Scans `shared/state.json` category distributions and injects topics for underrepresented domains (e.g. databases, security, devops, distributed systems).
+- **User Request Provider** (`backend/providers/user_request_provider.py`): Allows users to request topics on demand; requested topics receive priority scoring (+30 pts).
+- **Topic Intelligence & Diversity** (`backend/services/topic_intelligence.py`): Factors technical keyword depth, source authority, domain diversity, and recency penalties into a 0-100 score.
+- **Fail-Safe Daily Generation**: If generation fails validation or encounters an error, the failure is recorded in state without corrupting knowledge, committing empty files, or sending notifications.
+
+### On-Demand Note Generation (`/api/notes/generate`)
+
+Users can request notes on any technical subject:
+1. Input validation & sanitize.
+2. Vector similarity check against existing knowledge library.
+3. If an existing note matches, returns the existing note with an instant link.
+4. If novel, triggers research, article compilation, validation, filesystem storage, vector embedding, and returns the newly generated note.
+
+---
+
+## 3. Personal Learning Engine
+
+Courses and interview preparation are **not** simply collections of existing notes. They are independent AI-generated learning experiences that may use notes as supplementary reading.
+
+### Independent Course Curriculum Engine (`/courses`)
+
+When a user requests a course (e.g. *"I want to master distributed systems"*):
+1. **Curriculum Design**: The engine generates a multi-module syllabus tailored to the user's experience level, time commitment, and learning style.
+2. **Lesson Structure**:
+   - **Learning Objectives**: Clear capabilities achieved in the lesson.
+   - **In-Depth Explanation**: Architectural mental models, mechanics, and tradeoffs.
+   - **Key Concepts Matrix**: Critical rules of thumb and operational constraints.
+   - **Production Code Blocks**: Practical implementations (e.g. timeouts, retries, ring buffers, Raft log replay).
+   - **Hands-On Exercises**: System design scenarios with interactive hint and solution reveals.
+   - **Knowledge Checkpoints & Assessments**: Multiple-choice recall questions with immediate architectural rationale.
+   - **Common Pitfalls**: Anti-patterns observed in production.
+   - **Supplementary Notes**: Vector-similarity cross-references linking to relevant Almanac global notes.
+3. **Interactive Course Player** (`/courses/[id]`): Sidebar navigation, lesson completion toggles, responsive progress tracking, and instant local-first persistence.
+
+### Independent Interview Preparation Engine (`/interview`)
+
+1. **Role-Specific Study Plans**:
+   - Mapped to engineering roles (Backend, Distributed Systems, AI Platform, DevOps/SRE) and levels (Junior to Staff).
+   - Core Competency Matrix detailing high-priority architectural domains.
+   - Graded Question Bank categorized into **Easy**, **Medium**, and **Hard** challenges with scenarios, key points to cover, and model answers.
+2. **Interactive Practice & AI Answer Evaluation**:
+   - Engineers submit real technical responses to scenario questions.
+   - Evaluation evaluates responses against an architectural rubric, producing a numerical score (0-100), Pass/Revision rating, identified strengths, critical knowledge gaps, and follow-up interviewer probes.
+   - Practice attempts and evaluations are logged locally in IndexedDB.
+
+---
+
+## 4. Local-First Client Storage Architecture
+
+Almanac v2 strictly adheres to a **local-first** personal storage model:
+
+> **Rule:** Large structured entities (courses, progress, interview plans, practice sessions, activity history) belong in **IndexedDB**. Only lightweight UI preferences (theme, notification toggle status) belong in **localStorage**.
+
+### IndexedDB Database: `almanac_personal_v2`
+
+| Object Store | Key Path | Description |
+| :--- | :--- | :--- |
+| `courses` | `id` | Generated course curricula, modules, and lessons |
+| `course_progress` | `courseId` | Completed lesson IDs, active lesson pointer, completion percentage |
+| `interview_plans` | `id` | Role-specific interview plans, competencies, and question banks |
+| `interview_sessions` | `id` | Candidate answers, AI evaluation scores, strengths, and timestamps |
+| `user_activity` | autoIncrement | Telemetry events (`NOTE_READ`, `COURSE_LESSON_COMPLETED`, `INTERVIEW_PRACTICE`) for future streak computation |
+| `saved_notes` | `slug` | Bookmarked global engineering notes for quick reference |
+
+The storage facade (`frontend/src/lib/storage/index.js`) safely detects browser environments and provides seamless offline capabilities.
+
+---
+
+## 5. Progressive Web App & Push Notifications
+
+- **Offline-First Resilience**: Generated courses, lessons, and interview prep work fully offline once generated.
+- **Service Worker Versioning** (`frontend/public/sw.js`): Uses cache namespace `almanac-v2`.
+- **Deploy Detection Toast**: Detects waiting service worker updates and prompts the user with a non-intrusive *"New version available [Refresh]"* banner without interrupting active reading or quiz sessions.
+- **Web Push Notifications**:
+  - Opt-in push notification bell toggle in navigation (`NotificationToggle.jsx`).
+  - Stores browser push subscriptions in `shared/push_subscriptions.json` via `/api/push/subscribe`.
+  - Dispatches notifications only when a daily note is successfully generated and validated.
+
+---
+
+## 6. Future AWS Architecture
+
+To support autonomous, high-availability generation independent of local developer machines:
+
+```
+┌─────────────────────────┐
+│     AWS EventBridge     │ (Daily Cron Trigger: 06:00 UTC)
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│  AWS ECS Fargate Task   │ (or Lambda Container)
+│  Almanac Ingestion CLI  │
+└────────────┬────────────┘
+             ├─────────────────────────────────────────┐
+             ▼                                         ▼
+┌─────────────────────────┐               ┌─────────────────────────┐
+│     Amazon S3 Bucket    │               │    Amazon SNS / SES     │
+│  • Curated Markdown     │               │  • Web Push Dispatcher  │
+│  • Vector Index (JSON)  │               │  • Subscriber Alerts    │
+└────────────┬────────────┘               └─────────────────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ CloudFront & Next.js ISR│
+│ Autonomous Revalidation │
+└─────────────────────────┘
+```
+
+1. **AWS EventBridge**: Triggers a daily scheduled event at a designated hour.
+2. **AWS ECS Fargate / Lambda**: Spins up a container executing `python -m backend.scripts.scheduler --max-runs 1`.
+3. **Amazon S3**: Hosts the persistent `knowledge/` markdown library and `vector_index.json`.
+4. **Next.js On-Demand Revalidation**: Ingestion tasks call a secure webhook on the Next.js frontend to revalidate `/notes` and updated slugs instantly.
+
+---
+
+## 7. Project Structure
 
 ```
 almanac/
-├── backend/                  # Python autonomous engine & AI pipeline
-│   ├── ai/                   # AI provider abstractions (Gemini, OpenAI, OpenRouter, Mock)
-│   ├── embeddings/           # FastEmbed dense vector generation & indexing
-│   ├── generator/            # Note generation, validation, and quiz generators
-│   ├── topics/               # Ingestion topic providers (HN, GitHub, Manual)
-│   └── tests/                # 41 unit tests for AI, ingestion, and storage
-├── frontend/                 # Next.js 15 App Router application
+├── backend/
+│   ├── ai/                   # AI provider abstractions (OpenRouter, Gemini, OpenAI, Mock)
+│   ├── prompts/              # System & task prompts (article, course, interview, quiz)
+│   ├── providers/            # Ingestion topic sources (HN, GitHub, KnowledgeGap, UserRequest)
+│   ├── scripts/              # CLI runner (run.py), scheduler daemon, git automation
+│   ├── services/             # Core engines:
+│   │   ├── course_service.py        # Independent Course Curriculum Engine
+│   │   ├── interview_service.py     # Independent Interview Preparation Engine
+│   │   ├── notification_service.py  # Web Push notification dispatcher
+│   │   ├── topic_intelligence.py    # Deterministic scoring & diversity ranker
+│   │   ├── topic_service.py         # Multi-provider topic aggregation
+│   │   ├── duplicate_service.py     # Slug, title, and vector similarity guard
+│   │   ├── article_service.py       # Note generation & filesystem storage
+│   │   ├── validation_service.py    # Structural engineering rule checker
+│   │   └── vector_store_service.py  # FastEmbed dense vector retrieval
+│   └── tests/                # 49 unit tests covering AI, RAG, and v2 features
+├── frontend/
 │   ├── public/               # PWA manifests, icons, service worker (sw.js)
 │   ├── src/
-│   │   ├── app/              # Routes: /notes, /search, /courses, /interview, /dashboard, /updates
-│   │   ├── components/       # SearchModal, Navbar, TableOfContents, Flashcards, Quiz
-│   │   ├── lib/              # Local markdown parser & vector similarity engine
-│   │   └── utils/            # Formatting and slug utilities
-│   └── tests/                # Node.js search architecture test suite
+│   │   ├── app/
+│   │   │   ├── api/          # API routes: /search, /notes/generate, /courses/generate, /interview, /push
+│   │   │   ├── courses/      # Independent Course Creator & Interactive Player
+│   │   │   ├── interview/    # Role-Based Interview Prep & Answer Evaluator
+│   │   │   ├── notes/        # Knowledge library & On-Demand Request Note Modal
+│   │   │   ├── dashboard/    # Telemetry, library stats, and personal learning space
+│   │   │   └── updates/      # What's New & Roadmap (Shipped / In Progress / Next / Exploring)
+│   │   ├── components/       # UI Components (Navbar, SearchModal, NotificationToggle, TOC, etc.)
+│   │   └── lib/
+│   │       ├── storage/      # Local-First IndexedDB engine & localStorage preferences
+│   │       ├── notes.js      # Markdown parser & high-performance search ranker
+│   │       └── backend.js    # Subprocess bridge with clean JSON extraction
+│   └── tests/                # Search and local-first storage unit tests
 ├── knowledge/                # Curated Markdown engineering notes
-└── shared/                   # Precomputed vector indices & state telemetry
+└── shared/                   # Precomputed vector indices, state, and topic queues
 ```
 
 ---
 
-## Getting Started
+## 8. Getting Started
 
 ### Prerequisites
 - Node.js 20+
 - Python 3.11+
 - Git
 
-### Backend Setup
+### Backend Setup & Test Suite
 ```bash
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Run backend tests
-python -m unittest discover -s backend/tests
+# Run the complete test suite (49 tests)
+python -m pytest backend/tests
 ```
 
-### Frontend Setup
+### Frontend Setup & Test Suite
 ```bash
 cd frontend
 
-# Install dependencies
+# Install Node dependencies
 npm install
 
-# Run unit tests
+# Run frontend test suite (Search & Storage tests)
 npm test
 
-# Run linter
-npm run lint
+# Build production bundle
+npm run build
 
-# Start development server
+# Start local server
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to browse the library.
+Visit [http://localhost:3000](http://localhost:3000) to explore Almanac v2.
 
 ---
 
-## CI / CD
-GitHub Actions runs continuous integration on every commit and pull request:
-- Python backend test suite (41/41 unit tests)
-- Next.js ESLint verification
-- Frontend search unit test suite (10/10 tests)
-- Next.js production build check (`next build`)
+## 9. CI / CD Quality Gates
+
+Continuous Integration enforces quality across both engines on every pull request:
+1. **Backend Quality Gate**: `pytest backend/tests` (49/49 unit tests passing).
+2. **Frontend Quality Gate**: `npm test` (17/17 tests passing for search ranking and local-first storage).
+3. **Static Analysis**: Next.js ESLint verification.
+4. **Production Build Gate**: Zero-warning `next build` validation.
