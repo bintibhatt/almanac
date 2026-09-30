@@ -58,8 +58,9 @@ export async function POST(request) {
       const safeCompany = (company || "General Tech").replace(/"/g, '\\"');
 
       try {
+        const providerFlag = process.env.AI_PROVIDER ? `--provider ${process.env.AI_PROVIDER}` : "--provider mock";
         const output = runPythonScript(
-          `--provider mock --generate-interview-plan "${safeRole}" --interview-exp "${safeExp}" --interview-focus "${safeFocus}" --interview-company "${safeCompany}"`
+          `${providerFlag} --generate-interview-plan "${safeRole}" --interview-exp "${safeExp}" --interview-focus "${safeFocus}" --interview-company "${safeCompany}"`
         );
         const parsed = extractJsonFromOutput(output);
         if (parsed && parsed.questions) {
@@ -114,6 +115,39 @@ export async function POST(request) {
             keyPointsToCover: ["Randomized election timeouts", "Quorum requirement (N/2 + 1)", "Term numbers forcing step-down"],
             modelAnswer: "Raft ensures consensus by electing a single leader per term using randomized election timeouts. To win election, a candidate must collect votes from a strict majority (quorum = 3 of 5 nodes). In a 2/3 partition, the minority 2-node partition cannot form a quorum and cannot elect a leader or commit writes. The majority 3-node partition maintains normal operation.",
             followUpPrompt: "What happens if a leader disconnects immediately after appending an entry to its local log but before broadcasting it?",
+            relatedNotes: [],
+          },
+          {
+            id: "q-4",
+            category: "Networking & Protocols",
+            difficulty: "Easy",
+            question: "What is the head-of-line (HoL) blocking problem in HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC)?",
+            scenario: "Web application performance optimization for high-latency mobile networks with packet loss.",
+            keyPointsToCover: ["HTTP/1.1 application HoL", "HTTP/2 TCP-level HoL", "HTTP/3 independent QUIC streams"],
+            modelAnswer: "In HTTP/1.1, responses must arrive in exact request order over a connection. HTTP/2 multiplexes streams onto a single TCP connection, but a single lost TCP packet stalls all multiplexed streams. HTTP/3 runs over QUIC/UDP, eliminating cross-stream head-of-line blocking completely.",
+            followUpPrompt: "Why does HTTP/3 still experience connection setup overhead despite using UDP?",
+            relatedNotes: [],
+          },
+          {
+            id: "q-5",
+            category: "Caching & Concurrency",
+            difficulty: "Medium",
+            question: "How do you protect a distributed system from a Cache Stampede (Thundering Herd) when a hot cache key expires?",
+            scenario: "A hot homepage cache key with 50,000 queries per second expires in Redis.",
+            keyPointsToCover: ["SingleFlight / Distributed mutex", "Stale-while-revalidate pattern", "Probabilistic early expiration (XFetch)"],
+            modelAnswer: "Three primary patterns mitigate cache stampedes: 1) Distributed Mutex/SingleFlight: Only the first cache-miss worker executes the expensive backend query while others await the broadcasted result. 2) Stale-while-revalidate: Serve slightly stale data while an async goroutine refreshes Redis. 3) XFetch algorithm: Compute probabilistic early expiration before hard TTL.",
+            followUpPrompt: "How do you handle worker crashes while holding the cache stampede mutex?",
+            relatedNotes: [],
+          },
+          {
+            id: "q-6",
+            category: "Database Architecture",
+            difficulty: "Hard",
+            question: "How do you execute a zero-downtime schema migration on a 1-billion row PostgreSQL table that is receiving 5,000 writes/second?",
+            scenario: "Renaming a critical column and splitting user address into a normalized table.",
+            keyPointsToCover: ["Expand and Contract pattern", "CREATE INDEX CONCURRENTLY", "Batched asynchronous backfilling", "Dual-writing during transition"],
+            modelAnswer: "Follow the Expand/Contract pattern: 1) Expand by creating nullable columns/tables and adding indexes using CREATE INDEX CONCURRENTLY to avoid AccessExclusiveLocks. 2) Dual-write to both legacy and modern tables. 3) Backfill historical data in small primary-key bounded batches with pause intervals to avoid locking. 4) Switch reads to new schema and asynchronously drop old columns.",
+            followUpPrompt: "What happens if a dual-write fails to the secondary table during step 2?",
             relatedNotes: [],
           },
         ],

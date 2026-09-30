@@ -5,8 +5,12 @@ Candidate Level: {experience_level}
 Target Technologies / Focus: {focus}
 Company Context: {company}
 
-Generate a comprehensive interview preparation plan and graded question bank.
-Do NOT just generate trivial questions; provide deep architectural, design, and production questions tailored to this role.
+Generate a comprehensive interview preparation plan and a graded question bank containing between 6 to 8 distinct technical questions distributed across:
+- 2 Easy / Fundamental questions (core mechanics, data structures, protocols)
+- 3 to 4 Medium questions (system architecture, trade-offs, concurrency, caching, data modeling)
+- 2 to 3 Hard / Staff-level questions (failure recovery under partitions, p99 latency optimization, scale, multi-region distributed consensus)
+
+Ensure questions cover multiple domains: System Design, Architecture Tradeoffs, Concurrency & Reliability, Database Internals, and Failure Triage.
 
 Format the output strictly as valid JSON without Markdown fences or conversational text:
 {{
