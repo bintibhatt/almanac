@@ -366,7 +366,7 @@ export default function InterviewPage() {
                   </span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 pt-0.5">
-                  {[3, 5, 6, 8, 10].map((num) => (
+                  {[3, 5, 6, 8, 10, 12, 15].map((num) => (
                     <button
                       key={num}
                       type="button"

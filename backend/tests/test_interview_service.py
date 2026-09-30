@@ -50,6 +50,20 @@ class TestInterviewService(unittest.TestCase):
         self.assertIsInstance(plan, dict)
         self.assertEqual(len(plan["questions"]), 7)
 
+    def test_generate_interview_plan_fifteen_questions(self):
+        plan = self.service.generate_interview_plan(
+            role="Staff Backend Engineer",
+            experience_level="Staff / Principal (8+ yrs)",
+            focus="Distributed Systems, CRDTs, Raft",
+            question_count=15,
+        )
+        self.assertIsInstance(plan, dict)
+        self.assertEqual(len(plan["questions"]), 15)
+        # Check all 15 question IDs are unique and numbered 1..15
+        ids = [q["id"] for q in plan["questions"]]
+        self.assertEqual(len(set(ids)), 15)
+        self.assertEqual(ids, [f"q-{i}" for i in range(1, 16)])
+
     def test_evaluate_answer(self):
         result = self.service.evaluate_answer(
             question="How does MVCC work in PostgreSQL?",
