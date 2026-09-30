@@ -1,146 +1,132 @@
 # Almanac
 
-> An AI-powered engineering companion that continuously discovers, generates, organizes, and publishes technical knowledge.
+> An AI-powered engineering companion and autonomous knowledge platform that continuously discovers, validates, embeds, and publishes production-grade software engineering knowledge.
 
-Almanac is a long-term project that transforms daily learning into a living engineering library.
-
-Instead of generating meaningless GitHub commits, every commit contributes a carefully curated engineering note that can be read, searched, and revisited. Over time, Almanac grows into a personal reference built from continuous learning.
+Almanac is a living engineering knowledge base and interactive learning platform. Every automated pipeline run indexes high-signal architectural patterns, distributed systems deep-dives, Linux internals, and AI system design guides into a structured, searchable library.
 
 ---
 
-# Vision
+## Architecture Overview
 
 ```
-           Internet
-               │
-               ▼
-      Discover Valuable Topics
-               │
-               ▼
-        AI Research Engine
-               │
-               ▼
-      High-Quality Engineering Notes
-               │
-               ▼
-      Structured Knowledge Library
-               │
-               ▼
-     Beautiful Reading Experience
+                      Autonomous Ingestion Sources
+               (Hacker News • GitHub Trending • Manual Topics)
+                                    │
+                                    ▼
+                         Topic Intelligence & Ranker
+                                    │
+                                    ▼
+                     AI Research & Validation Engine
+               (OpenRouter • OpenAI • Gemini • FastEmbed)
+                                    │
+                                    ▼
+                      Dense Vector Index & Embeddings
+                        (shared/vector_index.json)
+                                    │
+                                    ▼
+                       Curated Markdown Knowledge
+                              (/knowledge)
+                                    │
+          ┌─────────────────────────┴─────────────────────────┐
+          ▼                                                   ▼
+ Next.js 15 Reading Shell                             Interactive Suite
+ • Ranked Command Palette Search                      • Contextual AI Chat (/api/ask)
+ • Precomputed Vector Similarity                      • Recall Quizzes (/api/quiz)
+ • Clean Dark System (#09090b / #a78bfa)              • Spaced Flashcards (/api/flashcards)
+ • PWA Offline Precaching                             • System Design Drills (/api/interview)
 ```
 
-Almanac is designed to become a personal engineering companion—not a blog, but a continuously evolving library of software engineering knowledge.
+---
+
+## Core Features
+
+### 1. Autonomous Ingestion & Vector Indexing
+- **Topic Discovery**: Automatically ranks topics from Hacker News, GitHub Trending, and curated queues.
+- **AI Generation & Guardrails**: Evaluates originality, validates against structural engineering guidelines, and generates comprehensive markdown notes.
+- **Vector Semantic Search**: Embeds all articles using `fastembed` with `BAAI/bge-small-en-v1.5` precomputed embeddings stored in `shared/vector_index.json`.
+
+### 2. High-Performance Search Architecture
+- **Dedicated Search API**: Fast GET `/api/search?q=...&category=...` separated cleanly from AI endpoints.
+- **Multi-Word Ranked Scoring**: Boosts exact title matches, exact phrases, tags, categories, descriptions, and content keywords.
+- **Command Palette**: Triggered anywhere via `/` or `Cmd+K` / `Ctrl+K`, with arrow key navigation, Enter to open, and live debounced results.
+
+### 3. Active Learning & Verification Suite
+- **Article Assistant**: Ask AI targeted questions grounded strictly in the current article.
+- **Spaced Repetition Flashcards**: Interactive 3D flip card decks with keyboard controls.
+- **Knowledge Verification Quizzes**: Instant multi-choice feedback with architectural explanations.
+- **Technical Interview Drills**: Staff and Senior-level scenario questions, model architectures, and follow-up interviewer probes.
+
+### 4. Minimalist Design System
+- **Developer-Focused Palette**: Clean, dark-first UI (#09090B background, #18181B surface, #A78BFA violet brand accent, #F4F4F5 foreground).
+- **Progressive Web App**: Offline page shell caching via Service Worker (`sw.js`).
+- **Responsive Navigation**: Compact sticky navbar, scroll-spy table of contents, and 2px reading progress bar.
 
 ---
 
-# Features
-
-## Current
-
-- AI-generated engineering notes
-- Multiple AI providers
-  - Google Gemini
-  - OpenAI
-- Markdown-based knowledge library
-- Automatic Git commits
-- Modular Python architecture
-
-## Planned
-
-- Intelligent topic discovery
-- GitHub Trending integration
-- Hacker News integration
-- arXiv paper summaries
-- RSS feed support
-- Full-text search
-- Categories & tags
-- Related articles
-- Progressive Web App (PWA)
-- Docker
-- AWS deployment
-- Automated daily publishing
-
----
-
-# How It Works
+## Project Structure
 
 ```
-Discover Topic
-      │
-      ▼
-Research & Generate
-      │
-      ▼
-Create Markdown Note
-      │
-      ▼
-Commit to GitHub
-      │
-      ▼
-Update Knowledge Library
+almanac/
+├── backend/                  # Python autonomous engine & AI pipeline
+│   ├── ai/                   # AI provider abstractions (Gemini, OpenAI, OpenRouter, Mock)
+│   ├── embeddings/           # FastEmbed dense vector generation & indexing
+│   ├── generator/            # Note generation, validation, and quiz generators
+│   ├── topics/               # Ingestion topic providers (HN, GitHub, Manual)
+│   └── tests/                # 41 unit tests for AI, ingestion, and storage
+├── frontend/                 # Next.js 15 App Router application
+│   ├── public/               # PWA manifests, icons, service worker (sw.js)
+│   ├── src/
+│   │   ├── app/              # Routes: /notes, /search, /courses, /interview, /dashboard, /updates
+│   │   ├── components/       # SearchModal, Navbar, TableOfContents, Flashcards, Quiz
+│   │   ├── lib/              # Local markdown parser & vector similarity engine
+│   │   └── utils/            # Formatting and slug utilities
+│   └── tests/                # Node.js search architecture test suite
+├── knowledge/                # Curated Markdown engineering notes
+└── shared/                   # Precomputed vector indices & state telemetry
 ```
 
-Every generated note becomes a permanent part of Almanac, creating a searchable engineering reference that grows over time.
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js 20+
+- Python 3.11+
+- Git
+
+### Backend Setup
+```bash
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Run backend tests
+python -m unittest discover -s backend/tests
+```
+
+### Frontend Setup
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run unit tests
+npm test
+
+# Run linter
+npm run lint
+
+# Start development server
+npm run dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000) to browse the library.
 
 ---
 
-# Tech Stack
-
-### Backend
-
-- Python
-
-### Frontend
-
-- Next.js
-- React
-
-### AI
-
-- Google Gemini
-- OpenAI
-
-### Storage
-
-- Markdown
-
-### Future
-
-- SQLite
-- Docker
-- AWS
-- GitHub Actions
-
----
-
-# Philosophy
-
-Almanac is built around one simple principle:
-
-> **Every commit should leave behind knowledge worth keeping.**
-
-Rather than chasing GitHub contribution graphs, Almanac focuses on building a high-quality engineering library through consistent learning and documentation.
-
----
-
-# Future Vision
-
-Almanac will evolve into an autonomous engineering companion capable of:
-
-- Discovering valuable engineering topics
-- Summarizing research papers and technical articles
-- Tracking industry trends
-- Building personalized learning paths
-- Publishing daily technical notes
-- Connecting related concepts into a searchable knowledge network
-- Delivering a beautiful reading experience across desktop and mobile
-
-The goal is simple:
-
-> **Open Almanac every day and learn something worth remembering.**
-
----
-
-# License
-
-MIT
+## CI / CD
+GitHub Actions runs continuous integration on every commit and pull request:
+- Python backend test suite (41/41 unit tests)
+- Next.js ESLint verification
+- Frontend search unit test suite (10/10 tests)
+- Next.js production build check (`next build`)

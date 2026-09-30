@@ -5,15 +5,15 @@ import CategoryBadge from "@/components/CategoryBadge";
 import InteractiveActions from "@/components/InteractiveActions";
 import ReadingProgress from "@/components/ReadingProgress";
 import TableOfContents from "@/components/TableOfContents";
-import { getAdjacentNotes, getAllNotes, getNoteBySlug } from "@/lib/notes";
+import { getAdjacentNotes, getAllNotes, getNoteBySlug, getRelatedNotes } from "@/lib/notes";
 import { formatDate } from "@/utils/format";
 
 const MarkdownRenderer = nextDynamic(() => import("@/components/MarkdownRenderer"), {
   loading: () => (
-    <div className="space-y-3">
-      <div className="h-4 w-2/3 rounded bg-[var(--surface-muted)]" />
-      <div className="h-4 w-full rounded bg-[var(--surface-muted)]" />
-      <div className="h-4 w-5/6 rounded bg-[var(--surface-muted)]" />
+    <div className="space-y-3 py-6">
+      <div className="h-4 w-2/3 rounded bg-zinc-800 animate-pulse" />
+      <div className="h-4 w-full rounded bg-zinc-800 animate-pulse" />
+      <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse" />
     </div>
   ),
 });
@@ -31,12 +31,12 @@ export async function generateMetadata({ params }) {
 
   if (!note) {
     return {
-      title: "Note not found",
+      title: "Note not found | Almanac",
     };
   }
 
   return {
-    title: note.title,
+    title: `${note.title} | Almanac`,
     description: note.description,
   };
 }
@@ -50,70 +50,125 @@ export default async function NotePage({ params }) {
   }
 
   const { previous, next } = getAdjacentNotes(note.slug);
+  const relatedNotes = getRelatedNotes(note, 3);
 
   return (
     <>
       <ReadingProgress />
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-6 sm:px-6 sm:py-9 lg:px-8 xl:grid-cols-[minmax(0,1fr)_260px]">
-        <article className="mx-auto w-full max-w-[730px]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid gap-10 xl:grid-cols-[minmax(0,1fr)_240px]">
+        <article className="min-w-0 max-w-3xl">
+          {/* Breadcrumb / Back button */}
           <Link
             href="/notes"
-            className="inline-flex min-h-9 items-center rounded-full border border-[var(--border)] bg-[var(--surface-solid)] px-3.5 text-xs font-medium text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-[var(--foreground)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+            className="inline-flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-200 transition-colors mb-6"
           >
-            ← Back to notes
+            <span>←</span>
+            <span>Back to library</span>
           </Link>
 
-          <header className="mt-7 border-b border-[var(--border)] pb-7 sm:mt-9 sm:pb-9">
-            <CategoryBadge>{note.categoryLabel}</CategoryBadge>
-            <h1 className="mt-4 text-3xl font-extrabold leading-[1.15] tracking-tight text-[var(--foreground)] sm:text-4xl lg:text-5xl">
+          {/* Article Header */}
+          <header className="border-b border-zinc-800 pb-7 mb-8">
+            <div className="flex items-center gap-3 mb-3">
+              <CategoryBadge category={note.category} label={note.categoryLabel} />
+              <span className="text-xs text-zinc-500 font-mono">{note.readingTime}</span>
+              <span className="text-xs text-zinc-500 capitalize">• {note.difficulty}</span>
+            </div>
+
+            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-zinc-100 mb-3">
               {note.title}
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-4">
               {note.description}
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-[var(--muted)]">
-              <time dateTime={note.published}>{formatDate(note.published)}</time>
-              <span aria-hidden="true" className="opacity-40">•</span>
-              <span>{note.readingTime}</span>
-              <span aria-hidden="true" className="opacity-40">•</span>
-              <span className="capitalize">{note.difficulty} Level</span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-500 pt-3 border-t border-zinc-800/60">
+              <div className="flex items-center gap-3">
+                <span>Published: {formatDate(note.published)}</span>
+                {note.updated && note.updated !== note.published && (
+                  <span>• Updated: {formatDate(note.updated)}</span>
+                )}
+              </div>
+
+              {note.tags && note.tags.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {note.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 rounded text-[10px] font-mono text-zinc-400 bg-zinc-900 border border-zinc-800"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {note.tags.length ? (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {note.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded border border-sky-500/20 bg-sky-500/10 px-2.5 py-0.5 text-[11px] font-mono text-sky-300"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-
-            {/* Interactive Learning Suite */}
-            <InteractiveActions note={note} />
+            {/* AI Learning Suite: Ask, Flashcards, Quiz, Interview */}
+            <div className="mt-6">
+              <InteractiveActions note={note} />
+            </div>
           </header>
 
-          <div className="markdown-body mt-7 sm:mt-9">
+          {/* Table of contents for mobile/tablet */}
+          <TableOfContents headings={note.headings} />
+
+          {/* Main Article Content */}
+          <div className="prose prose-invert prose-zinc max-w-none text-zinc-300">
             <MarkdownRenderer content={note.content} />
           </div>
 
+          {/* Related Notes (Vector Semantic Search) */}
+          {relatedNotes && relatedNotes.length > 0 && (
+            <div className="mt-14 pt-8 border-t border-zinc-800">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                  Related Engineering Guides
+                </h2>
+                <span className="text-[11px] text-zinc-500 font-mono">
+                  Vector Semantic Relevance
+                </span>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {relatedNotes.map((rel) => (
+                  <Link
+                    key={rel.slug}
+                    href={`/notes/${rel.slug}`}
+                    className="p-3.5 bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 rounded-lg transition group flex flex-col justify-between"
+                  >
+                    <div>
+                      <span className="text-[10px] font-medium text-violet-400 uppercase tracking-wider block mb-1">
+                        {rel.categoryLabel}
+                      </span>
+                      <h3 className="text-xs font-medium text-zinc-200 group-hover:text-violet-300 transition line-clamp-2">
+                        {rel.title}
+                      </h3>
+                    </div>
+                    <span className="text-[10px] text-zinc-500 font-mono mt-3 pt-2 border-t border-zinc-800/60 block">
+                      {rel.readingTime}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Previous / Next Article Navigation */}
           <nav
-            className="mt-12 grid gap-4 border-t border-slate-800/80 pt-8 sm:grid-cols-2"
+            className="mt-8 grid gap-4 sm:grid-cols-2 pt-6 border-t border-zinc-800"
             aria-label="Previous and next notes"
           >
             {previous ? (
               <Link
                 href={`/notes/${previous.slug}`}
-                className="group rounded-md border border-slate-800 bg-slate-900/50 p-4 transition-all duration-150 hover:bg-slate-900/80 hover:border-sky-500/30"
+                className="group p-4 rounded-lg border border-zinc-800 bg-zinc-900/30 hover:bg-zinc-900 hover:border-zinc-700 transition"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">
                   ← Previous Article
                 </span>
-                <p className="mt-1 text-xs font-semibold text-white group-hover:text-sky-400 transition-colors">{previous.title}</p>
+                <p className="text-xs font-medium text-zinc-200 group-hover:text-violet-300 transition line-clamp-1">
+                  {previous.title}
+                </p>
               </Link>
             ) : (
               <div />
@@ -122,20 +177,22 @@ export default async function NotePage({ params }) {
             {next ? (
               <Link
                 href={`/notes/${next.slug}`}
-                className="group rounded-md border border-slate-800 bg-slate-900/50 p-4 text-left transition-all duration-150 hover:bg-slate-900/80 hover:border-sky-500/30 sm:text-right"
+                className="group p-4 rounded-lg border border-zinc-800 bg-zinc-900/30 hover:bg-zinc-900 hover:border-zinc-700 transition sm:text-right"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">
                   Next Article →
                 </span>
-                <p className="mt-1 text-xs font-semibold text-white group-hover:text-sky-400 transition-colors">{next.title}</p>
+                <p className="text-xs font-medium text-zinc-200 group-hover:text-violet-300 transition line-clamp-1">
+                  {next.title}
+                </p>
               </Link>
             ) : null}
           </nav>
         </article>
 
+        {/* Desktop Sticky Table of Contents */}
         <TableOfContents headings={note.headings} />
       </div>
     </>
   );
 }
-

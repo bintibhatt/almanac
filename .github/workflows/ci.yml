@@ -30,8 +30,8 @@ jobs:
         run: |
           python -m unittest discover -s backend/tests
 
-  frontend-build:
-    name: Build Next.js Frontend
+  frontend-check:
+    name: Lint, Test & Build Next.js Frontend
     runs-on: ubuntu-latest
 
     steps:
@@ -49,6 +49,16 @@ jobs:
         run: |
           cd frontend
           npm ci
+
+      - name: Run Frontend Lint
+        run: |
+          cd frontend
+          npm run lint
+
+      - name: Run Frontend Search & Unit Tests
+        run: |
+          cd frontend
+          npm test
 
       - name: Build Next.js Application
         run: |
