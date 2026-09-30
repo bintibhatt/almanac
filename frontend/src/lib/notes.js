@@ -122,12 +122,55 @@ function normalizeDate(value, fallback) {
   return date.toISOString();
 }
 
-function formatCategory(value) {
+const ACRONYMS = {
+  ai: "AI",
+  api: "API",
+  rest: "REST",
+  rag: "RAG",
+  mcp: "MCP",
+  sql: "SQL",
+  kv: "KV",
+  llm: "LLM",
+  http: "HTTP",
+  https: "HTTPS",
+  ui: "UI",
+  db: "DB",
+  os: "OS",
+  cpu: "CPU",
+  tls: "TLS",
+  hsts: "HSTS",
+  bm25: "BM25",
+  pwa: "PWA",
+};
+
+export function formatCategory(value) {
+  if (!value || typeof value !== "string") return "";
   return value
     .split("-")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => {
+      const lower = part.toLowerCase();
+      if (ACRONYMS[lower]) {
+        return ACRONYMS[lower];
+      }
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
     .join(" ");
 }
+
+export function formatTag(tag) {
+  if (!tag || typeof tag !== "string") return "";
+  return tag
+    .split("-")
+    .map((part) => {
+      const lower = part.toLowerCase();
+      if (ACRONYMS[lower]) {
+        return ACRONYMS[lower];
+      }
+      return part;
+    })
+    .join("-");
+}
+
 
 function extractHeadings(content) {
   const slugger = new GithubSlugger();
