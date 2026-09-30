@@ -57,3 +57,7 @@ yarn-error.log*
 Thumbs.db
 .vscode/
 .idea/
+almanac-author-fix/
+shared/notification_history.json
+shared/push_subscriptions.json
+

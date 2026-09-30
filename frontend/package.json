@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/search.test.mjs"
+    "test": "node --test tests/search.test.mjs tests/storage.test.mjs"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",

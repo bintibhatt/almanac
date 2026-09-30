@@ -27,6 +27,8 @@ from backend.services.article_service import ArticleService
 from backend.services.duplicate_service import DuplicateService
 from backend.services.embedding_service import EmbeddingService
 from backend.services.prompt_service import PromptService
+from backend.services.notification_service import NotificationService
+from backend.services.retrieval_service import RetrievalService
 from backend.services.state_service import StateService
 from backend.services.topic_intelligence import TopicIntelligenceService
 from backend.services.topic_service import TopicService
@@ -34,8 +36,17 @@ from backend.services.validation_service import ValidationService
 from backend.services.vector_store_service import VectorStoreService
 
 
-def run_scheduled_ingestion(provider: str = "mock", source: str = "all", category: str = None):
-    """Execute single iteration of scheduled knowledge discovery and ingestion."""
+def run_scheduled_ingestion(
+    provider: str = "mock",
+    source: str = "all",
+    category: str = None,
+    no_git: bool = True,
+) -> bool:
+    """
+    Execute single iteration of scheduled knowledge discovery and ingestion.
+    Guarantees state safety: failures are recorded without corrupting knowledge,
+    and notifications are only delivered on validated success.
+    """
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     print(f"\n[{timestamp}] Scheduled Knowledge Ingestion Triggered")
 
@@ -43,21 +54,22 @@ def run_scheduled_ingestion(provider: str = "mock", source: str = "all", categor
     embedding_service = EmbeddingService()
     vector_store_service = VectorStoreService(embedding_service=embedding_service)
     duplicate_service = DuplicateService(state_service=state_service, vector_store_service=vector_store_service)
-    topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service)
+    topic_intelligence = TopicIntelligenceService(duplicate_service=duplicate_service, state_service=state_service)
     topic_service = TopicService()
     validation_service = ValidationService()
+    notification_service = NotificationService()
 
     candidates = topic_service.get_all_topics(source_filter=source)
     if category:
         candidates = [c for c in candidates if c.category.lower() == category.lower()]
 
-    ranked = topic_intelligence.rank_topics(candidates, top_k=5)
+    ranked = topic_intelligence.rank_topics(candidates, top_k=5, filter_duplicates=True)
     if not ranked:
         print("Scheduler: No non-duplicate candidate topics available.")
-        return
+        return False
 
     top_topic = ranked[0].topic
-    print(f"Scheduler Selected Topic: '{top_topic.title}' (Score: {ranked[0].score}/100)")
+    print(f"Scheduler Selected Topic: '{top_topic.title}' (Score: {ranked[0].score}/100, Source: {top_topic.source})")
 
     ai_service = AIService(provider_name=provider)
     prompt_service = PromptService()
@@ -68,9 +80,10 @@ def run_scheduled_ingestion(provider: str = "mock", source: str = "all", categor
         val_result = validation_service.validate(body_content, metadata)
 
         if not val_result.is_valid:
-            print(f"Validation failed: {val_result.errors}")
-            state_service.record_failure(top_topic, error="Validation failed")
-            return
+            error_msg = f"Validation failed with {len(val_result.errors)} errors: " + "; ".join(val_result.errors)
+            print(f"❌ {error_msg}")
+            state_service.record_failure(top_topic, error=error_msg)
+            return False
 
         saved_path = article_service.save_article(top_topic, body_content, metadata)
         state_service.record_success(top_topic, metadata, file_path=saved_path)
@@ -81,10 +94,27 @@ def run_scheduled_ingestion(provider: str = "mock", source: str = "all", categor
             content=body_content,
             metadata=metadata,
         )
-        print(f"Saved & indexed article: {saved_path}")
+        print(f"✅ Saved & indexed article: {saved_path}")
+
+        # Git automation if enabled
+        if not no_git:
+            try:
+                from backend.scripts.git_utils import commit_and_push
+                commit_message = f"docs({top_topic.category}): add daily note on {top_topic.title}"
+                commit_and_push(saved_path, commit_message)
+            except Exception as git_err:
+                print(f"⚠️ Git push warning: {git_err}")
+
+        # Trigger push notification dispatch
+        notify_res = notification_service.notify_new_note(top_topic, metadata)
+        print(f"📢 Notification status: {notify_res.get('status')} ({notify_res.get('delivered')} delivered)")
+        return True
+
     except Exception as err:
-        print(f"Scheduled ingestion error: {err}")
-        state_service.record_failure(top_topic, error=str(err))
+        error_msg = f"Scheduled ingestion error: {err}"
+        print(f"❌ {error_msg}")
+        state_service.record_failure(top_topic, error=error_msg)
+        return False
 
 
 def main():

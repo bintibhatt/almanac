@@ -4,12 +4,14 @@ Manages topic providers, querying, filtering, and selection across manual and li
 """
 
 import random
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from backend.providers.base import Topic, TopicProvider
 from backend.providers.github_provider import GitHubProvider
 from backend.providers.hackernews_provider import HackerNewsProvider
+from backend.providers.knowledge_gap_provider import KnowledgeGapProvider
 from backend.providers.manual_provider import ManualProvider
+from backend.providers.user_request_provider import UserRequestProvider
 
 
 class TopicService:
@@ -20,6 +22,9 @@ class TopicService:
 
     def __init__(self, include_live_providers: bool = True):
         self._providers: Dict[str, TopicProvider] = {}
+        # Core & gap discovery providers
+        self.register_provider(UserRequestProvider())
+        self.register_provider(KnowledgeGapProvider())
         self.register_provider(ManualProvider())
 
         if include_live_providers:
@@ -73,9 +78,12 @@ class TopicService:
         category: Optional[str] = None,
         title: Optional[str] = None,
         source: Optional[str] = None,
+        intelligence_service: Optional[Any] = None,
     ) -> Topic:
         """
-        Select a specific topic by title, or a random candidate (optionally filtered by category and source).
+        Intelligently select a topic using Topic Intelligence scoring and duplicate filtering.
+        Avoids random selection and prioritizes freshness, engineering depth, user requests,
+        and knowledge gaps.
         """
         if title:
             found = self.get_topic_by_title(title)
@@ -85,11 +93,37 @@ class TopicService:
                 title=title,
                 category=category or "backend",
                 description=f"Deep-dive technical note on {title}.",
-                source="ad-hoc",
+                source="user-request",
             )
 
-        candidates = self.get_topics_by_category(category, source_filter=source) if category else self.get_all_topics(source_filter=source)
-        if not candidates:
-            raise ValueError(f"No topics available" + (f" for category '{category}'" if category else ""))
+        candidates = (
+            self.get_topics_by_category(category, source_filter=source)
+            if category
+            else self.get_all_topics(source_filter=source)
+        )
 
-        return random.choice(candidates)
+        if not candidates:
+            raise ValueError(f"No candidate topics available" + (f" for category '{category}'" if category else ""))
+
+        # Lazy initialize intelligence service if not passed
+        if intelligence_service is None:
+            from backend.services.topic_intelligence import TopicIntelligenceService
+            intelligence_service = TopicIntelligenceService()
+
+        # Score and rank candidate topics across providers
+        ranked = intelligence_service.rank_topics(candidates, top_k=5, filter_duplicates=True)
+        if ranked:
+            return ranked[0].topic
+
+        # If all candidates were filtered as duplicates, select from fresh knowledge gap proposals
+        gap_provider = KnowledgeGapProvider()
+        gap_topics = gap_provider.get_topics()
+        if category:
+            gap_topics = [t for t in gap_topics if t.category.lower() == category.lower()]
+
+        gap_ranked = intelligence_service.rank_topics(gap_topics, top_k=1, filter_duplicates=True)
+        if gap_ranked:
+            return gap_ranked[0].topic
+
+        # Final resilient non-empty fallback
+        return candidates[0]

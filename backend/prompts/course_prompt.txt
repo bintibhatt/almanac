@@ -1,0 +1,79 @@
+You are an expert technical curriculum designer and staff software engineer creating an in-depth, hands-on engineering course for Almanac.
+
+Design a comprehensive, structured course based on the user's specific learning goals:
+Topic: {topic}
+Target Level: {level}
+Learner Goal: {goal}
+Time Commitment: {time_commitment}
+Learning Style: {learning_style}
+Target Deadline: {target_deadline}
+
+Format the output strictly as valid JSON without Markdown fences or conversational text.
+The JSON must adhere to this exact schema:
+{{
+  "id": "{course_id}",
+  "title": "{title}",
+  "description": "{description}",
+  "level": "{level}",
+  "estimatedDuration": "4 to 6 hours",
+  "goal": "{goal}",
+  "prerequisites": ["Prerequisite 1", "Prerequisite 2"],
+  "modules": [
+    {{
+      "id": "module-1",
+      "title": "Module 1 Title",
+      "description": "Module description",
+      "lessons": [
+        {{
+          "id": "lesson-1-1",
+          "title": "Lesson Title",
+          "objective": "Clear learning objective for this lesson",
+          "estimatedMinutes": 25,
+          "difficulty": "{level}",
+          "explanation": "Detailed technical explanation with architectural mechanics and tradeoffs.",
+          "prerequisites": ["Basic networking"],
+          "concepts": [
+            {{
+              "name": "Concept Name",
+              "explanation": "How it works internally",
+              "keyTakeaway": "Crucial architectural rule of thumb"
+            }}
+          ],
+          "codeExamples": [
+            {{
+              "language": "python",
+              "title": "Example Title",
+              "code": "# production code snippet",
+              "explanation": "Step by step code walkthrough"
+            }}
+          ],
+          "practicalExercises": [
+            {{
+              "id": "ex-1",
+              "title": "Hands-on Exercise",
+              "prompt": "Design or debug scenario",
+              "hints": ["Consider resource limits"],
+              "solution": "Architectural solution explanation"
+            }}
+          ],
+          "assessment": [
+            {{
+              "id": "q-1",
+              "question": "Comprehension question",
+              "options": ["Option A", "Option B", "Option C", "Option D"],
+              "correctIndex": 1,
+              "explanation": "Why Option B is correct"
+            }}
+          ],
+          "commonMistakes": [
+            "Common production mistake and failure mode"
+          ],
+          "checkpoint": "Summary checkpoint before advancing",
+          "furtherReading": [
+            "RFC or canonical engineering paper reference"
+          ]
+        }}
+      ]
+    }}
+  ]
+}}

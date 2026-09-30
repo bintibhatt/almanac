@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 import SearchModal from "@/components/SearchModal";
 import PWAInstallButton from "@/components/PWAInstallButton";
+import NotificationToggle from "@/components/NotificationToggle";
 import { useHeaderCollapse } from "@/hooks/useHeaderCollapse";
 
 export default function Navbar() {
@@ -114,6 +115,7 @@ export default function Navbar() {
               </kbd>
             </button>
 
+            <NotificationToggle className="hidden sm:inline-flex" />
             <PWAInstallButton />
             <ThemeToggle />
 

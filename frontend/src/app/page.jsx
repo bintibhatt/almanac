@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
 import SearchBar from "@/components/SearchBar";
+import HomeContinueLearning from "@/components/HomeContinueLearning";
 import { getCategories, getLatestNotes } from "@/lib/notes";
 
 export const dynamic = "force-dynamic";
@@ -67,7 +68,10 @@ export default function Home() {
         </section>
       )}
 
-      {/* 3. Continue Reading / Recent Notes */}
+      {/* 3. Personal Learning Engine & Active Progress */}
+      <HomeContinueLearning />
+
+      {/* 4. Continue Reading / Recent Notes */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
