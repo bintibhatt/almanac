@@ -10,6 +10,7 @@ export async function POST(request) {
       experienceLevel,
       focus,
       company,
+      questionCount,
       question,
       modelAnswer,
       userAnswer,
@@ -56,11 +57,12 @@ export async function POST(request) {
       const safeExp = (experienceLevel || "Mid-Level (2-4 yrs)").replace(/"/g, '\\"');
       const safeFocus = (focus || "System Design, Databases & Scalability").replace(/"/g, '\\"');
       const safeCompany = (company || "General Tech").replace(/"/g, '\\"');
+      const count = Math.max(3, Math.min(15, parseInt(questionCount, 10) || 6));
 
       try {
         const providerFlag = process.env.AI_PROVIDER ? `--provider ${process.env.AI_PROVIDER}` : "--provider mock";
         const output = runPythonScript(
-          `${providerFlag} --generate-interview-plan "${safeRole}" --interview-exp "${safeExp}" --interview-focus "${safeFocus}" --interview-company "${safeCompany}"`
+          `${providerFlag} --generate-interview-plan "${safeRole}" --interview-exp "${safeExp}" --interview-focus "${safeFocus}" --interview-company "${safeCompany}" --interview-count ${count}`
         );
         const parsed = extractJsonFromOutput(output);
         if (parsed && parsed.questions) {
@@ -150,7 +152,7 @@ export async function POST(request) {
             followUpPrompt: "What happens if a dual-write fails to the secondary table during step 2?",
             relatedNotes: [],
           },
-        ],
+        ].slice(0, count),
       });
     }
 

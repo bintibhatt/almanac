@@ -55,6 +55,7 @@ export default function InterviewPage() {
   const [experienceLevel, setExperienceLevel] = useState("Senior (5-8 yrs)");
   const [focus, setFocus] = useState("System Design, Databases & Scalability");
   const [company, setCompany] = useState("");
+  const [questionCount, setQuestionCount] = useState(6);
   const [generating, setGenerating] = useState(false);
   const [generationStage, setGenerationStage] = useState(0);
   const [genError, setGenError] = useState(null);
@@ -137,6 +138,7 @@ export default function InterviewPage() {
           experienceLevel,
           focus: focus.trim(),
           company: company.trim(),
+          questionCount,
         }),
       });
 
@@ -351,6 +353,49 @@ export default function InterviewPage() {
                   placeholder="e.g. Stripe, Datadog, Google, Scale AI"
                   className="w-full rounded-md border border-zinc-800 bg-zinc-950 px-3.5 py-2 text-xs text-zinc-200 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none"
                 />
+              </div>
+
+              {/* Number of Questions to Generate */}
+              <div className="space-y-1.5 sm:col-span-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-medium text-zinc-300">
+                    Number of Questions to Generate
+                  </label>
+                  <span className="text-emerald-400 font-mono text-xs font-medium">
+                    {questionCount} Questions Selected
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                  {[3, 5, 6, 8, 10].map((num) => (
+                    <button
+                      key={num}
+                      type="button"
+                      onClick={() => setQuestionCount(num)}
+                      className={`px-3 py-1.5 rounded-md text-xs font-medium transition cursor-pointer border ${
+                        questionCount === num
+                          ? "border-emerald-500 bg-emerald-950/60 text-emerald-300 font-semibold shadow-sm"
+                          : "border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+                      }`}
+                    >
+                      {num} Questions
+                    </button>
+                  ))}
+                  <div className="flex items-center gap-1.5 sm:ml-auto">
+                    <span className="text-[11px] text-zinc-500 font-mono">Custom:</span>
+                    <input
+                      type="number"
+                      min={3}
+                      max={15}
+                      value={questionCount}
+                      onChange={(e) => {
+                        const val = parseInt(e.target.value, 10);
+                        if (!isNaN(val)) setQuestionCount(Math.max(3, Math.min(15, val)));
+                      }}
+                      className="w-14 rounded border border-zinc-800 bg-zinc-950 py-1 text-center text-xs text-zinc-200 focus:border-emerald-500 focus:outline-none"
+                    />
+                    <span className="text-[10px] text-zinc-600 font-mono">(3-15)</span>
+                  </div>
+                </div>
               </div>
             </div>
 

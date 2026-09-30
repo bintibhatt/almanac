@@ -209,6 +209,12 @@ def parse_args():
         help="Optional company context for interview prep",
     )
     parser.add_argument(
+        "--interview-count",
+        type=int,
+        default=6,
+        help="Target number of questions to generate for interview plan",
+    )
+    parser.add_argument(
         "--evaluate-interview-answer",
         action="store_true",
         help="Evaluate candidate technical answer against question and model answer",
@@ -532,6 +538,7 @@ def main():
             experience_level=args.interview_exp,
             focus=args.interview_focus,
             company=args.interview_company,
+            question_count=args.interview_count,
         )
         print(json.dumps(plan, indent=2))
         return

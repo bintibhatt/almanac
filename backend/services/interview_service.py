@@ -81,6 +81,7 @@ class InterviewService:
         experience_level: str = "Mid-Level (2-4 yrs)",
         focus: Optional[str] = None,
         company: Optional[str] = None,
+        question_count: int = 6,
     ) -> Dict[str, Any]:
         """
         Generate an independent technical interview preparation plan with skill matrix
@@ -90,6 +91,7 @@ class InterviewService:
         clean_exp = experience_level.strip() if experience_level else "Mid-Level (2-4 yrs)"
         clean_focus = focus.strip() if focus else "System Design, Databases & Scalability"
         clean_company = company.strip() if company else "General Top Tier Tech"
+        clean_count = max(3, min(15, int(question_count) if question_count else 6))
 
         plan_id = f"plan-{slugify(clean_role)}-{slugify(clean_exp)}"
 
@@ -100,6 +102,7 @@ class InterviewService:
             experience_level=clean_exp,
             focus=clean_focus,
             company=clean_company,
+            question_count=clean_count,
             plan_id=plan_id,
         )
 
@@ -117,6 +120,7 @@ class InterviewService:
                 focus=clean_focus,
                 company=clean_company,
                 plan_id=plan_id,
+                question_count=clean_count,
             )
 
         # Cross-reference supplementary notes
@@ -245,6 +249,7 @@ class InterviewService:
         focus: str,
         company: str,
         plan_id: str,
+        question_count: int = 6,
     ) -> Dict[str, Any]:
         """
         Generate structured fallback interview plan with Easy, Medium, and Hard questions.
@@ -346,6 +351,34 @@ class InterviewService:
                     "modelAnswer": "Speculative decoding uses a smaller, faster draft model (e.g., 7B) to autoregressively speculate K forward tokens. The larger target model (70B) then runs a single parallel forward pass to verify all K tokens simultaneously. Verified tokens matching the target model's probability distribution are accepted, while the first divergence restarts drafting. This yields 2x-3x speedups for predictable text (code, JSON), but speedup drops to ~1x or worse if draft acceptance rate falls below ~60% in open-ended creative domains.",
                     "followUpPrompt": "How does speculative decoding interact with beam search or high sampling temperature?",
                 },
+                {
+                    "id": "q-7",
+                    "category": "Guardrails & Safety",
+                    "difficulty": "Medium",
+                    "question": "How do you architect real-time hallucination detection and prompt-injection defense into an enterprise AI gateway?",
+                    "scenario": "Customer-facing financial advisor copilot handling arbitrary user prompts and internal account DB access.",
+                    "keyPointsToCover": [
+                        "Dual-model boundary defense with intent classification and input sanitization",
+                        "Constrained output decoders (JSON schema enforcement, logit bias masking)",
+                        "Post-generation factual verification (NLI claim verification against retrieved context)",
+                    ],
+                    "modelAnswer": "An enterprise AI gateway implements three layered defensive barriers: 1) Ingress filtering: Fast BERT/RoBERTa classifiers inspect prompts for jailbreak tokens and delimiter escapes before LLM invocation. 2) Constrained decoding: Grammar-based generation (like Outlines or JSON schema grammar) restricts output tokens to valid syntax. 3) Egress verification: Natural Language Inference (NLI) models verify that claims in the output strictly entail from retrieved ground-truth documents, flagging hallucinated citations.",
+                    "followUpPrompt": "How do you minimize latency overhead added by the NLI verification step?",
+                },
+                {
+                    "id": "q-8",
+                    "category": "Agentic Architecture",
+                    "difficulty": "Hard",
+                    "question": "Design a resilient multi-agent architecture capable of recovering from execution loops and tool call failures.",
+                    "scenario": "Autonomous software engineering agent compiling, testing, and modifying backend microservices.",
+                    "keyPointsToCover": [
+                        "State machine transitions with bounded recursion and cycle detection",
+                        "Reflection loops and self-critique with scratchpad memory isolation",
+                        "Idempotent tool interfaces with transactional rollbacks",
+                    ],
+                    "modelAnswer": "A resilient multi-agent architecture uses a deterministic state machine rather than open-ended recursive loops. Cycles are prevented using state hashes and step-budget quotas. When a tool call errors, the error output is injected into a dedicated Reflection node rather than retrying blindly. All agent tool actions (like git commits or file edits) are staged into isolated sandbox workspaces with transactional rollback capability if tests fail.",
+                    "followUpPrompt": "How do you prevent context window exhaustion during extended debugging sessions?",
+                },
             ]
         else:
             skill_matrix = [
@@ -439,7 +472,39 @@ class InterviewService:
                     "modelAnswer": "Zero-downtime migration follows the Expand/Contract (Parallel Run) pattern in 4 steps: 1) Expand: Add the new column/table with NULL constraints and create supporting indexes with CREATE INDEX CONCURRENTLY to avoid AccessExclusiveLocks. 2) Dual-Write: Deploy code that writes to both old and new schemas simultaneously. 3) Backfill: Run a background batch worker backfilling historical rows in small batches (e.g. 1000 rows with pauses) using indexed primary keys to avoid lock escalation. 4) Contract: Validate parity, switch read paths to new schema, remove legacy writes, and drop old columns asynchronously.",
                     "followUpPrompt": "What happens if a dual-write fails to the secondary table during step 2?",
                 },
+                {
+                    "id": "q-7",
+                    "category": "Messaging & Event Architecture",
+                    "difficulty": "Medium",
+                    "question": "How do you mitigate consumer lag and rebalance storms in a high-throughput Apache Kafka event pipeline?",
+                    "scenario": "A payment consumer group with 128 partitions falls 2 hours behind during Black Friday.",
+                    "keyPointsToCover": [
+                        "CooperativeStickyAssignor to prevent stop-the-world partition rebalances",
+                        "Decoupling network fetch thread from worker execution pool",
+                        "Backpressure and consumer group lag metric monitoring",
+                    ],
+                    "modelAnswer": "Consumer lag is typically caused by slow downstream IO blocking the poll loop or frequent rebalances. Three key architectural solutions: 1) Cooperative Rebalancing: Migrate from the eager round-robin assignor to the CooperativeStickyAssignor, allowing unassigned partitions to continue processing during rebalancing without global pauses. 2) Asynchronous Worker Pool: Separate the single-threaded Kafka consumer poll loop from execution by dispatching records to an internal bounded thread pool keyed by partition key. 3) Tuning max.poll.interval.ms: Ensure long-running processing tasks do not exceed the heartbeat timeout, triggering false rebalances.",
+                    "followUpPrompt": "How do you ensure strict in-order processing when dispatching to a concurrent worker pool?",
+                },
+                {
+                    "id": "q-8",
+                    "category": "Distributed Transactions",
+                    "difficulty": "Hard",
+                    "question": "Compare the Saga pattern (Orchestration vs Choreography) against Two-Phase Commit (2PC) for cross-service atomic transactions.",
+                    "scenario": "Fulfilling an order spanning Inventory, Payment, and Shipping microservices.",
+                    "keyPointsToCover": [
+                        "2PC guarantees immediate consistency but suffers from blocking coordinator locks and latency spikes",
+                        "Saga provides eventual consistency using compensating transactions",
+                        "Choreography is decentralized via event bus; Orchestration centralizes state via workflow coordinator (Temporal)",
+                    ],
+                    "modelAnswer": "Two-Phase Commit (2PC) coordinates atomic prepare/commit phases with synchronous distributed locks. While strictly consistent, 2PC is fragile in microservices because a network partition or crashed participant holds row locks indefinitely, destroying availability. In contrast, the Saga pattern embraces eventual consistency. Each service executes its local transaction and publishes events. If a step fails, compensating transactions undo earlier actions. For complex multi-step workflows, Orchestrated Sagas (using state engines like Temporal) provide superior auditability and error visibility over decentralized choreographed event chains.",
+                    "followUpPrompt": "How do you handle a compensating transaction failure during rollback?",
+                },
             ]
+
+        # Ensure returned questions match requested question_count
+        if len(questions) > question_count:
+            questions = questions[:question_count]
 
         return {
             "id": plan_id,
