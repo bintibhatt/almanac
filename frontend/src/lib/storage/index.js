@@ -3,5 +3,5 @@
  * Exports all IndexedDB data operations and localStorage preference helpers.
  */
 
-export * from "./db";
-export * from "./preferences";
+export * from "./db.js";
+export * from "./preferences.js";

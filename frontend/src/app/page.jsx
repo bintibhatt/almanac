@@ -1,10 +1,8 @@
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
 import SearchBar from "@/components/SearchBar";
-import dynamicComponent from "next/dynamic";
+import HomeContinueLearning from "@/components/HomeContinueLearning";
 import { getCategories, getLatestNotes } from "@/lib/notes";
-
-const HomeContinueLearning = dynamicComponent(() => import("@/components/HomeContinueLearning"));
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;

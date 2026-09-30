@@ -11,6 +11,27 @@ export default function ServiceWorkerRegister() {
       return;
     }
 
+    // 1. In development or local testing, actively unregister any existing service worker
+    // and wipe stale chunk caches to prevent Webpack module desync and chunk mismatch errors.
+    const isDev = process.env.NODE_ENV !== "production" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    if (isDev) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister();
+        }
+      });
+      if ("caches" in window) {
+        caches.keys().then((keys) => {
+          for (const key of keys) {
+            if (key.startsWith("almanac")) {
+              caches.delete(key);
+            }
+          }
+        });
+      }
+      return;
+    }
+
     let refreshing = false;
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (!refreshing) {

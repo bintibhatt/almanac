@@ -52,8 +52,14 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET and API routes from SW intercept
-  if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/api/")) {
+  // Skip non-GET, API routes, and webpack hot-update chunks from SW intercept
+  if (
+    request.method !== "GET" ||
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith("/api/") ||
+    url.pathname.includes("webpack") ||
+    url.pathname.includes("hot-update")
+  ) {
     return;
   }
 

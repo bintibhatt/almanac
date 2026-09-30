@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getAllCourses, getCourseProgress, getAllInterviewPlans } from "@/lib/storage/db";
+import { getAllCourses, getCourseProgress, getAllInterviewPlans } from "@/lib/storage/db.js";
 
 export default function HomeContinueLearning() {
   const [mounted, setMounted] = useState(false);
