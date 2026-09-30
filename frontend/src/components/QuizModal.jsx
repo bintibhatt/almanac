@@ -9,6 +9,16 @@ export default function QuizModal({ isOpen, onClose, note }) {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
     if (isOpen && note) {
       setLoading(true);
       setSubmitted(false);
@@ -45,26 +55,43 @@ export default function QuizModal({ isOpen, onClose, note }) {
     questions.forEach((q, idx) => {
       if (userAnswers[idx] === q.correct_index) correct++;
     });
-    return Math.round((correct / questions.length) * 100);
+    return questions.length > 0 ? Math.round((correct / questions.length) * 100) : 0;
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    const scoreVal = calculateScore();
+    try {
+      const history = JSON.parse(localStorage.getItem("almanac_quiz_history") || "[]");
+      history.push({ slug: note.slug, score: scoreVal, date: new Date().toISOString() });
+      localStorage.setItem("almanac_quiz_history", JSON.stringify(history));
+    } catch {
+      // LocalStorage failsafe
+    }
   };
 
   const score = submitted ? calculateScore() : 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md transition-all">
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-slate-950 p-6 shadow-2xl sm:p-8">
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-              Knowledge Verification
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+    >
+      <div className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl">
+        <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+          <div className="space-y-0.5">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+              Knowledge Verification Quiz
             </span>
-            <h2 className="text-lg font-bold text-white sm:text-xl line-clamp-1">
+            <h2 className="text-xs font-medium text-zinc-200 line-clamp-1">
               {note?.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs text-slate-400 transition hover:bg-white/10 hover:text-white"
+            className="flex h-7 w-7 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-xs text-zinc-400 hover:text-zinc-200 transition"
             aria-label="Close Quiz"
           >
             ✕
@@ -72,66 +99,65 @@ export default function QuizModal({ isOpen, onClose, note }) {
         </div>
 
         {loading ? (
-          <div className="py-20 text-center text-slate-400 space-y-3">
-            <div className="mx-auto h-7 w-7 animate-spin rounded-full border-2 border-white border-t-transparent" />
-            <p className="text-xs font-medium">Generating technical quiz...</p>
+          <div className="py-16 text-center text-zinc-500 space-y-2">
+            <div className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-violet-500/40 border-t-violet-400" />
+            <p className="text-xs font-mono">Generating technical quiz...</p>
           </div>
         ) : (
-          <div className="mt-6 space-y-6">
+          <div className="space-y-5">
             {questions.map((q, qIdx) => {
               const isCorrect = userAnswers[qIdx] === q.correct_index;
 
               return (
                 <div
                   key={q.id || qIdx}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+                  className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono text-slate-400">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] font-mono text-zinc-500">
                       Question {qIdx + 1} of {questions.length}
                     </span>
-                    <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5 text-[10px] font-mono text-slate-300">
+                    <span className="rounded bg-zinc-900 border border-zinc-800 px-2 py-0.5 text-[10px] font-mono text-zinc-400">
                       {q.difficulty || "Intermediate"}
                     </span>
                   </div>
-                  <h3 className="mt-2.5 text-sm font-bold text-slate-100 leading-snug">
+                  <h3 className="text-xs sm:text-sm font-medium text-zinc-200 leading-snug mb-3">
                     {q.question}
                   </h3>
 
-                  <div className="mt-4 space-y-2">
+                  <div className="space-y-2">
                     {q.options.map((opt, optIdx) => {
                       const selected = userAnswers[qIdx] === optIdx;
-                      let btnStyle =
-                        "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10";
+                      let btnStyle = "border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900";
 
                       if (submitted) {
                         if (optIdx === q.correct_index) {
-                          btnStyle = "border-emerald-500/50 bg-emerald-500/10 text-emerald-300 font-semibold";
+                          btnStyle = "border-emerald-700/60 bg-emerald-950/60 text-emerald-300 font-medium";
                         } else if (selected && !isCorrect) {
-                          btnStyle = "border-rose-500/50 bg-rose-500/10 text-rose-300 font-normal";
+                          btnStyle = "border-rose-700/60 bg-rose-950/60 text-rose-300";
                         }
                       } else if (selected) {
-                        btnStyle = "border-sky-500/50 bg-sky-500/10 text-white font-semibold";
+                        btnStyle = "border-violet-600 bg-violet-950/60 text-violet-200 font-medium";
                       }
 
                       return (
                         <button
                           key={optIdx}
                           onClick={() => handleOptionSelect(qIdx, optIdx)}
-                          className={`w-full text-left flex items-start gap-3 rounded-lg border p-3 text-xs transition-all duration-150 ${btnStyle}`}
+                          className={`w-full text-left flex items-start gap-2.5 rounded-md border p-2.5 text-xs transition ${btnStyle}`}
                         >
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-white/10 bg-black/20 text-[10px] font-mono">
+                          <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded border border-zinc-800 bg-zinc-950 text-[10px] font-mono text-zinc-400">
                             {String.fromCharCode(65 + optIdx)}
                           </span>
-                          <span className="pt-0.5 leading-relaxed">{opt}</span>
+                          <span className="leading-relaxed">{opt}</span>
                         </button>
                       );
                     })}
                   </div>
 
                   {submitted && (
-                    <div className="mt-3 rounded-lg border border-white/10 bg-black/30 p-3 text-xs leading-relaxed text-slate-400">
-                      <span className="font-semibold text-slate-200">Explanation: </span>
+                    <div className="mt-3 rounded border border-zinc-800 bg-zinc-950 p-2.5 text-[11px] leading-relaxed text-zinc-400">
+                      <span className="font-medium text-zinc-300">Explanation: </span>
                       {q.explanation}
                     </div>
                   )}
@@ -140,31 +166,31 @@ export default function QuizModal({ isOpen, onClose, note }) {
             })}
 
             {/* Score & Action Footer */}
-            <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-zinc-800 pt-4">
               {submitted ? (
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-sm font-bold text-white font-mono">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-violet-800/60 bg-violet-950/60 text-sm font-semibold text-violet-300 font-mono">
                     {score}%
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">
-                      {score >= 80 ? "Mastery Achieved" : "Good Attempt"}
+                    <div className="text-xs font-medium text-zinc-200">
+                      {score >= 80 ? "Mastery Achieved" : "Practice Completed"}
                     </div>
-                    <div className="text-[11px] text-slate-400">Score logged to study history</div>
+                    <div className="text-[11px] text-zinc-500 font-mono">Result saved to dashboard</div>
                   </div>
                 </div>
               ) : (
-                <div className="text-xs text-slate-400">
-                  Select an answer for each question before submitting.
+                <div className="text-xs text-zinc-500">
+                  Answer each question before submitting.
                 </div>
               )}
 
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 {!submitted ? (
                   <button
-                    onClick={() => setSubmitted(true)}
+                    onClick={handleSubmit}
                     disabled={Object.keys(userAnswers).length < questions.length}
-                    className="w-full sm:w-auto rounded-lg bg-white px-5 py-2 text-xs font-semibold text-slate-950 transition hover:bg-slate-200 disabled:opacity-40"
+                    className="w-full sm:w-auto rounded-md bg-violet-600 px-4 py-1.5 text-xs font-medium text-white hover:bg-violet-500 disabled:opacity-40 transition"
                   >
                     Submit Quiz
                   </button>
@@ -174,7 +200,7 @@ export default function QuizModal({ isOpen, onClose, note }) {
                       setSubmitted(false);
                       setUserAnswers({});
                     }}
-                    className="w-full sm:w-auto rounded-lg border border-white/10 bg-white/5 px-5 py-2 text-xs font-semibold text-white transition hover:bg-white/10"
+                    className="w-full sm:w-auto rounded-md border border-zinc-800 bg-zinc-900 px-4 py-1.5 text-xs font-medium text-zinc-300 hover:bg-zinc-800 transition"
                   >
                     Retake Quiz
                   </button>
@@ -187,6 +213,3 @@ export default function QuizModal({ isOpen, onClose, note }) {
     </div>
   );
 }
-
-
-

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata = {
-  title: "Courses & Learning Paths | Almanac",
+  title: "Courses & Learning Tracks | Almanac",
   description: "Structured engineering learning tracks with AI quizzes, flashcards, and hands-on note deep-dives.",
 };
 
@@ -27,13 +27,13 @@ const COURSE_TRACKS = [
     description: "Learn load balancing strategies, global state isolation, circuit breakers, and fault-tolerant system design patterns.",
     level: "Intermediate to Advanced",
     duration: "3.5 hours",
-    modules: ["Load Balancers - Design Patterns"],
+    modules: ["Load Balancers - Design Patterns", "Distributed Locks - Performance Optimization"],
   },
   {
     id: "backend-isolation",
     title: "Backend Performance & Container Isolation",
     category: "backend",
-    description: "Deep-dive into Linux cgroups v2, Docker memory limits, cgroups memory swap management, and caching patterns.",
+    description: "Deep-dive into Linux cgroups v2, Docker memory limits, memory swap management, and caching patterns.",
     level: "Intermediate",
     duration: "3 hours",
     modules: ["Docker Container Memory Isolation", "Caching - Advanced Concepts", "REST API Architecture", "Redis Streams"],
@@ -54,23 +54,19 @@ export default function CoursesPage() {
   const categories = getCategories();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-12">
-      {/* Hero Header */}
-      <div className="space-y-2 border-b border-white/10 pb-8">
-        <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
-          Learning Pathways
-        </span>
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
-          Engineering Courses <br />
-          <span className="gradient-text font-normal">& Track Hub</span>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+      {/* Header */}
+      <div className="space-y-2 border-b border-zinc-800 pb-6">
+        <h1 className="text-3xl font-semibold text-zinc-100 tracking-tight">
+          Engineering Courses &amp; Tracks
         </h1>
-        <p className="text-xs sm:text-base text-slate-400 leading-relaxed max-w-3xl">
-          Curated learning pathways designed to take you from foundational concepts to production-grade engineering architecture. Each track includes interactive AI quizzes, flashcards, and system design drills.
+        <p className="text-sm text-zinc-400 max-w-3xl leading-relaxed">
+          Curated learning pathways designed to guide you from core concepts to production architecture. Each track includes interactive AI quizzes, concept flashcards, and system design exercises.
         </p>
       </div>
 
       {/* Course Track Grid */}
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         {COURSE_TRACKS.map((track) => {
           const trackNotes = allNotes.filter(
             (note) => note.category === track.category || track.modules.some((m) => note.title.includes(m))
@@ -79,52 +75,48 @@ export default function CoursesPage() {
           return (
             <div
               key={track.id}
-              className="group relative flex flex-col justify-between rounded-md border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md transition-all duration-200 hover:bg-slate-900/80 hover:border-sky-500/30"
+              className="flex flex-col justify-between rounded-lg border border-zinc-800 bg-zinc-900/40 p-6 hover:border-zinc-700 transition"
             >
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <CategoryBadge>{track.category.toUpperCase()}</CategoryBadge>
-                  <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+                  <CategoryBadge category={track.category}>{track.category.toUpperCase()}</CategoryBadge>
+                  <div className="flex items-center gap-2 text-xs font-mono text-zinc-500">
                     <span>{track.duration}</span>
                     <span>•</span>
                     <span>{track.level}</span>
                   </div>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold tracking-tight text-white transition-colors group-hover:text-sky-400">
+                <h2 className="mt-4 text-lg font-medium tracking-tight text-zinc-100">
                   {track.title}
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
                   {track.description}
                 </p>
 
                 {/* Modules list */}
-                <div className="mt-6 border-t border-slate-800/80 pt-5 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-                      Included Modules
-                    </h3>
-                    <span className="text-xs font-mono text-slate-400">
-                      {trackNotes.length > 0 ? trackNotes.length : track.modules.length} Notes
-                    </span>
+                <div className="mt-6 border-t border-zinc-800/80 pt-4 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs text-zinc-500 font-mono">
+                    <span>INCLUDED MODULES</span>
+                    <span>{trackNotes.length > 0 ? trackNotes.length : track.modules.length} Notes</span>
                   </div>
-                  
-                  <ul className="space-y-2">
-                    {(trackNotes.length > 0 ? trackNotes : track.modules.map(m => ({ title: m, slug: null }))).map(
+
+                  <ul className="space-y-1.5">
+                    {(trackNotes.length > 0 ? trackNotes : track.modules.map((m) => ({ title: m, slug: null }))).map(
                       (item, idx) => (
-                        <li key={idx} className="flex items-center justify-between rounded-md border border-slate-800/80 bg-slate-950/50 p-3 px-3.5 text-xs">
-                          <span className="font-medium text-slate-200 truncate pr-2">
-                            <span className="text-slate-500 font-mono mr-2">0{idx + 1}.</span> {item.title}
+                        <li key={idx} className="flex items-center justify-between rounded border border-zinc-800/60 bg-zinc-950/40 p-2.5 text-xs">
+                          <span className="font-medium text-zinc-300 truncate pr-2">
+                            <span className="text-zinc-500 font-mono mr-2">0{idx + 1}.</span> {item.title}
                           </span>
                           {item.slug ? (
                             <Link
                               href={`/notes/${item.slug}`}
-                              className="shrink-0 font-medium text-sky-400 hover:text-sky-300 transition-colors"
+                              className="shrink-0 font-medium text-violet-400 hover:text-violet-300 transition"
                             >
                               Study →
                             </Link>
                           ) : (
-                            <span className="text-xs text-slate-500">In Library</span>
+                            <span className="text-xs text-zinc-500">In Library</span>
                           )}
                         </li>
                       )
@@ -133,23 +125,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-slate-800/80 pt-5">
+              <div className="mt-6 pt-4 border-t border-zinc-800">
                 {trackNotes.length > 0 ? (
                   <Link
                     href={`/notes/${trackNotes[0].slug}`}
-                    className="flex min-h-10 w-full items-center justify-center gap-2 rounded-md bg-sky-500 text-xs font-semibold text-slate-950 transition hover:bg-sky-400 shadow-sm"
+                    className="flex h-9 w-full items-center justify-center gap-1.5 rounded-md bg-violet-600 text-xs font-medium text-white transition hover:bg-violet-500"
                   >
-                    <span>Start Learning Track</span>
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    <span>Start Track</span>
+                    <span>→</span>
                   </Link>
                 ) : (
                   <Link
                     href="/notes"
-                    className="flex min-h-10 w-full items-center justify-center rounded-md border border-slate-700 bg-slate-800/80 text-xs font-semibold text-slate-200 transition hover:bg-slate-700/80"
+                    className="flex h-9 w-full items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-xs font-medium text-zinc-300 transition hover:bg-zinc-800"
                   >
-                    Browse Track Notes
+                    Browse Library Notes
                   </Link>
                 )}
               </div>
@@ -159,24 +149,26 @@ export default function CoursesPage() {
       </div>
 
       {/* Category Overview Footer */}
-      <div className="space-y-4 border-t border-slate-800/80 pt-10">
+      <div className="space-y-4 border-t border-zinc-800 pt-8">
         <div>
-          <h2 className="text-xl font-bold tracking-tight text-white">Browse by Category Topics</h2>
-          <p className="mt-1 text-xs text-slate-400">
-            Select a category to jump directly into filtered notes, quizzes, and practice drills.
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">
+            Browse by Domain Category
+          </h2>
+          <p className="mt-1 text-xs text-zinc-500">
+            Jump directly into filtered notes, quizzes, and practice drills.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2.5 pt-2">
+        <div className="flex flex-wrap gap-2 pt-2">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/notes?category=${cat.slug}`}
-              className="inline-flex items-center gap-2 rounded-md border border-slate-800 bg-slate-900/50 px-3.5 py-2 text-xs font-medium text-slate-200 transition hover:bg-slate-900/80 hover:border-sky-500/30"
+              className="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300 transition hover:border-zinc-700 hover:text-white"
             >
               <span>{cat.label}</span>
-              <span className="font-mono text-[11px] text-slate-500">
-                {cat.count}
+              <span className="font-mono text-[11px] text-zinc-500">
+                ({cat.count})
               </span>
             </Link>
           ))}
@@ -185,5 +177,3 @@ export default function CoursesPage() {
     </div>
   );
 }
-
-

@@ -7,7 +7,8 @@ const INTERVIEW_TOPICS = [
   {
     slug: "rag-architecture",
     title: "RAG & Vector Search Architecture",
-    category: "AI / Search",
+    category: "ai",
+    categoryLabel: "AI / Search",
     difficulty: "Senior / Staff",
     description: "System design questions covering hybrid BM25 + dense retrieval, embedding latency, chunking strategies, and reranking pipelines.",
     sampleQuestion: "How do you optimize vector search latency when scaling to 100M+ high-dimensional embeddings?",
@@ -15,15 +16,17 @@ const INTERVIEW_TOPICS = [
   {
     slug: "docker-container-memory-isolation",
     title: "Docker Container Memory Isolation & cgroups",
-    category: "Backend / Infra",
+    category: "backend",
+    categoryLabel: "Backend / Infra",
     difficulty: "Intermediate / Senior",
     description: "Deep technical questions on Linux cgroups v2 memory limits, OOM killer triggers, swap allocation, and container runtime metrics.",
-    sampleQuestion: "What happens inside the Linux kernel when a container exceeds `memory.max` without swap configured?",
+    sampleQuestion: "What happens inside the Linux kernel when a container exceeds memory.max without swap configured?",
   },
   {
     slug: "load-balancers-design-patterns",
     title: "Load Balancers & Traffic Management",
-    category: "System Design",
+    category: "system-design",
+    categoryLabel: "System Design",
     difficulty: "Senior",
     description: "Architecture questions on Layer 4 vs Layer 7 load balancing, round-robin vs least connections, health checks, and connection draining.",
     sampleQuestion: "Design a high-availability global load balancing layer with zero-downtime rolling deploys.",
@@ -31,7 +34,8 @@ const INTERVIEW_TOPICS = [
   {
     slug: "caching-advanced-concepts",
     title: "Distributed Caching & Invalidation Strategies",
-    category: "Backend",
+    category: "backend",
+    categoryLabel: "Backend",
     difficulty: "Intermediate",
     description: "Interview drills on cache stampede prevention, write-through vs write-back, Redis eviction policies, and cache consistency.",
     sampleQuestion: "How do you solve cache stampede (thundering herd problem) under 100k requests/second peak traffic?",
@@ -65,6 +69,16 @@ export default function InterviewPage() {
 
       const data = await res.json();
       setQuestions(data.questions || []);
+
+      try {
+        const history = JSON.parse(localStorage.getItem("almanac_interview_history") || "[]");
+        if (!history.includes(topic.slug)) {
+          history.push(topic.slug);
+          localStorage.setItem("almanac_interview_history", JSON.stringify(history));
+        }
+      } catch {
+        // Failsafe
+      }
     } catch (err) {
       setError(err.message || "An unexpected error occurred");
     } finally {
@@ -77,49 +91,45 @@ export default function InterviewPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 space-y-12">
-      {/* Unboxed Minimal Header */}
-      <div className="space-y-2 border-b border-white/10 pb-8">
-        <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-          Interview Simulator
-        </span>
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
-          System Design & <br />
-          <span className="gradient-text font-normal">Tech Interview Prep</span>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+      {/* Header */}
+      <div className="space-y-2 border-b border-zinc-800 pb-6">
+        <h1 className="text-3xl font-semibold text-zinc-100 tracking-tight">
+          System Design &amp; Technical Interview Prep
         </h1>
-        <p className="text-xs sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
-          Practice production-grade interview questions crafted for Staff & Senior Engineering roles. Test your architectural reasoning, write mock answers, and evaluate AI-generated model answers.
+        <p className="text-sm text-zinc-400 max-w-2xl leading-relaxed">
+          Practice production-grade interview questions designed for Staff &amp; Senior Engineering roles. Write out architectural trade-offs and evaluate AI model answers.
         </p>
       </div>
 
-      {/* Main Grid: Topic Selector + Practice Simulator */}
-      <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
+      {/* Main Grid: Topic Selector + Simulator */}
+      <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
         {/* Left Column: Topic Selector */}
         <div className="space-y-3">
-          <h2 className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-            Select Drill Topic
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <span>Select Practice Topic</span>
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {INTERVIEW_TOPICS.map((topic) => {
               const isSelected = selectedTopic.slug === topic.slug;
               return (
                 <button
                   key={topic.slug}
                   onClick={() => handleStartSession(topic)}
-                  className={`w-full text-left rounded-md border p-4.5 transition-all duration-200 ${
+                  className={`w-full text-left rounded-lg border p-4 transition ${
                     isSelected
-                      ? "border-sky-500/50 bg-sky-500/10 text-white"
-                      : "border-slate-800 bg-slate-900/50 hover:border-sky-500/30 hover:bg-slate-900/80"
+                      ? "border-violet-600/80 bg-violet-950/40 text-zinc-100"
+                      : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700 hover:bg-zinc-900 text-zinc-300"
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-2">
-                    <CategoryBadge>{topic.category}</CategoryBadge>
-                    <span className="text-[11px] font-mono text-sky-300 font-medium">{topic.difficulty}</span>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <CategoryBadge category={topic.category} label={topic.categoryLabel} />
+                    <span className="text-[11px] font-mono text-zinc-500">{topic.difficulty}</span>
                   </div>
-                  <h3 className="mt-2.5 text-xs font-bold text-white leading-snug">{topic.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-[11px] text-slate-400">{topic.description}</p>
+                  <h3 className="text-xs font-medium text-zinc-100 leading-snug">{topic.title}</h3>
+                  <p className="mt-1 line-clamp-2 text-[11px] text-zinc-400 leading-relaxed">{topic.description}</p>
                 </button>
               );
             })}
@@ -127,84 +137,84 @@ export default function InterviewPage() {
         </div>
 
         {/* Right Column: Practice Arena */}
-        <div className="rounded-md border border-slate-800 bg-slate-900/50 p-6 sm:p-8 backdrop-blur-md">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-7">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800/80 pb-5">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-medium">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
                 Active Scenario
               </span>
-              <h2 className="mt-1 text-xl sm:text-2xl font-bold text-white">{selectedTopic.title}</h2>
+              <h2 className="mt-1 text-lg font-medium text-zinc-100">{selectedTopic.title}</h2>
             </div>
 
             <button
               onClick={() => handleStartSession(selectedTopic)}
               disabled={loading}
-              className="inline-flex min-h-10 items-center gap-2 rounded-md bg-sky-500 px-5 text-xs font-semibold text-slate-950 transition hover:bg-sky-400 disabled:opacity-40 shadow-sm"
+              className="inline-flex items-center gap-1.5 rounded-md bg-violet-600 px-4 py-2 text-xs font-medium text-white hover:bg-violet-500 disabled:opacity-40 transition"
             >
               {loading ? "Generating Drills..." : "Generate New Questions"}
             </button>
           </div>
 
-          {/* Loading State */}
+          {/* Loading */}
           {loading && (
-            <div className="py-20 text-center space-y-3">
-              <div className="mx-auto h-7 w-7 animate-spin rounded-full border-2 border-sky-400 border-t-transparent" />
-              <p className="text-xs font-medium text-slate-400">
-                Compiling Senior & Staff interview questions...
+            <div className="py-20 text-center space-y-2">
+              <div className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-violet-500/40 border-t-violet-400" />
+              <p className="text-xs font-mono text-zinc-500">
+                Compiling Senior &amp; Staff interview questions...
               </p>
             </div>
           )}
 
-          {/* Error State */}
+          {/* Error */}
           {error && (
-            <div className="my-6 rounded-md border border-rose-500/30 bg-rose-500/10 p-4 text-xs font-medium text-rose-300">
-              {error}. Displaying fallback questions below.
+            <div className="my-5 rounded-md border border-rose-800/60 bg-rose-950/40 p-3 text-xs text-rose-300">
+              {error}. Displaying questions below.
             </div>
           )}
 
-          {/* Active Questions List */}
+          {/* Active Questions */}
           {!loading && questions.length > 0 ? (
             <div className="mt-6 space-y-6">
               {questions.map((q, idx) => (
                 <div
                   key={q.id || idx}
-                  className="rounded-md border border-slate-800 bg-slate-900/40 p-6 space-y-4"
+                  className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-5 space-y-3.5"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-mono text-slate-400">
-                      Question {idx + 1} of {questions.length} • <span className="text-sky-400 font-medium">{q.level || "Senior"} Level</span>
+                    <span className="text-[11px] font-mono text-zinc-500">
+                      Question {idx + 1} of {questions.length} • <span className="text-violet-400">{q.level || "Senior"} Level</span>
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white leading-snug">
+                  <h3 className="text-sm font-medium text-zinc-100 leading-snug">
                     {q.question}
                   </h3>
 
                   {/* Candidate Answer Box */}
-                  <div className="space-y-1.5">
-                    <label className="block text-xs font-medium text-slate-400">
+                  <div className="space-y-1">
+                    <label className="block text-[11px] font-medium text-zinc-400">
                       Your Architectural Solution Outline:
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Outline your system design approach, scalability tradeoffs, caching, and database decisions..."
+                      placeholder="Outline system design approach, scalability trade-offs, caching layer, and data consistency decisions..."
                       value={userAnswers[q.id || idx] || ""}
                       onChange={(e) =>
                         setUserAnswers((prev) => ({ ...prev, [q.id || idx]: e.target.value }))
                       }
-                      className="w-full rounded-md border border-slate-800 bg-slate-950/80 p-3.5 text-xs text-slate-200 outline-none transition focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30"
+                      className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-3 text-xs text-zinc-200 outline-none focus:border-violet-500 transition"
                     />
                   </div>
 
                   {/* Model Answer Toggle */}
-                  <div className="flex items-center justify-between pt-2">
+                  <div>
                     <button
                       onClick={() => toggleReveal(q.id || idx)}
-                      className="inline-flex items-center gap-2 rounded-md border border-sky-500/20 bg-sky-500/10 px-4 py-2 text-xs font-semibold text-sky-300 transition hover:bg-sky-500/20"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:border-zinc-700 transition"
                     >
                       <span>{revealedAnswers[q.id || idx] ? "Hide Model Solution" : "Reveal Model Solution"}</span>
                       <svg
-                        className={`h-3.5 w-3.5 transition-transform ${revealedAnswers[q.id || idx] ? "rotate-180" : ""}`}
+                        className={`h-3 w-3 text-zinc-400 transition-transform ${revealedAnswers[q.id || idx] ? "rotate-180" : ""}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -216,16 +226,16 @@ export default function InterviewPage() {
 
                   {/* Model Answer Body */}
                   {revealedAnswers[q.id || idx] && (
-                    <div className="mt-4 space-y-3 rounded-md border border-sky-500/20 bg-slate-950/90 p-4 text-xs leading-relaxed">
+                    <div className="mt-3 space-y-2.5 rounded-md border border-violet-900/40 bg-zinc-900/80 p-3.5 text-xs leading-relaxed">
                       <div>
-                        <h4 className="font-bold text-sky-400">Model Architectural Solution:</h4>
-                        <p className="mt-1.5 text-slate-300 leading-relaxed">{q.model_answer}</p>
+                        <h4 className="font-medium text-violet-300">Model Architectural Solution:</h4>
+                        <p className="mt-1 text-zinc-300">{q.model_answer}</p>
                       </div>
 
                       {q.follow_up_prompt && (
-                        <div className="border-t border-slate-800 pt-3">
-                          <h4 className="font-bold text-indigo-400">Interviewer Follow-Up Probe:</h4>
-                          <p className="mt-1 text-slate-300">{q.follow_up_prompt}</p>
+                        <div className="border-t border-zinc-800 pt-2.5">
+                          <h4 className="font-medium text-violet-400">Interviewer Follow-Up Probe:</h4>
+                          <p className="mt-1 text-zinc-400">{q.follow_up_prompt}</p>
                         </div>
                       )}
                     </div>
@@ -234,22 +244,21 @@ export default function InterviewPage() {
               ))}
             </div>
           ) : !loading ? (
-            /* Prompt to generate questions */
-            <div className="py-16 text-center space-y-4">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md border border-sky-500/20 bg-sky-500/10 text-xl">
-                <svg className="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="py-16 text-center space-y-3">
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg border border-violet-800/40 bg-violet-950/40 text-violet-400">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-white">
+              <h3 className="text-sm font-medium text-zinc-200">
                 Ready to practice {selectedTopic.title}?
               </h3>
-              <p className="max-w-md mx-auto text-xs text-slate-400 leading-relaxed">
-                Click below to generate adaptive system design questions, architecture scenarios, and model answers.
+              <p className="max-w-md mx-auto text-xs text-zinc-500 leading-relaxed">
+                Generate adaptive system design questions, architecture trade-offs, and follow-up probes.
               </p>
               <button
                 onClick={() => handleStartSession(selectedTopic)}
-                className="inline-flex min-h-10 items-center gap-2 rounded-md bg-sky-500 px-6 text-xs font-semibold text-slate-950 transition hover:bg-sky-400 shadow-sm"
+                className="inline-flex items-center gap-1.5 rounded-md bg-violet-600 px-4 py-2 text-xs font-medium text-white hover:bg-violet-500 transition"
               >
                 Start Interview Drill
               </button>
@@ -260,6 +269,3 @@ export default function InterviewPage() {
     </div>
   );
 }
-
-
-
