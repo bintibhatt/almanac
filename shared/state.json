@@ -175,6 +175,28 @@
       "generated_at": "2026-10-07T03:18:19Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/ebpf-programmable-kernel-networking-observability.md",
       "status": "published"
+    },
+    "sharding---performance-optimization": {
+      "title": "Sharding - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-07T13:09:43Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---performance-optimization.md",
+      "status": "published"
+    },
+    "row-level-security-rls-in-multi-tenant-postgresql": {
+      "title": "Row-Level Security (RLS) in Multi-Tenant PostgreSQL",
+      "category": "security",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-07T13:10:00Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/row-level-security-rls-in-multi-tenant-postgresql.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -197,9 +219,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "eBPF Programmable Kernel Networking & Observability",
-    "slug": "ebpf-programmable-kernel-networking-observability",
-    "timestamp": "2026-10-07T03:18:19Z"
+    "topic": "Row-Level Security (RLS) in Multi-Tenant PostgreSQL",
+    "slug": "row-level-security-rls-in-multi-tenant-postgresql",
+    "timestamp": "2026-10-07T13:10:00Z"
   },
-  "total_generated": 16
+  "total_generated": 18
 }
