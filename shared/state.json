@@ -219,6 +219,28 @@
       "generated_at": "2026-10-08T13:18:04Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/backend/lsm-tree-vs-b-tree-storage-engines.md",
       "status": "published"
+    },
+    "oauth2---performance-optimization": {
+      "title": "OAuth2 - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-09T13:04:10Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/oauth2---performance-optimization.md",
+      "status": "published"
+    },
+    "ebpf-kernel-tracing-observability": {
+      "title": "eBPF Kernel Tracing & Observability",
+      "category": "devops",
+      "source": "github",
+      "source_url": "https://github.com/topics/ebpf",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-09T13:04:39Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/ebpf-kernel-tracing-observability.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -241,9 +263,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "LSM-Tree vs B-Tree Storage Engines",
-    "slug": "lsm-tree-vs-b-tree-storage-engines",
-    "timestamp": "2026-10-08T13:18:04Z"
+    "topic": "eBPF Kernel Tracing & Observability",
+    "slug": "ebpf-kernel-tracing-observability",
+    "timestamp": "2026-10-09T13:04:39Z"
   },
-  "total_generated": 20
+  "total_generated": 22
 }
