@@ -241,6 +241,28 @@
       "generated_at": "2026-10-09T13:04:39Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/ebpf-kernel-tracing-observability.md",
       "status": "published"
+    },
+    "react---performance-optimization": {
+      "title": "React - Performance Optimization",
+      "category": "frontend",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-10T12:20:46Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/frontend/react---performance-optimization.md",
+      "status": "published"
+    },
+    "raft-consensus-algorithm-internals": {
+      "title": "Raft Consensus Algorithm Internals",
+      "category": "system-design",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-10T12:21:26Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/raft-consensus-algorithm-internals.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -263,9 +285,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "eBPF Kernel Tracing & Observability",
-    "slug": "ebpf-kernel-tracing-observability",
-    "timestamp": "2026-10-09T13:04:39Z"
+    "topic": "Raft Consensus Algorithm Internals",
+    "slug": "raft-consensus-algorithm-internals",
+    "timestamp": "2026-10-10T12:21:26Z"
   },
-  "total_generated": 22
+  "total_generated": 24
 }
