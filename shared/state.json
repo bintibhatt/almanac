@@ -263,6 +263,28 @@
       "generated_at": "2026-10-10T12:21:26Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/raft-consensus-algorithm-internals.md",
       "status": "published"
+    },
+    "docker---performance-optimization": {
+      "title": "Docker - Performance Optimization",
+      "category": "devops",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-11T12:37:10Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/docker---performance-optimization.md",
+      "status": "published"
+    },
+    "cryptographic-nonces-and-replay-attack-prevention": {
+      "title": "Cryptographic Nonces and Replay Attack Prevention",
+      "category": "security",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-11T12:37:28Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/cryptographic-nonces-and-replay-attack-prevention.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -285,9 +307,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Raft Consensus Algorithm Internals",
-    "slug": "raft-consensus-algorithm-internals",
-    "timestamp": "2026-10-10T12:21:26Z"
+    "topic": "Cryptographic Nonces and Replay Attack Prevention",
+    "slug": "cryptographic-nonces-and-replay-attack-prevention",
+    "timestamp": "2026-10-11T12:37:28Z"
   },
-  "total_generated": 24
+  "total_generated": 26
 }
