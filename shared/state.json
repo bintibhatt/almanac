@@ -285,6 +285,28 @@
       "generated_at": "2026-10-11T12:37:28Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/security/cryptographic-nonces-and-replay-attack-prevention.md",
       "status": "published"
+    },
+    "model-routing---performance-optimization": {
+      "title": "Model Routing - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-12T15:10:46Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/model-routing---performance-optimization.md",
+      "status": "published"
+    },
+    "zero-copy-networking-with-sendfile-and-io-uring": {
+      "title": "Zero-Copy Networking with sendfile and io_uring",
+      "category": "backend",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-12T15:11:06Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/backend/zero-copy-networking-with-sendfile-and-io-uring.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -307,9 +329,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Cryptographic Nonces and Replay Attack Prevention",
-    "slug": "cryptographic-nonces-and-replay-attack-prevention",
-    "timestamp": "2026-10-11T12:37:28Z"
+    "topic": "Zero-Copy Networking with sendfile and io_uring",
+    "slug": "zero-copy-networking-with-sendfile-and-io-uring",
+    "timestamp": "2026-10-12T15:11:06Z"
   },
-  "total_generated": 26
+  "total_generated": 28
 }
