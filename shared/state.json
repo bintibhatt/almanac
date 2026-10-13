@@ -307,6 +307,28 @@
       "generated_at": "2026-10-12T15:11:06Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/backend/zero-copy-networking-with-sendfile-and-io-uring.md",
       "status": "published"
+    },
+    "evaluation---performance-optimization": {
+      "title": "Evaluation - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-13T14:02:34Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/evaluation---performance-optimization.md",
+      "status": "published"
+    },
+    "consistent-hashing-with-virtual-nodes": {
+      "title": "Consistent Hashing with Virtual Nodes",
+      "category": "system-design",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-13T14:03:58Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/consistent-hashing-with-virtual-nodes.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -329,9 +351,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Zero-Copy Networking with sendfile and io_uring",
-    "slug": "zero-copy-networking-with-sendfile-and-io-uring",
-    "timestamp": "2026-10-12T15:11:06Z"
+    "topic": "Consistent Hashing with Virtual Nodes",
+    "slug": "consistent-hashing-with-virtual-nodes",
+    "timestamp": "2026-10-13T14:03:58Z"
   },
-  "total_generated": 28
+  "total_generated": 30
 }
