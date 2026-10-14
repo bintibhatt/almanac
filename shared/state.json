@@ -329,6 +329,28 @@
       "generated_at": "2026-10-13T14:03:58Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/consistent-hashing-with-virtual-nodes.md",
       "status": "published"
+    },
+    "fine-tuning---performance-optimization": {
+      "title": "Fine-tuning - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-14T11:39:19Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/fine-tuning---performance-optimization.md",
+      "status": "published"
+    },
+    "event-driven-architecture-with-outbox-pattern-and-debezium": {
+      "title": "Event-Driven Architecture with Outbox Pattern and Debezium",
+      "category": "system-design",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-14T11:39:37Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/event-driven-architecture-with-outbox-pattern-and-debezium.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -351,9 +373,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Consistent Hashing with Virtual Nodes",
-    "slug": "consistent-hashing-with-virtual-nodes",
-    "timestamp": "2026-10-13T14:03:58Z"
+    "topic": "Event-Driven Architecture with Outbox Pattern and Debezium",
+    "slug": "event-driven-architecture-with-outbox-pattern-and-debezium",
+    "timestamp": "2026-10-14T11:39:37Z"
   },
-  "total_generated": 30
+  "total_generated": 32
 }
