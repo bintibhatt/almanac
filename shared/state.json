@@ -351,6 +351,28 @@
       "generated_at": "2026-10-14T11:39:37Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/event-driven-architecture-with-outbox-pattern-and-debezium.md",
       "status": "published"
+    },
+    "inference-optimization---performance-optimization": {
+      "title": "Inference Optimization - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-15T11:18:06Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/inference-optimization---performance-optimization.md",
+      "status": "published"
+    },
+    "oauth-21-openid-connect-pkce-flow-architecture": {
+      "title": "OAuth 2.1 & OpenID Connect PKCE Flow Architecture",
+      "category": "security",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-15T11:21:41Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/oauth-21-openid-connect-pkce-flow-architecture.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -373,9 +395,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Event-Driven Architecture with Outbox Pattern and Debezium",
-    "slug": "event-driven-architecture-with-outbox-pattern-and-debezium",
-    "timestamp": "2026-10-14T11:39:37Z"
+    "topic": "OAuth 2.1 & OpenID Connect PKCE Flow Architecture",
+    "slug": "oauth-21-openid-connect-pkce-flow-architecture",
+    "timestamp": "2026-10-15T11:21:41Z"
   },
-  "total_generated": 32
+  "total_generated": 34
 }
