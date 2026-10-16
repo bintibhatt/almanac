@@ -373,6 +373,28 @@
       "generated_at": "2026-10-15T11:21:41Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/security/oauth-21-openid-connect-pkce-flow-architecture.md",
       "status": "published"
+    },
+    "guardrails---performance-optimization": {
+      "title": "Guardrails - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-16T11:12:39Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/guardrails---performance-optimization.md",
+      "status": "published"
+    },
+    "distributed-systems-consensus-protocols": {
+      "title": "Distributed Systems Consensus Protocols",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/topics/consensus",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-16T11:13:04Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/distributed-systems-consensus-protocols.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -395,9 +417,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "OAuth 2.1 & OpenID Connect PKCE Flow Architecture",
-    "slug": "oauth-21-openid-connect-pkce-flow-architecture",
-    "timestamp": "2026-10-15T11:21:41Z"
+    "topic": "Distributed Systems Consensus Protocols",
+    "slug": "distributed-systems-consensus-protocols",
+    "timestamp": "2026-10-16T11:13:04Z"
   },
-  "total_generated": 34
+  "total_generated": 36
 }
