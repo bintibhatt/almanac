@@ -417,6 +417,28 @@
       "generated_at": "2026-10-17T10:32:20Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/backend/distributed-tracing-with-opentelemetry-and-w3c-tracecontext.md",
       "status": "published"
+    },
+    "multi-agent-systems---performance-optimization": {
+      "title": "Multi-Agent Systems - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-18T10:51:58Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/multi-agent-systems---performance-optimization.md",
+      "status": "published"
+    },
+    "vector-quantization-techniques-in-embedding-indexes": {
+      "title": "Vector Quantization Techniques in Embedding Indexes",
+      "category": "ai",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-18T10:54:06Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/vector-quantization-techniques-in-embedding-indexes.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -439,9 +461,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Distributed Tracing with OpenTelemetry and W3C TraceContext",
-    "slug": "distributed-tracing-with-opentelemetry-and-w3c-tracecontext",
-    "timestamp": "2026-10-17T10:32:20Z"
+    "topic": "Vector Quantization Techniques in Embedding Indexes",
+    "slug": "vector-quantization-techniques-in-embedding-indexes",
+    "timestamp": "2026-10-18T10:54:06Z"
   },
-  "total_generated": 38
+  "total_generated": 40
 }
