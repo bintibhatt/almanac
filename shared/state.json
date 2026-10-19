@@ -439,6 +439,28 @@
       "generated_at": "2026-10-18T10:54:06Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/vector-quantization-techniques-in-embedding-indexes.md",
       "status": "published"
+    },
+    "cap-theorem---performance-optimization": {
+      "title": "CAP Theorem - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-19T12:53:40Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/cap-theorem---performance-optimization.md",
+      "status": "published"
+    },
+    "speculative-decoding-in-large-language-model-inference": {
+      "title": "Speculative Decoding in Large Language Model Inference",
+      "category": "ai",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-19T12:54:46Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/speculative-decoding-in-large-language-model-inference.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -461,9 +483,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Vector Quantization Techniques in Embedding Indexes",
-    "slug": "vector-quantization-techniques-in-embedding-indexes",
-    "timestamp": "2026-10-18T10:54:06Z"
+    "topic": "Speculative Decoding in Large Language Model Inference",
+    "slug": "speculative-decoding-in-large-language-model-inference",
+    "timestamp": "2026-10-19T12:54:46Z"
   },
-  "total_generated": 40
+  "total_generated": 42
 }
