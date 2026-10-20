@@ -461,6 +461,28 @@
       "generated_at": "2026-10-19T12:54:46Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/speculative-decoding-in-large-language-model-inference.md",
       "status": "published"
+    },
+    "consistent-hashing---performance-optimization": {
+      "title": "Consistent Hashing - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-20T11:22:41Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/consistent-hashing---performance-optimization.md",
+      "status": "published"
+    },
+    "context-compression-and-semantic-chunking-for-rag": {
+      "title": "Context Compression and Semantic Chunking for RAG",
+      "category": "ai",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-20T11:23:45Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/context-compression-and-semantic-chunking-for-rag.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -483,9 +505,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Speculative Decoding in Large Language Model Inference",
-    "slug": "speculative-decoding-in-large-language-model-inference",
-    "timestamp": "2026-10-19T12:54:46Z"
+    "topic": "Context Compression and Semantic Chunking for RAG",
+    "slug": "context-compression-and-semantic-chunking-for-rag",
+    "timestamp": "2026-10-20T11:23:45Z"
   },
-  "total_generated": 42
+  "total_generated": 44
 }
