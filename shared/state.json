@@ -483,6 +483,28 @@
       "generated_at": "2026-10-20T11:23:45Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/context-compression-and-semantic-chunking-for-rag.md",
       "status": "published"
+    },
+    "replication---performance-optimization": {
+      "title": "Replication - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-21T11:37:51Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/replication---performance-optimization.md",
+      "status": "published"
+    },
+    "gitops-reconciler-architecture-in-argocd-and-flux": {
+      "title": "GitOps Reconciler Architecture in ArgoCD and Flux",
+      "category": "devops",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-21T11:38:40Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/gitops-reconciler-architecture-in-argocd-and-flux.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -505,9 +527,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Context Compression and Semantic Chunking for RAG",
-    "slug": "context-compression-and-semantic-chunking-for-rag",
-    "timestamp": "2026-10-20T11:23:45Z"
+    "topic": "GitOps Reconciler Architecture in ArgoCD and Flux",
+    "slug": "gitops-reconciler-architecture-in-argocd-and-flux",
+    "timestamp": "2026-10-21T11:38:40Z"
   },
-  "total_generated": 44
+  "total_generated": 46
 }
