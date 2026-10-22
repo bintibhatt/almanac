@@ -505,6 +505,28 @@
       "generated_at": "2026-10-21T11:38:40Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/gitops-reconciler-architecture-in-argocd-and-flux.md",
       "status": "published"
+    },
+    "reasoning-models---performance-optimization": {
+      "title": "Reasoning Models - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-22T11:37:39Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/reasoning-models---performance-optimization.md",
+      "status": "published"
+    },
+    "service-mesh-mutual-tls-mtls-with-spiffespire": {
+      "title": "Service Mesh Mutual TLS (mTLS) with SPIFFE/SPIRE",
+      "category": "devops",
+      "source": "knowledge-gap",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-22T11:42:28Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/service-mesh-mutual-tls-mtls-with-spiffespire.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -527,9 +549,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "GitOps Reconciler Architecture in ArgoCD and Flux",
-    "slug": "gitops-reconciler-architecture-in-argocd-and-flux",
-    "timestamp": "2026-10-21T11:38:40Z"
+    "topic": "Service Mesh Mutual TLS (mTLS) with SPIFFE/SPIRE",
+    "slug": "service-mesh-mutual-tls-mtls-with-spiffespire",
+    "timestamp": "2026-10-22T11:42:28Z"
   },
-  "total_generated": 46
+  "total_generated": 48
 }
