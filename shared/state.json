@@ -527,6 +527,28 @@
       "generated_at": "2026-10-22T11:42:28Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/service-mesh-mutual-tls-mtls-with-spiffespire.md",
       "status": "published"
+    },
+    "prompt-caching---performance-optimization": {
+      "title": "Prompt Caching - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-23T11:27:14Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/prompt-caching---performance-optimization.md",
+      "status": "published"
+    },
+    "cs-notes-architecture-patterns": {
+      "title": "Cs Notes — Architecture & Patterns",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/CyC2018/CS-Notes",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-23T11:27:40Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/cs-notes-architecture-patterns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -549,9 +571,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Service Mesh Mutual TLS (mTLS) with SPIFFE/SPIRE",
-    "slug": "service-mesh-mutual-tls-mtls-with-spiffespire",
-    "timestamp": "2026-10-22T11:42:28Z"
+    "topic": "Cs Notes — Architecture & Patterns",
+    "slug": "cs-notes-architecture-patterns",
+    "timestamp": "2026-10-23T11:27:40Z"
   },
-  "total_generated": 48
+  "total_generated": 50
 }
