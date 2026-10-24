@@ -549,6 +549,28 @@
       "generated_at": "2026-10-23T11:27:40Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/cs-notes-architecture-patterns.md",
       "status": "published"
+    },
+    "semantic-search---performance-optimization": {
+      "title": "Semantic Search - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-24T10:45:54Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/semantic-search---performance-optimization.md",
+      "status": "published"
+    },
+    "twelve-years-of-distributed-sqlite": {
+      "title": "Twelve years of distributed SQLite",
+      "category": "databases",
+      "source": "hackernews",
+      "source_url": "https://philipotoole.com/twelve-years-of-distributed-sqlite/",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-24T10:46:15Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/twelve-years-of-distributed-sqlite.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -571,9 +593,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Cs Notes — Architecture & Patterns",
-    "slug": "cs-notes-architecture-patterns",
-    "timestamp": "2026-10-23T11:27:40Z"
+    "topic": "Twelve years of distributed SQLite",
+    "slug": "twelve-years-of-distributed-sqlite",
+    "timestamp": "2026-10-24T10:46:15Z"
   },
-  "total_generated": 50
+  "total_generated": 52
 }
