@@ -571,6 +571,28 @@
       "generated_at": "2026-10-24T10:46:15Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/twelve-years-of-distributed-sqlite.md",
       "status": "published"
+    },
+    "microservices---performance-optimization": {
+      "title": "Microservices - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-25T11:11:25Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/microservices---performance-optimization.md",
+      "status": "published"
+    },
+    "model-context-protocol---performance-optimization": {
+      "title": "Model Context Protocol - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-25T11:14:06Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/model-context-protocol---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -593,9 +615,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Twelve years of distributed SQLite",
-    "slug": "twelve-years-of-distributed-sqlite",
-    "timestamp": "2026-10-24T10:46:15Z"
+    "topic": "Model Context Protocol - Performance Optimization",
+    "slug": "model-context-protocol---performance-optimization",
+    "timestamp": "2026-10-25T11:14:06Z"
   },
-  "total_generated": 52
+  "total_generated": 54
 }
