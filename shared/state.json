@@ -615,6 +615,28 @@
       "generated_at": "2026-10-26T12:51:32Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/agentic-workflows---performance-optimization.md",
       "status": "published"
+    },
+    "cqrs---performance-optimization": {
+      "title": "CQRS - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-27T11:59:36Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/cqrs---performance-optimization.md",
+      "status": "published"
+    },
+    "context-windows---performance-optimization": {
+      "title": "Context Windows - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-27T12:05:02Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/context-windows---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -637,9 +659,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Agentic Workflows - Performance Optimization",
-    "slug": "agentic-workflows---performance-optimization",
-    "timestamp": "2026-10-26T12:51:32Z"
+    "topic": "Context Windows - Performance Optimization",
+    "slug": "context-windows---performance-optimization",
+    "timestamp": "2026-10-27T12:05:02Z"
   },
-  "total_generated": 56
+  "total_generated": 58
 }
