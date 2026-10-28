@@ -637,6 +637,28 @@
       "generated_at": "2026-10-27T12:05:02Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/context-windows---performance-optimization.md",
       "status": "published"
+    },
+    "event-sourcing---performance-optimization": {
+      "title": "Event Sourcing - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-28T12:38:37Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/event-sourcing---performance-optimization.md",
+      "status": "published"
+    },
+    "speculative-decoding---performance-optimization": {
+      "title": "Speculative Decoding - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-28T12:39:00Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/speculative-decoding---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -659,9 +681,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Context Windows - Performance Optimization",
-    "slug": "context-windows---performance-optimization",
-    "timestamp": "2026-10-27T12:05:02Z"
+    "topic": "Speculative Decoding - Performance Optimization",
+    "slug": "speculative-decoding---performance-optimization",
+    "timestamp": "2026-10-28T12:39:00Z"
   },
-  "total_generated": 58
+  "total_generated": 60
 }
