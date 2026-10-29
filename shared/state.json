@@ -659,6 +659,28 @@
       "generated_at": "2026-10-28T12:39:00Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/speculative-decoding---performance-optimization.md",
       "status": "published"
+    },
+    "message-queues---performance-optimization": {
+      "title": "Message Queues - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-29T12:48:15Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/message-queues---performance-optimization.md",
+      "status": "published"
+    },
+    "vector-indexing-algorithms-hnsw-ivf": {
+      "title": "Vector Indexing Algorithms — HNSW & IVF",
+      "category": "ai",
+      "source": "github",
+      "source_url": "https://github.com/topics/vector-search",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-29T12:49:07Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/vector-indexing-algorithms-hnsw-ivf.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -681,9 +703,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Speculative Decoding - Performance Optimization",
-    "slug": "speculative-decoding---performance-optimization",
-    "timestamp": "2026-10-28T12:39:00Z"
+    "topic": "Vector Indexing Algorithms — HNSW & IVF",
+    "slug": "vector-indexing-algorithms-hnsw-ivf",
+    "timestamp": "2026-10-29T12:49:07Z"
   },
-  "total_generated": 60
+  "total_generated": 62
 }
