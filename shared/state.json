@@ -703,6 +703,28 @@
       "generated_at": "2026-10-30T12:40:34Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/we-ran-ai-agent-swarms-in-minecraft-and-mindustry.md",
       "status": "published"
+    },
+    "api-design---performance-optimization": {
+      "title": "API Design - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-10-31T12:08:47Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/api-design---performance-optimization.md",
+      "status": "published"
+    },
+    "mixture-of-experts---performance-optimization": {
+      "title": "Mixture of Experts - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-10-31T12:12:04Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/mixture-of-experts---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -725,9 +747,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "We ran AI agent swarms in Minecraft and Mindustry",
-    "slug": "we-ran-ai-agent-swarms-in-minecraft-and-mindustry",
-    "timestamp": "2026-10-30T12:40:34Z"
+    "topic": "Mixture of Experts - Performance Optimization",
+    "slug": "mixture-of-experts---performance-optimization",
+    "timestamp": "2026-10-31T12:12:04Z"
   },
-  "total_generated": 64
+  "total_generated": 66
 }
