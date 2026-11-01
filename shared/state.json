@@ -725,6 +725,28 @@
       "generated_at": "2026-10-31T12:12:04Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/mixture-of-experts---performance-optimization.md",
       "status": "published"
+    },
+    "high-availability---performance-optimization": {
+      "title": "High Availability - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-01T13:08:45Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/high-availability---performance-optimization.md",
+      "status": "published"
+    },
+    "prompt-injection---performance-optimization": {
+      "title": "Prompt Injection - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-01T13:10:49Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/prompt-injection---performance-optimization.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -747,9 +769,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Mixture of Experts - Performance Optimization",
-    "slug": "mixture-of-experts---performance-optimization",
-    "timestamp": "2026-10-31T12:12:04Z"
+    "topic": "Prompt Injection - Performance Optimization",
+    "slug": "prompt-injection---performance-optimization",
+    "timestamp": "2026-11-01T13:10:49Z"
   },
-  "total_generated": 66
+  "total_generated": 68
 }
