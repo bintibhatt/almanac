@@ -747,6 +747,28 @@
       "generated_at": "2026-11-01T13:10:49Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/prompt-injection---performance-optimization.md",
       "status": "published"
+    },
+    "fault-tolerance---performance-optimization": {
+      "title": "Fault Tolerance - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-02T15:33:08Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/fault-tolerance---performance-optimization.md",
+      "status": "published"
+    },
+    "postgres-19-is-late-because-so-many-more-bugs-are-being-found-now": {
+      "title": "Postgres 19 is late because so many more bugs are being found now",
+      "category": "databases",
+      "source": "hackernews",
+      "source_url": "http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-02T15:33:30Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/postgres-19-is-late-because-so-many-more-bugs-are-being-found-now.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -769,9 +791,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Prompt Injection - Performance Optimization",
-    "slug": "prompt-injection---performance-optimization",
-    "timestamp": "2026-11-01T13:10:49Z"
+    "topic": "Postgres 19 is late because so many more bugs are being found now",
+    "slug": "postgres-19-is-late-because-so-many-more-bugs-are-being-found-now",
+    "timestamp": "2026-11-02T15:33:30Z"
   },
-  "total_generated": 68
+  "total_generated": 70
 }
