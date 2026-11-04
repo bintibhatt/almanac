@@ -791,6 +791,28 @@
       "generated_at": "2026-11-03T14:01:41Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/ai-safety---performance-optimization.md",
       "status": "published"
+    },
+    "cdn---performance-optimization": {
+      "title": "CDN - Performance Optimization",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-04T14:16:48Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/cdn---performance-optimization.md",
+      "status": "published"
+    },
+    "the-internals-of-postgresql": {
+      "title": "The Internals of PostgreSQL",
+      "category": "databases",
+      "source": "hackernews",
+      "source_url": "https://www.interdb.jp/pg/index.html",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-04T14:17:55Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/the-internals-of-postgresql.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -813,9 +835,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "AI Safety - Performance Optimization",
-    "slug": "ai-safety---performance-optimization",
-    "timestamp": "2026-11-03T14:01:41Z"
+    "topic": "The Internals of PostgreSQL",
+    "slug": "the-internals-of-postgresql",
+    "timestamp": "2026-11-04T14:17:55Z"
   },
-  "total_generated": 72
+  "total_generated": 74
 }
