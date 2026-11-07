@@ -857,6 +857,28 @@
       "generated_at": "2026-11-06T14:07:13Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/long-context-retrieval---performance-optimization.md",
       "status": "published"
+    },
+    "openid-connect---performance-optimization": {
+      "title": "OpenID Connect - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-07T12:50:51Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/openid-connect---performance-optimization.md",
+      "status": "published"
+    },
+    "javaguide-architecture-patterns": {
+      "title": "Javaguide — Architecture & Patterns",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/Snailclimb/JavaGuide",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-07T12:51:24Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/javaguide-architecture-patterns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -879,9 +901,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Long Context Retrieval - Performance Optimization",
-    "slug": "long-context-retrieval---performance-optimization",
-    "timestamp": "2026-11-06T14:07:13Z"
+    "topic": "Javaguide — Architecture & Patterns",
+    "slug": "javaguide-architecture-patterns",
+    "timestamp": "2026-11-07T12:51:24Z"
   },
-  "total_generated": 78
+  "total_generated": 80
 }
