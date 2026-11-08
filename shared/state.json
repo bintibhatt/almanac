@@ -879,6 +879,28 @@
       "generated_at": "2026-11-07T12:51:24Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/javaguide-architecture-patterns.md",
       "status": "published"
+    },
+    "reasoning-tokens---performance-optimization": {
+      "title": "Reasoning Tokens - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-08T13:12:02Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/reasoning-tokens---performance-optimization.md",
+      "status": "published"
+    },
+    "tech-interview-handbook-architecture-patterns": {
+      "title": "Tech Interview Handbook — Architecture & Patterns",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/yangshun/tech-interview-handbook",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-08T13:12:19Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/tech-interview-handbook-architecture-patterns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -901,9 +923,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Javaguide — Architecture & Patterns",
-    "slug": "javaguide-architecture-patterns",
-    "timestamp": "2026-11-07T12:51:24Z"
+    "topic": "Tech Interview Handbook — Architecture & Patterns",
+    "slug": "tech-interview-handbook-architecture-patterns",
+    "timestamp": "2026-11-08T13:12:19Z"
   },
-  "total_generated": 80
+  "total_generated": 82
 }
