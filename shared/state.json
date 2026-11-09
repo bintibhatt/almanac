@@ -901,6 +901,28 @@
       "generated_at": "2026-11-08T13:12:19Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/tech-interview-handbook-architecture-patterns.md",
       "status": "published"
+    },
+    "llm-benchmarks---performance-optimization": {
+      "title": "LLM Benchmarks - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-09T15:57:52Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/llm-benchmarks---performance-optimization.md",
+      "status": "published"
+    },
+    "archify-architecture-patterns": {
+      "title": "Archify — Architecture & Patterns",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/tt-a1i/archify",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-09T15:58:12Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/archify-architecture-patterns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -923,9 +945,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Tech Interview Handbook — Architecture & Patterns",
-    "slug": "tech-interview-handbook-architecture-patterns",
-    "timestamp": "2026-11-08T13:12:19Z"
+    "topic": "Archify — Architecture & Patterns",
+    "slug": "archify-architecture-patterns",
+    "timestamp": "2026-11-09T15:58:12Z"
   },
-  "total_generated": 82
+  "total_generated": 84
 }
