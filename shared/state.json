@@ -923,6 +923,28 @@
       "generated_at": "2026-11-09T15:58:12Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/archify-architecture-patterns.md",
       "status": "published"
+    },
+    "ai-evaluation-pipelines---performance-optimization": {
+      "title": "AI Evaluation Pipelines - Performance Optimization",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-10T14:44:39Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/ai-evaluation-pipelines---performance-optimization.md",
+      "status": "published"
+    },
+    "system-design-101-architecture-patterns": {
+      "title": "System Design 101 — Architecture & Patterns",
+      "category": "system-design",
+      "source": "github",
+      "source_url": "https://github.com/ByteByteGoHq/system-design-101",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-10T14:45:16Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/system-design-101-architecture-patterns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -945,9 +967,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Archify — Architecture & Patterns",
-    "slug": "archify-architecture-patterns",
-    "timestamp": "2026-11-09T15:58:12Z"
+    "topic": "System Design 101 — Architecture & Patterns",
+    "slug": "system-design-101-architecture-patterns",
+    "timestamp": "2026-11-10T14:45:16Z"
   },
-  "total_generated": 84
+  "total_generated": 86
 }
