@@ -989,6 +989,28 @@
       "generated_at": "2026-11-12T15:06:00Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/nvidia-ceo-jensen-huang-resigns-after-reports-of-second-affair-deepened-scandal.md",
       "status": "published"
+    },
+    "sql-injection---performance-optimization": {
+      "title": "SQL Injection - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-13T14:26:26Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/sql-injection---performance-optimization.md",
+      "status": "published"
+    },
+    "eli-lilly-ceo-pushes-back-on-dario-amodeis-ludicrous-medical-claims": {
+      "title": "Eli Lilly CEO pushes back on Dario Amodei's ludicrous medical claims",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://garymarcus.substack.com/p/breaking-eli-lilly-ceo-becomes-latest",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-13T14:27:14Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/eli-lilly-ceo-pushes-back-on-dario-amodeis-ludicrous-medical-claims.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1011,9 +1033,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Nvidia CEO Jensen Huang resigns after reports of second affair deepened scandal",
-    "slug": "nvidia-ceo-jensen-huang-resigns-after-reports-of-second-affair-deepened-scandal",
-    "timestamp": "2026-11-12T15:06:00Z"
+    "topic": "Eli Lilly CEO pushes back on Dario Amodei's ludicrous medical claims",
+    "slug": "eli-lilly-ceo-pushes-back-on-dario-amodeis-ludicrous-medical-claims",
+    "timestamp": "2026-11-13T14:27:14Z"
   },
-  "total_generated": 90
+  "total_generated": 92
 }
