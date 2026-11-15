@@ -1033,6 +1033,28 @@
       "generated_at": "2026-11-14T13:22:59Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus.md",
       "status": "published"
+    },
+    "encryption---performance-optimization": {
+      "title": "Encryption - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-15T13:50:15Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/encryption---performance-optimization.md",
+      "status": "published"
+    },
+    "lovable-apps-expose-passport-details-and-more-than-200k-private-messages": {
+      "title": "Lovable apps expose passport details and more than 200K private messages",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://www.crissyfield.de/research/lovable-en/",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-15T13:50:36Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/lovable-apps-expose-passport-details-and-more-than-200k-private-messages.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1055,9 +1077,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
-    "slug": "nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
-    "timestamp": "2026-11-14T13:22:59Z"
+    "topic": "Lovable apps expose passport details and more than 200K private messages",
+    "slug": "lovable-apps-expose-passport-details-and-more-than-200k-private-messages",
+    "timestamp": "2026-11-15T13:50:36Z"
   },
-  "total_generated": 94
+  "total_generated": 96
 }
