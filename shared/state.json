@@ -1055,6 +1055,28 @@
       "generated_at": "2026-11-15T13:50:36Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/lovable-apps-expose-passport-details-and-more-than-200k-private-messages.md",
       "status": "published"
+    },
+    "secrets---performance-optimization": {
+      "title": "Secrets - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-16T15:32:18Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/secrets---performance-optimization.md",
+      "status": "published"
+    },
+    "soldier-files-whistleblower-complaint-over-iran-strike-that-killed-6-us-troops": {
+      "title": "Soldier files whistleblower complaint over Iran strike that killed 6 U.S. troops",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://www.cnn.com/2026/11/15/politics/army-soldier-whistleblower-complaint",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-16T15:32:39Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/soldier-files-whistleblower-complaint-over-iran-strike-that-killed-6-us-troops.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1077,9 +1099,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Lovable apps expose passport details and more than 200K private messages",
-    "slug": "lovable-apps-expose-passport-details-and-more-than-200k-private-messages",
-    "timestamp": "2026-11-15T13:50:36Z"
+    "topic": "Soldier files whistleblower complaint over Iran strike that killed 6 U.S. troops",
+    "slug": "soldier-files-whistleblower-complaint-over-iran-strike-that-killed-6-us-troops",
+    "timestamp": "2026-11-16T15:32:39Z"
   },
-  "total_generated": 96
+  "total_generated": 98
 }
