@@ -1077,6 +1077,28 @@
       "generated_at": "2026-11-16T15:32:39Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/soldier-files-whistleblower-complaint-over-iran-strike-that-killed-6-us-troops.md",
       "status": "published"
+    },
+    "zero-trust---performance-optimization": {
+      "title": "Zero Trust - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-17T15:52:31Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/zero-trust---performance-optimization.md",
+      "status": "published"
+    },
+    "baidu-xiaomi-ceos-warn-of-growing-gap-between-ai-hype-and-returns": {
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-17T15:52:57Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/baidu-xiaomi-ceos-warn-of-growing-gap-between-ai-hype-and-returns.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1099,9 +1121,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Soldier files whistleblower complaint over Iran strike that killed 6 U.S. troops",
-    "slug": "soldier-files-whistleblower-complaint-over-iran-strike-that-killed-6-us-troops",
-    "timestamp": "2026-11-16T15:32:39Z"
+    "topic": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+    "slug": "baidu-xiaomi-ceos-warn-of-growing-gap-between-ai-hype-and-returns",
+    "timestamp": "2026-11-17T15:52:57Z"
   },
-  "total_generated": 98
+  "total_generated": 100
 }
