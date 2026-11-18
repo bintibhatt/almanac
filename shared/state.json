@@ -1099,6 +1099,28 @@
       "generated_at": "2026-11-17T15:52:57Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/baidu-xiaomi-ceos-warn-of-growing-gap-between-ai-hype-and-returns.md",
       "status": "published"
+    },
+    "owasp-top-10---performance-optimization": {
+      "title": "OWASP Top 10 - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-18T15:30:13Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/owasp-top-10---performance-optimization.md",
+      "status": "published"
+    },
+    "when-ai-knows-more-than-it-can-offer": {
+      "title": "When AI Knows More Than It Can Offer",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://medium.com/@smoking2man/when-ai-knows-more-than-it-can-offer-how-training-turns-an-intelligent-assistant-into-a-generator-7e700f05163e",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-18T15:31:22Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/when-ai-knows-more-than-it-can-offer.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1121,9 +1143,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
-    "slug": "baidu-xiaomi-ceos-warn-of-growing-gap-between-ai-hype-and-returns",
-    "timestamp": "2026-11-17T15:52:57Z"
+    "topic": "When AI Knows More Than It Can Offer",
+    "slug": "when-ai-knows-more-than-it-can-offer",
+    "timestamp": "2026-11-18T15:31:22Z"
   },
-  "total_generated": 100
+  "total_generated": 102
 }
