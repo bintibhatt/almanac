@@ -1121,6 +1121,28 @@
       "generated_at": "2026-11-18T15:31:22Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/when-ai-knows-more-than-it-can-offer.md",
       "status": "published"
+    },
+    "security-headers---performance-optimization": {
+      "title": "Security Headers - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-19T15:37:49Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/security-headers---performance-optimization.md",
+      "status": "published"
+    },
+    "distributed-high-performance-blob-storage-on-sqlite": {
+      "title": "Distributed, high-performance blob storage on SQLite",
+      "category": "databases",
+      "source": "hackernews",
+      "source_url": "https://zerodha.tech/blog/high-performance-distributed-blob-storage/",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-19T15:41:01Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/distributed-high-performance-blob-storage-on-sqlite.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1143,9 +1165,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "When AI Knows More Than It Can Offer",
-    "slug": "when-ai-knows-more-than-it-can-offer",
-    "timestamp": "2026-11-18T15:31:22Z"
+    "topic": "Distributed, high-performance blob storage on SQLite",
+    "slug": "distributed-high-performance-blob-storage-on-sqlite",
+    "timestamp": "2026-11-19T15:41:01Z"
   },
-  "total_generated": 102
+  "total_generated": 104
 }
