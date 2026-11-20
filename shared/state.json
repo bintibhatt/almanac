@@ -1143,6 +1143,28 @@
       "generated_at": "2026-11-19T15:41:01Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/databases/distributed-high-performance-blob-storage-on-sqlite.md",
       "status": "published"
+    },
+    "api-security---performance-optimization": {
+      "title": "API Security - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-20T15:17:51Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/api-security---performance-optimization.md",
+      "status": "published"
+    },
+    "frostbite-a-new-cpu-architecture-discovered-designed-and-verified-by-ai": {
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://architectlabs.com/blog/frostbite",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-20T15:18:11Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/frostbite-a-new-cpu-architecture-discovered-designed-and-verified-by-ai.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1165,9 +1187,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Distributed, high-performance blob storage on SQLite",
-    "slug": "distributed-high-performance-blob-storage-on-sqlite",
-    "timestamp": "2026-11-19T15:41:01Z"
+    "topic": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+    "slug": "frostbite-a-new-cpu-architecture-discovered-designed-and-verified-by-ai",
+    "timestamp": "2026-11-20T15:18:11Z"
   },
-  "total_generated": 104
+  "total_generated": 106
 }
