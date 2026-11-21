@@ -1165,6 +1165,28 @@
       "generated_at": "2026-11-20T15:18:11Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/frostbite-a-new-cpu-architecture-discovered-designed-and-verified-by-ai.md",
       "status": "published"
+    },
+    "ssrf---performance-optimization": {
+      "title": "SSRF - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-21T14:30:57Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/ssrf---performance-optimization.md",
+      "status": "published"
+    },
+    "levent-alpöge-claims-proof-of-the-generalized-riemann-hypothesis-pdf": {
+      "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://alpo.ge/remark.pdf",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-21T14:31:17Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/levent-alpöge-claims-proof-of-the-generalized-riemann-hypothesis-pdf.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1187,9 +1209,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
-    "slug": "frostbite-a-new-cpu-architecture-discovered-designed-and-verified-by-ai",
-    "timestamp": "2026-11-20T15:18:11Z"
+    "topic": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+    "slug": "levent-alpöge-claims-proof-of-the-generalized-riemann-hypothesis-pdf",
+    "timestamp": "2026-11-21T14:31:17Z"
   },
-  "total_generated": 106
+  "total_generated": 108
 }
