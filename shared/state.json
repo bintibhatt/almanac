@@ -1187,6 +1187,28 @@
       "generated_at": "2026-11-21T14:31:17Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/levent-alpöge-claims-proof-of-the-generalized-riemann-hypothesis-pdf.md",
       "status": "published"
+    },
+    "clickjacking---performance-optimization": {
+      "title": "Clickjacking - Performance Optimization",
+      "category": "security",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-22T14:27:05Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/clickjacking---performance-optimization.md",
+      "status": "published"
+    },
+    "pill-to-treat-pancreatic-cancer-hailed-as-biggest-breakthrough-in-decades": {
+      "title": "Pill to treat pancreatic cancer hailed as 'biggest breakthrough in decades'",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://www.theguardian.com/society/2026/nov/20/pill-pancreatic-cancer-breakthrough-daraxonrasib",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-22T14:27:28Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/pill-to-treat-pancreatic-cancer-hailed-as-biggest-breakthrough-in-decades.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1209,9 +1231,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
-    "slug": "levent-alpöge-claims-proof-of-the-generalized-riemann-hypothesis-pdf",
-    "timestamp": "2026-11-21T14:31:17Z"
+    "topic": "Pill to treat pancreatic cancer hailed as 'biggest breakthrough in decades'",
+    "slug": "pill-to-treat-pancreatic-cancer-hailed-as-biggest-breakthrough-in-decades",
+    "timestamp": "2026-11-22T14:27:28Z"
   },
-  "total_generated": 108
+  "total_generated": 110
 }
