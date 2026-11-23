@@ -1209,6 +1209,28 @@
       "generated_at": "2026-11-22T14:27:28Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/pill-to-treat-pancreatic-cancer-hailed-as-biggest-breakthrough-in-decades.md",
       "status": "published"
+    },
+    "sharding---overview": {
+      "title": "Sharding - Overview",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-23T17:55:10Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---overview.md",
+      "status": "published"
+    },
+    "kagi-mail-is-here-public-beta": {
+      "title": "Kagi Mail is here (Public Beta)",
+      "category": "ai",
+      "source": "hackernews",
+      "source_url": "https://blog.kagi.com/kagi-mail-public-beta",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-23T17:56:20Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/kagi-mail-is-here-public-beta.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1231,9 +1253,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Pill to treat pancreatic cancer hailed as 'biggest breakthrough in decades'",
-    "slug": "pill-to-treat-pancreatic-cancer-hailed-as-biggest-breakthrough-in-decades",
-    "timestamp": "2026-11-22T14:27:28Z"
+    "topic": "Kagi Mail is here (Public Beta)",
+    "slug": "kagi-mail-is-here-public-beta",
+    "timestamp": "2026-11-23T17:56:20Z"
   },
-  "total_generated": 110
+  "total_generated": 112
 }
