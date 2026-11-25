@@ -1253,6 +1253,28 @@
       "generated_at": "2026-11-24T17:29:03Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/backend/seastore-redesigning-cephs-storage-back-end-for-cpu-efficient-nvme-performance.md",
       "status": "published"
+    },
+    "rag---overview": {
+      "title": "RAG - Overview",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-25T17:04:05Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/rag---overview.md",
+      "status": "published"
+    },
+    "sharding---internals": {
+      "title": "Sharding - Internals",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-25T17:06:22Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---internals.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1275,9 +1297,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "SeaStore: Redesigning Ceph's Storage Back End for CPU-Efficient NVMe Performance",
-    "slug": "seastore-redesigning-cephs-storage-back-end-for-cpu-efficient-nvme-performance",
-    "timestamp": "2026-11-24T17:29:03Z"
+    "topic": "Sharding - Internals",
+    "slug": "sharding---internals",
+    "timestamp": "2026-11-25T17:06:22Z"
   },
-  "total_generated": 114
+  "total_generated": 116
 }
