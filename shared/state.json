@@ -1275,6 +1275,28 @@
       "generated_at": "2026-11-25T17:06:22Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---internals.md",
       "status": "published"
+    },
+    "rag---internals": {
+      "title": "RAG - Internals",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-26T16:44:48Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/rag---internals.md",
+      "status": "published"
+    },
+    "1password-security-incident": {
+      "title": "1Password Security Incident",
+      "category": "security",
+      "source": "hackernews",
+      "source_url": "https://1password.com/blog/update-on-nov-2026-security-incident",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-26T16:45:12Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/security/1password-security-incident.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1297,9 +1319,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Sharding - Internals",
-    "slug": "sharding---internals",
-    "timestamp": "2026-11-25T17:06:22Z"
+    "topic": "1Password Security Incident",
+    "slug": "1password-security-incident",
+    "timestamp": "2026-11-26T16:45:12Z"
   },
-  "total_generated": 116
+  "total_generated": 118
 }
