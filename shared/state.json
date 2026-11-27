@@ -1297,6 +1297,28 @@
       "generated_at": "2026-11-26T16:45:12Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/security/1password-security-incident.md",
       "status": "published"
+    },
+    "rag---best-practices": {
+      "title": "RAG - Best Practices",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-27T16:30:30Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/rag---best-practices.md",
+      "status": "published"
+    },
+    "sharding---best-practices": {
+      "title": "Sharding - Best Practices",
+      "category": "system-design",
+      "source": "manual",
+      "source_url": "",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-27T16:30:50Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---best-practices.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1319,9 +1341,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "1Password Security Incident",
-    "slug": "1password-security-incident",
-    "timestamp": "2026-11-26T16:45:12Z"
+    "topic": "Sharding - Best Practices",
+    "slug": "sharding---best-practices",
+    "timestamp": "2026-11-27T16:30:50Z"
   },
-  "total_generated": 118
+  "total_generated": 120
 }
