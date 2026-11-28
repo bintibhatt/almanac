@@ -1319,6 +1319,28 @@
       "generated_at": "2026-11-27T16:30:50Z",
       "file_path": "/home/runner/work/almanac/almanac/knowledge/system-design/sharding---best-practices.md",
       "status": "published"
+    },
+    "rag---common-mistakes": {
+      "title": "RAG - Common Mistakes",
+      "category": "ai",
+      "source": "manual",
+      "source_url": "",
+      "provider": "mock",
+      "model": "mock-engine-v1",
+      "generated_at": "2026-11-28T15:23:40Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/ai/rag---common-mistakes.md",
+      "status": "published"
+    },
+    "unkernel-real-linux-kernel-compiled-to-webassembly": {
+      "title": "Unkernel: Real Linux kernel, compiled to WebAssembly",
+      "category": "devops",
+      "source": "hackernews",
+      "source_url": "https://unkernel.dev",
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "generated_at": "2026-11-28T15:24:03Z",
+      "file_path": "/home/runner/work/almanac/almanac/knowledge/devops/unkernel-real-linux-kernel-compiled-to-webassembly.md",
+      "status": "published"
     }
   },
   "skipped_topics": [
@@ -1341,9 +1363,9 @@
   ],
   "last_execution": {
     "status": "success",
-    "topic": "Sharding - Best Practices",
-    "slug": "sharding---best-practices",
-    "timestamp": "2026-11-27T16:30:50Z"
+    "topic": "Unkernel: Real Linux kernel, compiled to WebAssembly",
+    "slug": "unkernel-real-linux-kernel-compiled-to-webassembly",
+    "timestamp": "2026-11-28T15:24:03Z"
   },
-  "total_generated": 120
+  "total_generated": 122
 }
